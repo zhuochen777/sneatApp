@@ -1,0 +1,1158 @@
+.analytics {
+    .container {
+        width: 80%;
+        float: right;
+        background-color: rgb(245, 245, 249);
+        padding-left: 24px;
+        padding-right: 24px;
+
+        .row1 {
+            display: flex;
+            margin: 24px 0;
+            height: 180px;
+
+            .box1 {
+                flex: 2;
+                background-color: white;
+                border-radius: 8px;
+                padding: 20px 24px;
+                padding-bottom: 0;
+                display: flex;
+                justify-content: space-between;
+
+                .left {
+
+                    h5 {
+                        color: rgb(105, 108, 255);
+                        margin: 0px 0px 1rem;
+                        line-height: 1.334;
+                        font-size: 24px;
+                    }
+
+                    p {
+                        margin: 0;
+                        color: rgba(50, 71, 92, 0.6);
+                        line-height: 1.5;
+                        font-size: 16px;
+                    }
+
+                    .check-badge {
+                        margin-bottom: 12px;
+                    }
+
+                    .badge-btn {
+                        color: rgb(105, 108, 255);
+                        border-color: rgb(105, 108, 255);
+                        height: 30px;
+                    }
+                }
+
+                .right {
+                    padding-right: 45px;
+
+                    img {
+                        width: 207px;
+                        height: 100%;
+                    }
+                }
+            }
+
+            .box2 {
+                flex: 1;
+                margin-left: 24px;
+                display: flex;
+
+                .box21 {
+                    background-color: white;
+                    flex: 1;
+                    border-radius: 8px;
+
+
+                    .boxInfo {
+                        padding: 14px 20px 0;
+                        height: 54px;
+
+                        p {
+                            font-size: 16px;
+                            line-height: 1.5;
+                            color: rgba(50, 71, 92, 0.6);
+                            font-weight: 600;
+                        }
+
+                        h5 {
+                            line-height: 1.334;
+                            color: rgba(50, 71, 92, 0.87);
+                            font-size: 24px;
+                            font-weight: 500;
+                        }
+                    }
+
+                    .chartInfo {
+                        height: 110px;
+                    }
+                }
+
+                .box22 {
+                    margin-left: 24px;
+                    background-color: white;
+                    flex: 1;
+                    border-radius: 8px;
+
+                    .top {
+                        display: flex;
+                        height: 42px;
+                        margin-bottom: 16px;
+                        justify-content: space-between;
+
+                        img {
+                            width: 42px;
+                            height: 42px;
+                        }
+
+                        button {
+                            background-color: white;
+                            border: none;
+                            width: 32px;
+                            height: 32px;
+
+                            &:hover {
+                                background-color: rgb(245, 245, 249);
+                                border-radius: 50%;
+                            }
+                        }
+                    }
+
+                    .bottom {
+                        .info {
+                            margin: 0px 0px 0.125rem;
+                            font-size: 1rem;
+                            line-height: 1.5;
+                            color: rgba(50, 71, 92, 0.6);
+                            font-weight: 600;
+                        }
+
+                        h5 {
+                            line-height: 1.334;
+                            color: rgba(50, 71, 92, 0.87);
+                            margin: 0px 0px 0.5rem;
+                            font-weight: 500;
+                            font-size: 24px;
+                        }
+
+                        div {
+                            display: flex;
+                            color: rgb(113, 221, 55);
+
+                            p {
+                                font-size: 0.875rem;
+                                line-height: 1.43;
+                                color: rgb(113, 221, 55);
+                                font-weight: 500;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .row2 {
+            display: flex;
+
+
+            .box3 {
+                display: flex;
+                flex: 2;
+                background-color: white;
+                border-radius: 8px;
+                height: 380px;
+
+
+                .left {
+                    flex: 3;
+                    border-right: 1px solid rgba(50, 71, 92, 0.12);
+                    height: 100%;
+
+                    h6 {
+                        padding: 20px 24px 10px;
+                        font-weight: 500;
+                        font-size: 20px;
+                        line-height: 1.6;
+                        color: rgba(50, 71, 92, 0.87);
+                    }
+
+                    .chartDetail {
+                        height: 340px;
+
+                        .recharts-wrapper {
+                            position: relative;
+
+                            text {
+                                fill: rgba(50, 71, 92, 0.6);
+                                font-size: 14px;
+                            }
+
+                            .recharts-legend-wrapper {
+                                position: absolute;
+                                top: 0px;
+                                height: 30px !important;
+                                margin: 0 0 10px;
+
+                                .recharts-default-legend {
+                                    text-align: left !important;
+
+                                    li {
+                                        margin-left: 5px;
+                                        margin-bottom: 10px;
+
+                                        .recharts-legend-item-text {
+                                            color: rgba(50, 71, 92, 0.6) !important;
+                                            font-size: 14px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .right {
+                    flex: 2;
+                    padding: 32px 24px 30px 24px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    .btn {
+                        width: 85px;
+                        color: rgb(105, 108, 255);
+                        border-color: rgb(105, 108, 255);
+                    }
+
+                    .circularBar {
+                        height: 150px;
+                        width: 150px;
+                        margin: 20px 0;
+
+                        .CircularProgressbar .CircularProgressbar-text {
+                            fill: rgba(50, 71, 92, 0.87);
+                            font-size: 13px;
+
+                        }
+
+                        .CircularProgressbar .CircularProgressbar-path {
+                            stroke: rgb(105, 108, 255);
+                        }
+                    }
+
+                    .title {
+                        font-size: 1rem;
+                        line-height: 1.5;
+                        color: rgba(50, 71, 92, 0.6);
+                        font-weight: 600;
+                        margin: 0 0 30px;
+                    }
+
+                    .bottom {
+                        display: flex;
+                        justify-content: center;
+
+                        .money {
+                            display: flex;
+                            margin-right: 16px;
+
+                            .money-icon {
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                width: 38px;
+                                height: 38px;
+                                background-color: rgba(105, 108, 255, 0.16);
+                                color: rgb(105, 108, 255);
+                                border-radius: 5px;
+                                margin-right: 10px;
+                            }
+
+                            .year {
+                                font-weight: 400;
+                                font-size: 0.875rem;
+                                line-height: 1.43;
+                                color: rgba(50, 71, 92, 0.6);
+                            }
+
+                            .growthAmount {
+                                font-size: 1rem;
+                                line-height: 1.5;
+                                color: rgba(50, 71, 92, 0.87);
+                                font-weight: 500;
+                            }
+                        }
+
+                        .wallet {
+                            display: flex;
+
+                            .wallet-icon {
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                width: 38px;
+                                height: 38px;
+                                background-color: rgba(3, 195, 236, 0.16);
+                                color: rgb(3, 195, 236);
+                                border-radius: 5px;
+                                margin-right: 10px;
+                            }
+
+                            .year {
+                                font-weight: 400;
+                                font-size: 0.875rem;
+                                line-height: 1.43;
+                                color: rgba(50, 71, 92, 0.6);
+                            }
+
+                            .growthAmount {
+                                font-size: 1rem;
+                                line-height: 1.5;
+                                color: rgba(50, 71, 92, 0.87);
+                                font-weight: 500;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .box4 {
+                flex: 1;
+
+                .topBoxes {
+                    display: flex;
+
+                    .box41 {
+                        margin: 0 24px;
+                        background-color: white;
+                        flex: 1;
+                        border-radius: 8px;
+
+                        .top {
+                            display: flex;
+                            height: 42px;
+                            margin-bottom: 16px;
+                            justify-content: space-between;
+
+                            img {
+                                width: 42px;
+                                height: 42px;
+                            }
+
+                            button {
+                                background-color: white;
+                                border: none;
+                                width: 32px;
+                                height: 32px;
+
+                                &:hover {
+                                    background-color: rgb(245, 245, 249);
+                                    border-radius: 50%;
+                                }
+                            }
+                        }
+
+                        .bottom {
+                            .info {
+                                margin: 0px 0px 0.125rem;
+                                font-size: 1rem;
+                                line-height: 1.5;
+                                color: rgba(50, 71, 92, 0.6);
+                                font-weight: 600;
+                            }
+
+                            h5 {
+                                line-height: 1.334;
+                                color: rgba(50, 71, 92, 0.87);
+                                margin: 0px 0px 0.5rem;
+                                font-weight: 500;
+                                font-size: 24px;
+                            }
+
+                            div {
+                                display: flex;
+                                color: rgb(255, 62, 29);
+
+                                p {
+                                    font-size: 0.875rem;
+                                    line-height: 1.43;
+                                    color: rgb(255, 62, 29);
+                                    font-weight: 500;
+                                }
+                            }
+                        }
+                    }
+
+                    .box42 {
+                        background-color: white;
+                        flex: 1;
+                        border-radius: 8px;
+
+
+                        .boxInfo {
+                            padding: 14px 20px 0;
+                            height: 54px;
+
+                            p {
+                                font-size: 16px;
+                                line-height: 1.5;
+                                color: rgba(50, 71, 92, 0.6);
+                                font-weight: 600;
+                            }
+
+                            h5 {
+                                line-height: 1.334;
+                                color: rgba(50, 71, 92, 0.87);
+                                font-size: 24px;
+                                font-weight: 500;
+                            }
+                        }
+
+                        .chartInfo {
+                            height: 110px;
+                            padding: 10px;
+
+                            .recharts-rectangle {
+                                fill: rgba(105, 108, 255, 0.85);
+                            }
+                        }
+                    }
+                }
+
+                .box43 {
+                    background-color: white;
+                    border-radius: 8px;
+                    margin-top: 24px;
+                    margin-left: 24px;
+                    padding: 16px 20px 13px 20px;
+                    height: 130px;
+                    display: flex;
+                    justify-content: space-between;
+
+                    .info {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+
+                        .info-top {
+                            h6 {
+                                font-size: 20px;
+                                color: rgba(50, 71, 92, 0.87);
+                                line-height: 1.6;
+                                margin-bottom: 4px;
+                                font-weight: 500;
+                            }
+
+                            .year {
+                                border-radius: 4px;
+                                height: 28px;
+                                color: rgb(255, 171, 0);
+                                background-color: rgba(255, 171, 0, 0.16);
+                                font-weight: 500;
+                                width: 70px;
+                                padding: 0 10px;
+                                text-transform: uppercase;
+                                font-size: 13px;
+                                line-height: 28px;
+                            }
+                        }
+
+                        .info-bottom {
+                            display: flex;
+                            flex-direction: column;
+
+                            .percent {
+                                display: flex;
+
+                                p {
+                                    color: rgb(113, 221, 55);
+                                    font-size: 14px;
+                                    line-height: 22px;
+                                }
+                            }
+
+                            h5 {
+                                font-size: 24px;
+                                line-height: 1.334;
+                                color: rgba(50, 71, 92, 0.87);
+                                font-weight: 500;
+                            }
+                        }
+                    }
+
+                    .chartInfo {
+                        height: 130px;
+                        width: 60%;
+                    }
+                }
+
+            }
+        }
+
+        .row3 {
+            margin-top: 24px;
+            display: flex;
+
+            .box5 {
+                flex: 1;
+                background-color: white;
+                border-radius: 8px;
+
+                .top {
+                    display: flex;
+                    padding: 24px 24px 10px;
+                    justify-content: space-between;
+
+                    .content {
+                        display: flex;
+                        flex-direction: column;
+
+                        .statistics {
+                            font-size: 20px;
+                            line-height: 1.6;
+                            font-weight: 500;
+                            letter-spacing: 0.15px;
+                        }
+
+                        .sales {
+                            font-size: 14px;
+                            color: rgba(50, 71, 92, 0.6);
+                            line-height: 1.5;
+                            margin-top: 5px;
+                        }
+                    }
+
+                    .action {
+                        button {
+                            border: none;
+                            background-color: white;
+                            padding: 5px;
+                            height: 34px;
+                            color: rgba(50, 71, 92, 0.54);
+
+                            &:hover {
+                                background-color: rgb(245, 245, 249);
+                                border-radius: 50%;
+                            }
+                        }
+                    }
+                }
+
+                .bottom {
+                    padding: 0 24px 24px;
+
+                    .orders {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        margin-bottom: 30px;
+
+                        .content {
+                            h4 {
+                                font-size: 32px;
+                                line-height: 1.235;
+                                color: rgba(50, 71, 92, 0.87);
+                                margin-bottom: 2px;
+                                font-weight: 500;
+                            }
+
+                            p {
+                                font-size: 16px;
+                                color: rgba(50, 71, 92, 0.6);
+                            }
+                        }
+                    }
+
+                    .order-list {
+
+                        .order-item {
+                            display: flex;
+                            align-items: center;
+                            margin-bottom: 22px;
+
+                            .icon {
+                                width: 38px;
+                                height: 38px;
+                                margin-right: 12px;
+                                flex-shrink: 0;
+                                text-align: center;
+                                border-radius: 5px;
+
+                                .icon-item {
+                                    height: 38px;
+                                }
+                            }
+
+                            .icon-elec {
+                                color: rgb(105, 108, 255);
+                                background-color: rgba(105, 108, 255, 0.16);
+                            }
+
+                            .icon-fash {
+                                color: rgb(113, 221, 55);
+                                background-color: rgba(113, 221, 55, 0.16);
+                            }
+
+                            .icon-deco {
+                                color: rgb(3, 195, 236);
+                                background-color: rgba(3, 195, 236, 0.16);
+                            }
+
+                            .icon-spor {
+                                color: rgb(133, 146, 163);
+                                background-color: rgba(133, 146, 163, 0.16);
+                            }
+
+                            .order-item-detail {
+                                width: 100%;
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: center;
+
+                                div {
+                                    .title {
+                                        font-size: 16px;
+                                        line-height: 1.5;
+                                        color: rgba(50, 71, 92, 0.87);
+                                        font-weight: 500;
+                                    }
+
+                                    .examples {
+                                        font-size: 14px;
+                                        line-height: 1.43;
+                                        color: rgba(50, 71, 92, 0.38);
+                                        font-weight: 400;
+                                    }
+                                }
+
+                                p {
+                                    font-size: 14px;
+                                    line-height: 1.43;
+                                    color: rgba(50, 71, 92, 0.6);
+                                    font-weight: 500;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .box6 {
+                flex: 1;
+                background-color: white;
+                border-radius: 8px;
+                margin-left: 24px;
+
+                .iep-details {
+                    .Mui-selected {
+                        color: rgb(255, 255, 255);
+                        background-color: rgb(105, 108, 255);
+                        border-radius: 5px;
+                    }
+
+                    .MuiTabs-indicator {
+                        display: none;
+                    }
+
+                    .total-income,
+                    .total-expenses,
+                    .total-profit {
+                        display: flex;
+                        align-items: center;
+
+                        .img-wrapper {
+                            width: 46px;
+                            height: 46px;
+                            margin-right: 15px;
+
+                            img {
+                                height: 100%;
+                                width: 100%;
+                            }
+                        }
+
+                        .data-wrapper {
+                            display: flex;
+                            flex-direction: column;
+
+                            p {
+                                font-weight: 400;
+                                font-size: 16px;
+                                line-height: 1.5;
+                                color: rgba(50, 71, 92, 0.6);
+                            }
+
+                            .data-details {
+                                display: flex;
+                                align-items: center;
+
+                                .icon-wrapper {
+                                    display: flex;
+                                    align-items: center;
+                                    color: rgb(113, 221, 55);
+
+                                    p {
+                                        color: rgb(113, 221, 55);
+                                    }
+                                }
+
+                                h6 {
+                                    font-size: 20px;
+                                    line-height: 1.6;
+                                    color: rgba(50, 71, 92, 0.87);
+                                    font-weight: 500;
+                                    margin-right: 2px;
+                                }
+                            }
+                        }
+                    }
+
+                    .income-chart,
+                    .expenses-chart,
+                    .profit-chart {
+                        width: 100%;
+                        height: 225px;
+                        margin-top: 20px;
+                        padding-right: 10px;
+
+                        .recharts-text {
+                            font-size: 14px;
+                            fill: rgba(50, 71, 92, 0.87);
+                        }
+                    }
+
+                    .weekly-income,
+                    .weekly-expenses,
+                    .weekly-profit {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        padding: 20px 0 0;
+
+                        .chart {
+                            width: 50px;
+                            height: 50px;
+                            margin-right: 16px;
+
+                            .CircularProgressbar .CircularProgressbar-path {
+                                stroke: rgb(105, 108, 255);
+                            }
+
+                            .CircularProgressbar .CircularProgressbar-text {
+                                fill: rgb(105, 108, 255);
+                            }
+                        }
+
+                        .data-detail {
+                            .title {
+                                font-weight: 400;
+                                font-size: 16px;
+                                line-height: 1.5;
+                                color: rgba(50, 71, 92, 0.6);
+                            }
+
+                            .data {
+                                font-weight: 400;
+                                font-size: 14px;
+                                line-height: 1.43;
+                                color: rgba(50, 71, 92, 0.38);
+                            }
+                        }
+                    }
+                }
+            }
+
+            .box7 {
+                width: 350px;
+                background-color: white;
+                margin-left: 24px;
+                border-radius: 8px;
+
+                .top {
+                    padding: 24px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    .title {
+                        font-size: 20px;
+                        line-height: 1.6;
+                        font-weight: 500;
+                        letter-spacing: 0.15px;
+                        color: rgba(50, 71, 92, 0.87);
+                    }
+
+                    .more-icon {
+                        color: rgba(50, 71, 92, 0.54);
+                        width: 22px;
+                        height: 22px;
+                        padding: 5px;
+
+                        &:hover {
+                            background-color: #F5F5F5;
+                            border-radius: 50%;
+                        }
+                    }
+                }
+
+                .bottom {
+                    padding: 0 24px 24px;
+
+                    .transaction {
+                        display: flex;
+                        margin-bottom: 22px;
+
+
+                        .img-wrapper {
+                            width: 38px;
+                            height: 38px;
+                            margin-right: 20px;
+
+                            img {
+                                height: 100%;
+                                width: 100%;
+                            }
+                        }
+
+                        .details {
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            width: 80%;
+
+                            .title {
+                                .title-name {
+                                    font-weight: 400;
+                                    font-size: 14px;
+                                    line-height: 1.43;
+                                    color: rgba(50, 71, 92, 0.38);
+                                    margin-bottom: 2px;
+                                }
+
+                                .title-detail {
+                                    font-size: 1rem;
+                                    line-height: 1.5;
+                                    color: rgba(50, 71, 92, 0.87);
+                                    font-weight: 500;
+                                }
+                            }
+
+                            .amount {
+                                display: flex;
+
+                                .number {
+                                    margin-right: 12px;
+                                    font-size: 1rem;
+                                    line-height: 1.5;
+                                    color: rgba(50, 71, 92, 0.87);
+                                    font-weight: 500;
+                                }
+
+                                .unit {
+                                    font-weight: 400;
+                                    font-size: 1rem;
+                                    line-height: 1.5;
+                                    color: rgba(50, 71, 92, 0.38);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+
+        .row4 {
+            display: flex;
+            margin: 24px 0;
+            height: 500px;
+
+            .box8 {
+                flex: 1;
+                margin-right: 24px;
+                background-color: white;
+                border-radius: 8px;
+
+                .top {
+                    padding: 24px 24px 10px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    line-height: 1.6;
+                    font-weight: 500;
+                    font-size: 20px;
+                    letter-spacing: 0.15px;
+
+                    .more-icon {
+                        padding: 5px;
+                        height: 100%;
+                    }
+                }
+
+                .bottom {
+                    padding: 0 24px 15px;
+
+                    .css-1ms7hib-MuiTimelineItem-root::before {
+                        display: none;
+                    }
+
+                    .invoices {
+                        padding: 6px 16px;
+                        margin-bottom: 24px;
+
+                        .title {
+                            display: flex;
+                            justify-content: space-between;
+                            margin-bottom: 4px;
+
+                            .paid {
+                                font-size: 16px;
+                                line-height: 1.5;
+                                color: rgba(50, 71, 92, 0.87);
+                                font-weight: 500;
+                                margin-right: 8px;
+                            }
+
+                            .min {
+                                font-weight: 400;
+                                font-size: 14px;
+                                line-height: 1.43;
+                                color: rgba(50, 71, 92, 0.38);
+                            }
+                        }
+
+                        .company {
+                            font-size: 1rem;
+                            line-height: 1.5;
+                            color: rgba(50, 71, 92, 0.6);
+                            margin-bottom: 10px;
+                        }
+
+                        .invoices-detail {
+                            display: flex;
+
+                            img {
+                                width: 24px;
+                                height: 24px;
+                            }
+
+                            .pdf {
+                                margin-left: 12px;
+                                font-size: 1rem;
+                                line-height: 1.5;
+                                color: rgba(50, 71, 92, 0.87);
+                                font-weight: 500;
+                            }
+                        }
+                    }
+
+                    .meeting {
+                        padding: 6px 16px;
+
+                        .title {
+                            display: flex;
+                            justify-content: space-between;
+                            margin-bottom: 4px;
+
+                            .clientMeeting {
+                                font-size: 1rem;
+                                line-height: 1.5;
+                                color: rgba(50, 71, 92, 0.87);
+                                font-weight: 500;
+                                margin-right: 0.5rem;
+                            }
+
+                            .min {
+                                font-weight: 400;
+                                font-size: 0.875rem;
+                                line-height: 1.43;
+                                color: rgba(50, 71, 92, 0.38);
+                            }
+                        }
+
+                        .with {
+                            font-weight: 400;
+                            font-size: 1rem;
+                            line-height: 1.5;
+                            color: rgba(50, 71, 92, 0.6);
+                            margin-bottom: 8px;
+                        }
+
+                        .meeting-detail {
+                            display: flex;
+                            align-items: center;
+
+                            img {
+                                width: 38px;
+                                height: 38px;
+                                border-radius: 50%;
+                                margin-right: 10px;
+                            }
+
+                            .client {
+                                .clientName {
+                                    font-size: 1rem;
+                                    line-height: 1.5;
+                                    color: rgba(50, 71, 92, 0.87);
+                                    font-weight: 500;
+                                }
+
+                                .clientTitle {
+                                    font-weight: 400;
+                                    font-size: 1rem;
+                                    line-height: 1.5;
+                                    color: rgba(50, 71, 92, 0.6);
+                                }
+                            }
+                        }
+                    }
+
+                    .project {
+                        padding: 6px 16px;
+
+                        .title {
+                            display: flex;
+                            justify-content: space-between;
+                            margin-bottom: 4px;
+
+                            .newProject {
+                                font-size: 1rem;
+                                line-height: 1.5;
+                                color: rgba(50, 71, 92, 0.87);
+                                font-weight: 500;
+                                margin-right: 8px;
+                            }
+
+                            .day {
+                                font-weight: 400;
+                                font-size: 0.875rem;
+                                line-height: 1.43;
+                                color: rgba(50, 71, 92, 0.38);
+                            }
+                        }
+
+                        .team {
+                            font-weight: 400;
+                            font-size: 1rem;
+                            line-height: 1.5;
+                            color: rgba(50, 71, 92, 0.6);
+                            margin-bottom: 8px;
+                        }
+                        .members{
+                            display: flex;
+                            position: relative;
+                            div{
+                                width: 38px;
+                                height: 38px;
+                                border-radius: 50%;
+                                background-color: white;
+                                position: absolute;
+                                top: 0;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                &:hover{
+                                    z-index: 6;
+                                    top: -5px;
+                                }
+                                img{
+                                    width: 34px;
+                                    height: 34px;
+                                    border-radius: 50%;
+                                }
+                            }
+                            .img-1{
+                                left:0;
+                                z-index: 5;
+                            }
+                            .img-2{
+                                left: 30px;
+                                z-index: 4;
+                            }
+                            .img-3{
+                                left: 60px;
+                                z-index: 3;
+                            }
+                            .img-4{
+                                left: 90px;
+                                z-index: 2;
+                            }
+                            .img-5{
+                                left: 120px;
+                                z-index: 1;
+                            }
+                            
+                        }
+                    }
+
+                }
+
+            }
+
+            .box9 {
+                flex: 1;
+                background-color: white;
+                border-radius: 8px;
+               
+                .Mui-selected{
+                    color: rgb(255, 255, 255) !important;
+                    background-color: rgb(105, 108, 255);
+                    border-radius: 5px;
+                }
+                .css-11xur9t-MuiPaper-root-MuiTableContainer-root{
+                    box-shadow: none !important;
+                }
+                .css-1ex1afd-MuiTableCell-root{
+                    border: none;
+                }
+                .MuiTab-textColorPrimary{
+                    color: rgba(50, 71, 92, 0.6);
+                }
+                .MuiTabs-indicator{
+                    display: none;
+                }
+                .MuiTabPanel-root{
+                    padding: 0;
+                }
+                .MuiTableCell-root{
+                    color: rgba(50, 71, 92, 0.6);
+                    text-align: left;
+                }
+                .css-1azl6jz-MuiTableCell-root{
+                    border: none;
+                }
+                .css-1ygcj2i-MuiTableCell-root{
+                    border: none;
+                }
+                .name{
+                    display: flex;
+                    align-items: center;
+                    justify-content: start;
+                    img{
+                        width: 24px;
+                        height: 24px;
+                    }
+                    .nameDetail{
+                        padding-left: 10px;
+                        font-size: 16px;
+                    }
+                }
+                .percentage{
+                    display: flex;
+                    align-items: center;
+                    .rc-progress-line{
+                        height: 10px;
+                        width: 125px;
+                        margin-right: 1rem;
+                        border-radius: 5px;
+                    }
+                }
+            }
+        }
+    }
+}

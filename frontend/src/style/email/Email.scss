@@ -1,0 +1,428 @@
+.email {
+    .container {
+        width: 80%; //按键时宽度可变为90%
+        float: right;
+        background-color: rgb(245, 245, 249);
+        padding-left: 24px;
+        padding-right: 24px;
+
+        .email-content {
+            background-color: white;
+            border-radius: 8px;
+            color: rgba(50, 71, 92, 0.87);
+            display: flex;
+            height: calc(100vh - 48px - 48px - 77px);
+            overflow: hidden;
+
+            .left-wrapper {
+
+                .drawer-wrapper {
+                    width: 260px;
+                    border-right: 1px solid rgba(50, 71, 92, 0.12);
+                    display: flex;
+                    flex-direction: column;
+                    height: 100%;
+
+
+                    .composeBtn {
+                        padding: 20px;
+
+                        button {
+                            color: rgb(255, 255, 255);
+                            background-color: rgb(105, 108, 255);
+                            width: 100%;
+                            font-weight: 500;
+                            line-height: 24px;
+                            letter-spacing: 0.3px;
+                            box-shadow: rgba(50, 71, 92, 0.42) 0px 4px 8px -4px;
+                            padding: 7px 20px;
+                            font-size: 14px;
+                            border: none;
+                            border-radius: 6px;
+                            text-transform: uppercase;
+                            cursor: pointer;
+                        }
+                    }
+
+                    .scrollbar {
+                        height: 100%;
+                        overflow-y: scroll;
+
+                        a {
+                            text-decoration: none;
+                            color: inherit;
+                        }
+
+                        .css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root {
+                            padding: 0 20px;
+                            border-left: 3px solid white;
+                            margin-bottom: 4px;
+
+                            &:focus {
+                                border-left: 3px solid rgb(105, 108, 255);
+
+                                .mail-icon,
+                                .mail-text {
+                                    color: rgb(105, 108, 255);
+                                }
+                            }
+                        }
+
+                        h6 {
+                            font-weight: 400;
+                            font-size: 12px;
+                            line-height: 1.66;
+                            color: rgba(50, 71, 92, 0.38);
+                            margin: 16px 24px 0rem;
+                            letter-spacing: 0.21px;
+                            text-transform: uppercase;
+                        }
+
+                        .personal {
+                            color: green;
+                        }
+
+                        .company {
+                            color: purple;
+                        }
+
+                        .important {
+                            color: orange;
+                        }
+
+                        .private {
+                            color: red;
+                        }
+                    }
+                }
+            }
+
+            .box-wrapper {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+
+                .email-search {
+                    padding: 12px 20px;
+                    display: flex;
+                    align-items: center;
+                    border-width: 0px 0px thin;
+                    border-style: solid;
+                    border-color: rgba(50, 71, 92, 0.12);
+
+                    .search-icon {
+                        width: 32px;
+                        height: 32px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+
+                    input {
+                        border: none;
+                        height: 23px;
+                        outline: none;
+                        font-size: 16px;
+                        background-color: transparent;
+                    }
+                }
+
+                .selectAll {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    height: 42px;
+                    padding: 8px 20px;
+                    border-width: 0px 0px thin;
+                    border-style: solid;
+                    border-color: rgba(50, 71, 92, 0.12);
+
+                    button {
+                        border: none;
+                        background-color: white;
+                        color: rgba(50, 71, 92, 0.87);
+                        height: 38px;
+                        width: 38px;
+                        padding: 8px;
+                        cursor: pointer;
+
+                        .icon {
+                            width: 22px;
+                            height: 22px;
+                        }
+
+                        &:hover {
+                            border-radius: 50%;
+                            background-color: rgb(242, 240, 240);
+                        }
+                    }
+
+                    .select {
+                        display: flex;
+                        align-items: center;
+                        position: relative;
+
+                        .left-options {
+                            display: flex;
+
+                            .thirdOption {
+                                z-index: 1;
+                                position: absolute;
+                                bottom: -45px;
+                                right: -35px;
+                                list-style: none;
+                                display: flex;
+                                align-items: center;
+                                padding: 8px 20px;
+                                cursor: pointer;
+                                background-color: white;
+                                border-radius: 6px;
+                                box-shadow: rgba(50, 71, 92, 0.2) 0px 5px 5px -3px, rgba(50, 71, 92, 0.14) 0px 8px 10px 1px, rgba(50, 71, 92, 0.12) 0px 3px 14px 2px;
+
+                                &:hover {
+                                    background-color: #f2f2f2;
+                                }
+
+                                li {
+                                    display: flex;
+                                    align-items: center;
+                                    font-size: 16px;
+                                    line-height: 1.5;
+
+                                    span {
+                                        margin-left: 8px;
+                                    }
+                                }
+                            }
+
+                            .fourthOption {
+                                z-index: 1;
+                                position: absolute;
+                                bottom: -165px;
+                                right: -85px;
+                                list-style: none;
+                                display: flex;
+                                flex-direction: column;
+                                padding: 8px 20px;
+                                cursor: pointer;
+                                background-color: white;
+                                border-radius: 6px;
+                                box-shadow: rgba(50, 71, 92, 0.2) 0px 5px 5px -3px, rgba(50, 71, 92, 0.14) 0px 8px 10px 1px, rgba(50, 71, 92, 0.12) 0px 3px 14px 2px;
+                                padding: 0;
+                                
+
+                                li {
+                                    display: flex;
+                                    align-items: center;
+                                    font-size: 16px;
+                                    line-height: 1.5;
+                                    padding: 8px 20px;
+                                    
+                                    &:hover {
+                                        background-color: #f2f2f2;
+                                    }
+
+                                    .circle{
+                                        height: 10px;
+                                        width: 10px;
+                                        border-radius: 50%;
+                                    }
+
+                                    .circle.personal{
+                                        background-color: green;
+                                    }
+                                    .circle.company{
+                                        background-color: purple;
+                                    }
+                                    .circle.important{
+                                        background-color: orange;
+                                    }
+                                    .circle.private{
+                                        background-color: red;
+                                    }
+
+                                    span {
+                                        margin-left: 12px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+
+                .email-part {
+                    position: relative;
+                    height: 100%;
+                    overflow: hidden;
+
+                    .loading{
+                        width: 100%;
+                        height: 100%;
+                        background-color: rgba(215, 212, 212, 0.8);
+                        position: absolute;
+                        top: 0;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+
+                    .all-emails {
+                        padding-top: 0;
+                        height: 100%;
+                        overflow-y: scroll;
+                     
+
+                        .email-item {
+                            padding: 12px 20px;
+                            display: flex;
+                            align-items: center;
+                            cursor: pointer;
+                            border-width: 0px 0px thin;
+                            border-style: solid;
+                            border-color: rgba(50, 71, 92, 0.12);
+
+                            &:hover {
+                                box-shadow: 0 5px 5px lightgray;
+                                position: relative;
+                                top: -2px;
+                                border-top: thin solid rgba(50, 71, 92, 0.12);
+                            }
+
+                            .item-left {
+                                display: flex;
+                                align-items: center;
+
+                                button {
+                                    border: none;
+                                    background-color: transparent;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    cursor: pointer;
+                                    padding: 5px;
+                                    width: 32px;
+                                    height: 32px;
+                                    border-radius: 50%;
+                                    margin-right: 12px;
+
+                                    &:hover {
+                                        background-color: #E6E6E6;
+                                    }
+                                }
+                            }
+
+                            .main-part {
+                                display: flex;
+                                align-items: center;
+                                width: 100%;
+                                justify-content: space-between;
+
+                                .item-middle {
+                                    display: flex;
+                                    align-items: center;
+
+                                    img {
+                                        width: 32px;
+                                        height: 32px;
+                                        border-radius: 50%;
+                                        margin-right: 12px;
+                                    }
+
+                                    .sender {
+                                        font-size: 16px;
+                                        line-height: 1.5;
+                                        color: rgba(50, 71, 92, 0.87);
+                                        font-weight: 500;
+                                        margin-right: 16px;
+                                    }
+
+                                    .subject {
+                                        font-size: 14px;
+                                        line-height: 1.43;
+                                        color: rgba(50, 71, 92, 0.6);
+                                    }
+                                }
+
+                                .item-right {
+                                    .lable-time {
+
+                                        display: flex;
+                                        align-items: center;
+
+                                        .labels {
+                                            display: flex;
+                                        }
+
+                                        .time {
+                                            font-weight: 400;
+                                            font-size: 12px;
+                                            line-height: 1.66;
+                                            color: rgba(50, 71, 92, 0.38);
+                                        }
+                                    }
+
+                                    .more-options {
+
+
+                                        button {
+                                            padding: 5px;
+                                            border: none;
+                                            height: 32px;
+                                            width: 32px;
+                                            background-color: transparent;
+                                            cursor: pointer;
+
+
+                                            &:hover {
+                                                border-radius: 50%;
+                                                background-color: #E6E6E6;
+                                            }
+
+                                            .more-icon {
+                                                width: 22px;
+                                                height: 22px;
+                                                color: rgba(76, 76, 76, 0.875);
+                                            }
+                                        }
+                                    }
+
+                                }
+                            }
+
+
+
+
+                        }
+
+
+                    }
+
+                    .noEmail {
+                        margin-top: 24px;
+                        display: flex;
+                        justify-content: center;
+
+                        p {
+                            color: rgba(50, 71, 92, 0.87);
+                            display: flex;
+                            align-items: center;
+
+                            .icon {
+                                margin-right: 8px;
+                            }
+
+                            span {
+                                font-weight: 400;
+                                font-size: 16px;
+                                line-height: 1.5;
+                            }
+                        }
+                    }
+                }
+
+
+            }
+        }
+    }
+}

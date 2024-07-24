@@ -1,0 +1,84 @@
+.navbar {
+    height: 65px;
+    background-color: white;
+    border-radius: 8px;
+    margin-top: 12px;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    width: 80%;
+    z-index: 2;
+
+    .wrapper {
+        padding: 0 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 40px;
+        width: 100%;
+
+        .search {
+            display: flex;
+            align-items: center;
+            padding: 3px;
+            height: 100%;
+
+            input {
+                height: 100%;
+                border: none;
+                outline: none;
+                background: transparent;
+                font-size: 16px;
+
+                &::placeholder {
+                    font-size: 16px;
+                }
+            }
+        }
+
+        .items {
+            display: flex;
+            align-items: center;
+            .item {
+                margin-right: 3px;
+                padding: 8px;
+                border: none;
+                border-radius: 50%;
+                width: 38px;
+                height: 38px;
+                background-color: white;
+                display: inline-block;
+                .nav-icon {
+                    font-size: 22px;
+                }
+                .notifi-counter {
+                    width: 8px;
+                    height: 8px;
+                    background-color: red;
+                    border-radius: 50%;
+                }
+                .avatar {
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                }
+                .status {
+                    height: 14px;
+                    width: 14px;
+                    background-color: white;
+                    border-radius: 50%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    .status-inner {
+                        height: 8px;
+                        width: 8px;
+                        border-radius: 50%;
+                        background-color: #8fdf82;
+                    }
+                }
+            }
+        }
+
+    }
+}
