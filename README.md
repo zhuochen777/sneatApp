@@ -9,7 +9,7 @@ Then, deploy frontend on Netlify by connecting github:
 2. set environment variable REACT_APP_baseURL = 'render link for backend' for access the backend
 3. Build command set to CI= npm run build (npm run build will trigger error)
 
-# structure of tables that manage Chat section/webpage - better because it enables filter on userChats
+-- structure of tables that manage Chat section/webpage - better because it enables filter on userChats
 
 1. user {id, img, name,status, position,about,email,phone,avai}
 2. userChats {id, userId, chats[{chatId, receiverId,lastMessage,updatedAt}]} 
@@ -17,7 +17,10 @@ Then, deploy frontend on Netlify by connecting github:
 4. chats {id,messages[{senderId,text,createdAt}],createdAt}
 5. messages default []
 
-# structure below works if filter on userChats is not needed
+-- structure below works if filter on userChats is not needed
 
 1. conversation {id, receiverId, lastMessage, updatedAt&createdAt,receiver}
 2. message {id, messages[] updatedAt&createdAt} 
+
+Email page refer to https://www.youtube.com/watch?v=sJOo5yGkHnw&list=LL&index=9&t=267s
+Chat page refer to https://www.youtube.com/watch?v=domt_Sx-wTY&list=LL&index=11&t=2794s
