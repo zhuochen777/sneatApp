@@ -6,6 +6,9 @@ import Ecommerce from "./pages/dashboards/Ecommerce";
 import Email from "./pages/apps/Email";
 import Chat from "./pages/apps/Chat";
 import Emails from "./components/email/Emails";
+import Login from "./pages/auth/Login"
+import ForgetPassword from "./pages/auth/ForgetPassword";
+import Register from "./pages/auth/Register";
 import { useState } from "react";
 
 
@@ -15,7 +18,10 @@ function App() {
   return (
     <div>
         <Routes>
-          <Route path="/" element={<Analytics />} />
+          <Route path="/" element={<Navigate to="login"/>} />
+          <Route path="forget-password" element={<ForgetPassword />} />
+          <Route path="register" element={<Register/>} />
+          <Route path="login" element={<Login />} />
           <Route path="dashboards/analytics" element={<Analytics />} />
           <Route path="dashboards/ecommerce" element={<Ecommerce />} />
           <Route path="apps/email" element={<Email />}>

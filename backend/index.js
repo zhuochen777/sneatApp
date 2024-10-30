@@ -24,6 +24,7 @@ const emailRouter = require("./api/email/emailRoutes")
 const userRouter = require("./api/chat/userRoutes")
 const userchatRouter = require("./api/chat/userchatRoutes")
 const chatRouter = require("./api/chat/chatRoutes")
+const authRouter = require("./api/auth/authRoutes")
 
 const app = express();
 app.use(cors());
@@ -50,6 +51,7 @@ app.use(emailRouter)
 app.use(userRouter)
 app.use(userchatRouter)
 app.use(chatRouter)
+app.use(authRouter)
 
 app.get("/", async (req, res) => {
   return res.status(234).send("success");
