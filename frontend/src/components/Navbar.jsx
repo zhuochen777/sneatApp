@@ -11,21 +11,21 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import HelpIcon from "@mui/icons-material/Help";
 import LogoutIcon from "@mui/icons-material/Logout";
-import {useNavigate} from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 
 export default function Navbar() {
   let userInfoDropdownRef = useRef();
-  let navigate = useNavigate()
+  let navigate = useNavigate();
   const [userInfoOpen, setUserInfoOpen] = useState(false);
 
   const userInfoOpenHandle = () => {
     setUserInfoOpen(!userInfoOpen);
   };
 
-  const logoutHandle=()=>{
+  const logoutHandle = () => {
     localStorage.clear();
     navigate("/");
-  }
+  };
 
   useEffect(() => {
     let userInfoHandle = (e) => {
@@ -39,6 +39,7 @@ export default function Navbar() {
       document.removeEventListener("mousedown", userInfoHandle);
     };
   });
+  
 
   return (
     <div className="navbar">
@@ -96,8 +97,8 @@ export default function Navbar() {
                   />
                 </div>
                 <div className="profile-info">
-                  <h6>John Doe</h6>
-                  <p>admin@sneat.com</p>
+                  <h6>{JSON.parse(localStorage.getItem("chat-app-user")).name}</h6>
+                  <p>{JSON.parse(localStorage.getItem("chat-app-user")).email}</p>
                 </div>
               </div>
               <hr />
@@ -118,7 +119,11 @@ export default function Navbar() {
                 <p>FAQ</p>
               </li>
               <hr />
-              <li onClick={()=>{logoutHandle()}}>
+              <li
+                onClick={() => {
+                  logoutHandle();
+                }}
+              >
                 <LogoutIcon />
                 <p>Logout</p>
               </li>

@@ -32,6 +32,7 @@ export default function Register() {
   });
 
   const [passwordVisible, setPasswordVisible]= useState(false)
+  const [checkbox, setCheckbox] = useState(false)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -48,11 +49,11 @@ export default function Register() {
         toast.error(result.data.message, toastOptions)
       }
 
-      // if (result.data.status === true){
-      //   toast.error("New user is created", toastOptions)
-      //   localStorage.setItem("chat-app-user", JSON.stringify(result.data.user))
-      //   navigate("/")
-      // }
+      if (result.data.status === true){
+        toast.error("New user is created", toastOptions)
+        localStorage.setItem("chat-app-user", JSON.stringify(result.data.user))
+        navigate("/")
+      }
     }
   };
 
@@ -81,11 +82,16 @@ export default function Register() {
       if (!emailPattern.test(email)) {
         toast.error("Email is invalid", toastOptions);
         return false;
+      } else if (checkbox===false) {
+        toast.error("Please agree to privacy policy & terms", toastOptions);
+        return false;
       }
-    }
+    } 
+
     return true;
   };
 
+  
   const handleChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
   };
@@ -154,7 +160,7 @@ export default function Register() {
                 InputProps={{endAdornment:<EndAdorment passwordVisible={passwordVisible} setPasswordVisible={setPasswordVisible}/>}}
               />
               <FormControlLabel
-                control={<Checkbox />}
+                control={<Checkbox value={checkbox} onClick={()=>setCheckbox(!checkbox)}/>}
                 label={
                   <span className="agree-to">
                     <span>I agree to </span>
