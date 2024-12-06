@@ -4,11 +4,8 @@
   }
 }
 
-.login {
-  height: 100vh;
-}
-
 .login .container {
+  height: 100vh;
   width: 100%;
   display: flex;
 }
