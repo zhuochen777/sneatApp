@@ -9,7 +9,7 @@
   justify-content: space-between;
 }
 
-.footer-container p {
+.footer-container .madeBy {
   margin-right: 8px;
   font-weight: 400;
   font-size: 1rem;
@@ -17,9 +17,13 @@
   color: rgba(50, 71, 92, 0.87);
 }
 
-.footer-container p a {
+.footer-container .madeBy a {
   text-decoration: none;
   color: #696cff;
+}
+
+.footer-container .madeBy.dark {
+  color: #fff;
 }
 
 .footer-container .links a {

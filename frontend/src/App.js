@@ -6,32 +6,41 @@ import Ecommerce from "./pages/dashboards/Ecommerce";
 import Email from "./pages/apps/Email";
 import Chat from "./pages/apps/Chat";
 import Emails from "./components/email/Emails";
-import Login from "./pages/auth/Login"
+import Login from "./pages/auth/Login";
 import ForgetPassword from "./pages/auth/ForgetPassword";
 import Register from "./pages/auth/Register";
 import { useState } from "react";
+import { createContext } from "react";
+import "./App.scss"
 
-
+export const themeContext = createContext(null);
 
 function App() {
+  const [theme, setTheme] = useState("dark");
+
+  const toggleTheme = (themeMode) => {
+    setTheme(themeMode);
+  };
 
   return (
-    <div>
+    <themeContext.Provider value={{ theme, toggleTheme }}>
+      <div>
         <Routes>
-          <Route path="/" element={<Navigate to="login"/>} />
+          <Route path="/" element={<Navigate to="login" />} />
           <Route path="forget-password" element={<ForgetPassword />} />
-          <Route path="register" element={<Register/>} />
+          <Route path="register" element={<Register />} />
           <Route path="login" element={<Login />} />
           <Route path="dashboards/analytics" element={<Analytics />} />
           <Route path="dashboards/ecommerce" element={<Ecommerce />} />
           <Route path="apps/email" element={<Email />}>
-            <Route index element={<Navigate to="inbox"/>}/>
+            <Route index element={<Navigate to="inbox" />} />
             <Route path=":type" element={<Emails />} />
             <Route path="label/:labeltype" element={<Emails />} />
           </Route>
           <Route path="apps/chat" element={<Chat />} />
         </Routes>
-    </div>
+      </div>
+    </themeContext.Provider>
   );
 }
 

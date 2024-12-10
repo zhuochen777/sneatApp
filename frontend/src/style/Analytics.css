@@ -1,5 +1,5 @@
 .analytics .container {
-  width: 80%;
+  width: calc(100% - 140px);
   float: right;
   background-color: #f5f5f9;
   padding-left: 24px;
@@ -41,9 +41,17 @@
 }
 
 .analytics .container .row1 .box1 .left .badge-btn {
-  color: #696cff;
-  border-color: #696cff;
   height: 30px;
+  color: #696cff;
+  border-color: transparent;
+  background: #e7e7ff;
+}
+
+.analytics .container .row1 .box1 .left .badge-btn:hover {
+  border-color: transparent;
+  background: #5f61e6;
+  color: #fff;
+  box-shadow: 0 0.125rem 0.25rem 0 rgba(105, 108, 255, 0.4);
 }
 
 .analytics .container .row1 .box1 .right {
@@ -628,7 +636,7 @@
 
 .analytics .container .row3 .box6 .iep-details .Mui-selected {
   color: white;
-  background-color: #696cff;
+  background-color: #696cff !important;
   border-radius: 5px;
 }
 
@@ -935,19 +943,31 @@
 
 .analytics .container .row4 .box8 .bottom .invoices .invoices-detail {
   display: flex;
+  background-color: #f2f3f3;
+  border-radius: .375rem;
+  display: inline-block;
+  padding: 5.5px 10px;
 }
 
-.analytics .container .row4 .box8 .bottom .invoices .invoices-detail img {
+.analytics .container .row4 .box8 .bottom .invoices .invoices-detail .invoices-detail-content {
+  display: flex;
+}
+
+.analytics .container .row4 .box8 .bottom .invoices .invoices-detail .invoices-detail-content img {
   width: 24px;
   height: 24px;
 }
 
-.analytics .container .row4 .box8 .bottom .invoices .invoices-detail .pdf {
+.analytics .container .row4 .box8 .bottom .invoices .invoices-detail .invoices-detail-content .pdf {
   margin-left: 12px;
   font-size: 1rem;
   line-height: 1.5;
   color: rgba(50, 71, 92, 0.87);
   font-weight: 500;
+}
+
+.analytics .container .row4 .box8 .bottom .invoices .invoices-detail.dark {
+  background-color: #515379;
 }
 
 .analytics .container .row4 .box8 .bottom .meeting {
@@ -1057,42 +1077,58 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: all .25s ease;
 }
 
 .analytics .container .row4 .box8 .bottom .project .members div:hover {
   z-index: 6;
   top: -5px;
+  cursor: pointer;
 }
 
 .analytics .container .row4 .box8 .bottom .project .members div img {
   width: 34px;
   height: 34px;
   border-radius: 50%;
+  background-color: #eeedf0;
+}
+
+.analytics .container .row4 .box8 .bottom .project .members div .avatar-initial-text {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: #eeedf0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.analytics .container .row4 .box8 .bottom .project .members div .avatar-initial-text.dark {
+  background-color: #4d5075;
 }
 
 .analytics .container .row4 .box8 .bottom .project .members .img-1 {
   left: 0;
-  z-index: 5;
+  z-index: 2;
 }
 
 .analytics .container .row4 .box8 .bottom .project .members .img-2 {
   left: 30px;
-  z-index: 4;
+  z-index: 3;
 }
 
 .analytics .container .row4 .box8 .bottom .project .members .img-3 {
   left: 60px;
-  z-index: 3;
+  z-index: 4;
 }
 
-.analytics .container .row4 .box8 .bottom .project .members .img-4 {
+.analytics .container .row4 .box8 .bottom .project .members .avatar-initial {
   left: 90px;
-  z-index: 2;
+  z-index: 5;
 }
 
-.analytics .container .row4 .box8 .bottom .project .members .img-5 {
-  left: 120px;
-  z-index: 1;
+.analytics .container .row4 .box8 .bottom .project .members .avatar-initial.dark {
+  background-color: #404261;
 }
 
 .analytics .container .row4 .box9 {
@@ -1102,7 +1138,7 @@
 }
 
 .analytics .container .row4 .box9 .Mui-selected {
-  color: white !important;
+  color: white;
   background-color: #696cff;
   border-radius: 5px;
 }
@@ -1113,10 +1149,6 @@
 
 .analytics .container .row4 .box9 .css-1ex1afd-MuiTableCell-root {
   border: none;
-}
-
-.analytics .container .row4 .box9 .MuiTab-textColorPrimary {
-  color: rgba(50, 71, 92, 0.6);
 }
 
 .analytics .container .row4 .box9 .MuiTabs-indicator {
@@ -1166,4 +1198,246 @@
   width: 125px;
   margin-right: 1rem;
   border-radius: 5px;
+}
+
+.analytics .container.dark {
+  background-color: #2b2c40;
+}
+
+.analytics .container.dark .box1 {
+  background-color: #404261;
+}
+
+.analytics .container.dark .box1 p {
+  color: #fff !important;
+}
+
+.analytics .container.dark .box1 .badge-btn {
+  background: #35365f !important;
+}
+
+.analytics .container.dark .box1 .badge-btn:hover {
+  border-color: transparent !important;
+  background: #5f61e6 !important;
+  color: #fff !important;
+  box-shadow: 0 0.125rem 0.25rem 0 rgba(105, 108, 255, 0.4) !important;
+}
+
+.analytics .container.dark .box21,
+.analytics .container.dark .box22,
+.analytics .container.dark .box3,
+.analytics .container.dark .box41,
+.analytics .container.dark .box42,
+.analytics .container.dark .box43,
+.analytics .container.dark .box5,
+.analytics .container.dark .box7,
+.analytics .container.dark .box8,
+.analytics .container.dark .box9 {
+  background-color: #404261 !important;
+}
+
+.analytics .container.dark .box21 p,
+.analytics .container.dark .box21 h5,
+.analytics .container.dark .box21 .statistics,
+.analytics .container.dark .box21 .sales,
+.analytics .container.dark .box21 h4,
+.analytics .container.dark .box21 .title,
+.analytics .container.dark .box21 .more-icon,
+.analytics .container.dark .box21 .timeline,
+.analytics .container.dark .box22 p,
+.analytics .container.dark .box22 h5,
+.analytics .container.dark .box22 .statistics,
+.analytics .container.dark .box22 .sales,
+.analytics .container.dark .box22 h4,
+.analytics .container.dark .box22 .title,
+.analytics .container.dark .box22 .more-icon,
+.analytics .container.dark .box22 .timeline,
+.analytics .container.dark .box3 p,
+.analytics .container.dark .box3 h5,
+.analytics .container.dark .box3 .statistics,
+.analytics .container.dark .box3 .sales,
+.analytics .container.dark .box3 h4,
+.analytics .container.dark .box3 .title,
+.analytics .container.dark .box3 .more-icon,
+.analytics .container.dark .box3 .timeline,
+.analytics .container.dark .box41 p,
+.analytics .container.dark .box41 h5,
+.analytics .container.dark .box41 .statistics,
+.analytics .container.dark .box41 .sales,
+.analytics .container.dark .box41 h4,
+.analytics .container.dark .box41 .title,
+.analytics .container.dark .box41 .more-icon,
+.analytics .container.dark .box41 .timeline,
+.analytics .container.dark .box42 p,
+.analytics .container.dark .box42 h5,
+.analytics .container.dark .box42 .statistics,
+.analytics .container.dark .box42 .sales,
+.analytics .container.dark .box42 h4,
+.analytics .container.dark .box42 .title,
+.analytics .container.dark .box42 .more-icon,
+.analytics .container.dark .box42 .timeline,
+.analytics .container.dark .box43 p,
+.analytics .container.dark .box43 h5,
+.analytics .container.dark .box43 .statistics,
+.analytics .container.dark .box43 .sales,
+.analytics .container.dark .box43 h4,
+.analytics .container.dark .box43 .title,
+.analytics .container.dark .box43 .more-icon,
+.analytics .container.dark .box43 .timeline,
+.analytics .container.dark .box5 p,
+.analytics .container.dark .box5 h5,
+.analytics .container.dark .box5 .statistics,
+.analytics .container.dark .box5 .sales,
+.analytics .container.dark .box5 h4,
+.analytics .container.dark .box5 .title,
+.analytics .container.dark .box5 .more-icon,
+.analytics .container.dark .box5 .timeline,
+.analytics .container.dark .box7 p,
+.analytics .container.dark .box7 h5,
+.analytics .container.dark .box7 .statistics,
+.analytics .container.dark .box7 .sales,
+.analytics .container.dark .box7 h4,
+.analytics .container.dark .box7 .title,
+.analytics .container.dark .box7 .more-icon,
+.analytics .container.dark .box7 .timeline,
+.analytics .container.dark .box8 p,
+.analytics .container.dark .box8 h5,
+.analytics .container.dark .box8 .statistics,
+.analytics .container.dark .box8 .sales,
+.analytics .container.dark .box8 h4,
+.analytics .container.dark .box8 .title,
+.analytics .container.dark .box8 .more-icon,
+.analytics .container.dark .box8 .timeline,
+.analytics .container.dark .box9 p,
+.analytics .container.dark .box9 h5,
+.analytics .container.dark .box9 .statistics,
+.analytics .container.dark .box9 .sales,
+.analytics .container.dark .box9 h4,
+.analytics .container.dark .box9 .title,
+.analytics .container.dark .box9 .more-icon,
+.analytics .container.dark .box9 .timeline {
+  color: #fff !important;
+}
+
+.analytics .container.dark .box21 button,
+.analytics .container.dark .box22 button,
+.analytics .container.dark .box3 button,
+.analytics .container.dark .box41 button,
+.analytics .container.dark .box42 button,
+.analytics .container.dark .box43 button,
+.analytics .container.dark .box5 button,
+.analytics .container.dark .box7 button,
+.analytics .container.dark .box8 button,
+.analytics .container.dark .box9 button {
+  background-color: inherit !important;
+  color: #fff;
+}
+
+.analytics .container.dark .box21 .img-1,
+.analytics .container.dark .box21 .img-2,
+.analytics .container.dark .box21 .img-3,
+.analytics .container.dark .box21 .img-4,
+.analytics .container.dark .box21 .img-5,
+.analytics .container.dark .box22 .img-1,
+.analytics .container.dark .box22 .img-2,
+.analytics .container.dark .box22 .img-3,
+.analytics .container.dark .box22 .img-4,
+.analytics .container.dark .box22 .img-5,
+.analytics .container.dark .box3 .img-1,
+.analytics .container.dark .box3 .img-2,
+.analytics .container.dark .box3 .img-3,
+.analytics .container.dark .box3 .img-4,
+.analytics .container.dark .box3 .img-5,
+.analytics .container.dark .box41 .img-1,
+.analytics .container.dark .box41 .img-2,
+.analytics .container.dark .box41 .img-3,
+.analytics .container.dark .box41 .img-4,
+.analytics .container.dark .box41 .img-5,
+.analytics .container.dark .box42 .img-1,
+.analytics .container.dark .box42 .img-2,
+.analytics .container.dark .box42 .img-3,
+.analytics .container.dark .box42 .img-4,
+.analytics .container.dark .box42 .img-5,
+.analytics .container.dark .box43 .img-1,
+.analytics .container.dark .box43 .img-2,
+.analytics .container.dark .box43 .img-3,
+.analytics .container.dark .box43 .img-4,
+.analytics .container.dark .box43 .img-5,
+.analytics .container.dark .box5 .img-1,
+.analytics .container.dark .box5 .img-2,
+.analytics .container.dark .box5 .img-3,
+.analytics .container.dark .box5 .img-4,
+.analytics .container.dark .box5 .img-5,
+.analytics .container.dark .box7 .img-1,
+.analytics .container.dark .box7 .img-2,
+.analytics .container.dark .box7 .img-3,
+.analytics .container.dark .box7 .img-4,
+.analytics .container.dark .box7 .img-5,
+.analytics .container.dark .box8 .img-1,
+.analytics .container.dark .box8 .img-2,
+.analytics .container.dark .box8 .img-3,
+.analytics .container.dark .box8 .img-4,
+.analytics .container.dark .box8 .img-5,
+.analytics .container.dark .box9 .img-1,
+.analytics .container.dark .box9 .img-2,
+.analytics .container.dark .box9 .img-3,
+.analytics .container.dark .box9 .img-4,
+.analytics .container.dark .box9 .img-5 {
+  background-color: #404261 !important;
+}
+
+.analytics .container.dark .box21 .Mui-selected,
+.analytics .container.dark .box22 .Mui-selected,
+.analytics .container.dark .box3 .Mui-selected,
+.analytics .container.dark .box41 .Mui-selected,
+.analytics .container.dark .box42 .Mui-selected,
+.analytics .container.dark .box43 .Mui-selected,
+.analytics .container.dark .box5 .Mui-selected,
+.analytics .container.dark .box7 .Mui-selected,
+.analytics .container.dark .box8 .Mui-selected,
+.analytics .container.dark .box9 .Mui-selected {
+  background-color: #5f61e6 !important;
+}
+
+.analytics .container.dark .box21 .css-g9ohqm-MuiTable-root,
+.analytics .container.dark .box22 .css-g9ohqm-MuiTable-root,
+.analytics .container.dark .box3 .css-g9ohqm-MuiTable-root,
+.analytics .container.dark .box41 .css-g9ohqm-MuiTable-root,
+.analytics .container.dark .box42 .css-g9ohqm-MuiTable-root,
+.analytics .container.dark .box43 .css-g9ohqm-MuiTable-root,
+.analytics .container.dark .box5 .css-g9ohqm-MuiTable-root,
+.analytics .container.dark .box7 .css-g9ohqm-MuiTable-root,
+.analytics .container.dark .box8 .css-g9ohqm-MuiTable-root,
+.analytics .container.dark .box9 .css-g9ohqm-MuiTable-root {
+  background-color: #404261 !important;
+}
+
+.analytics .container.dark .box21 .css-g9ohqm-MuiTable-root .MuiTableCell-root,
+.analytics .container.dark .box22 .css-g9ohqm-MuiTable-root .MuiTableCell-root,
+.analytics .container.dark .box3 .css-g9ohqm-MuiTable-root .MuiTableCell-root,
+.analytics .container.dark .box41 .css-g9ohqm-MuiTable-root .MuiTableCell-root,
+.analytics .container.dark .box42 .css-g9ohqm-MuiTable-root .MuiTableCell-root,
+.analytics .container.dark .box43 .css-g9ohqm-MuiTable-root .MuiTableCell-root,
+.analytics .container.dark .box5 .css-g9ohqm-MuiTable-root .MuiTableCell-root,
+.analytics .container.dark .box7 .css-g9ohqm-MuiTable-root .MuiTableCell-root,
+.analytics .container.dark .box8 .css-g9ohqm-MuiTable-root .MuiTableCell-root,
+.analytics .container.dark .box9 .css-g9ohqm-MuiTable-root .MuiTableCell-root {
+  color: #fff !important;
+}
+
+.analytics .container.dark .box6 {
+  background-color: #404261 !important;
+}
+
+.analytics .container.dark .box6 .css-1h9z7r5-MuiButtonBase-root-MuiTab-root {
+  color: #fff;
+}
+
+.analytics .container.dark .box6 .data-wrapper p,
+.analytics .container.dark .box6 .data-wrapper h6 {
+  color: #fff !important;
+}
+
+.analytics .container.dark .box6 .data-detail p {
+  color: #fff !important;
 }

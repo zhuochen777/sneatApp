@@ -1,6 +1,6 @@
 // import React from "react";
 import * as React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import "../../style/Analytics.scss";
 import Sidebar from "../../components/Sidebar";
 import Navbar from "../../components/Navbar";
@@ -49,6 +49,7 @@ import { create } from "@mui/material/styles/createTransitions";
 import Footer from "../../components/Footer";
 import axios from "axios";
 import zIndex from "@mui/material/styles/zIndex";
+import { themeContext } from "../../App.js";
 
 // const dataBox21 = [
 //   {
@@ -227,38 +228,38 @@ const renderCustomizedLabel = ({
 // }
 
 // const rowsBrowser = [
-  // createData(
-  //   1,
-  //   "https://demos.themeselection.com/sneat-mui-react-nextjs-admin-template/demo-1/images/cards/chrome.png",
-  //   "Chrome",
-  //   "8.92k",
-  //   64.91,
-  //   "rgb(113, 221, 55)"
-  // ),
-  // {
-  //   number: 1,
-  //   logoSrc: "https://demos.themeselection.com/sneat-mui-react-nextjs-admin-template/demo-1/images/cards/chrome.png",
-  //   browser: "Chrome",
-  //   visit: "8.92k",
-  //   dataInPer: 64.91,
-  //   color: "rgb(113, 221, 55)"
-  // },
-  // {
-  //   number: 2,
-  //   logoSrc: "https://demos.themeselection.com/sneat-mui-react-nextjs-admin-template/demo-1/images/cards/safari.png",
-  //   browser: "Safari",
-  //   visit: "1.29k",
-  //   dataInPer: 19.03,
-  //   color: "rgb(105, 108, 255)"
-  // },
-  // createData(
-  //   2,
-  //   "https://demos.themeselection.com/sneat-mui-react-nextjs-admin-template/demo-1/images/cards/safari.png",
-  //   "Safari",
-  //   "1.29k",
-  //   19.03,
-  //   "rgb(105, 108, 255)"
-  // ),
+// createData(
+//   1,
+//   "https://demos.themeselection.com/sneat-mui-react-nextjs-admin-template/demo-1/images/cards/chrome.png",
+//   "Chrome",
+//   "8.92k",
+//   64.91,
+//   "rgb(113, 221, 55)"
+// ),
+// {
+//   number: 1,
+//   logoSrc: "https://demos.themeselection.com/sneat-mui-react-nextjs-admin-template/demo-1/images/cards/chrome.png",
+//   browser: "Chrome",
+//   visit: "8.92k",
+//   dataInPer: 64.91,
+//   color: "rgb(113, 221, 55)"
+// },
+// {
+//   number: 2,
+//   logoSrc: "https://demos.themeselection.com/sneat-mui-react-nextjs-admin-template/demo-1/images/cards/safari.png",
+//   browser: "Safari",
+//   visit: "1.29k",
+//   dataInPer: 19.03,
+//   color: "rgb(105, 108, 255)"
+// },
+// createData(
+//   2,
+//   "https://demos.themeselection.com/sneat-mui-react-nextjs-admin-template/demo-1/images/cards/safari.png",
+//   "Safari",
+//   "1.29k",
+//   19.03,
+//   "rgb(105, 108, 255)"
+// ),
 //   createData(
 //     3,
 //     "https://demos.themeselection.com/sneat-mui-react-nextjs-admin-template/demo-1/images/cards/firefox.png",
@@ -406,61 +407,64 @@ export default function Analytics() {
   };
 
   let url = process.env.REACT_APP_baseURL;
-  const [dataBox21, setDataBox21] = useState([])
-  const [dataBox3, setDataBox3] = useState([])
-  const [dataBox42, setDataBox42] = useState([])
-  const [dataBox5, setDataBox5] = useState([])
-  const [dataBox61, setDataBox61] = useState([])
-  const [rowsBrowser, setRowsBrowser] = useState([])
-  const [rowsOS, setRowsOS] = useState([])
-  const [rowsCountry, setRowsCountry] = useState([])
-  const getBox21Data = async()=>{
-    const {data} = await axios.get(url+"/box21list")
-    setDataBox21(data)
-  }
-  const getBox3Data = async()=>{
-    const {data} = await axios.get(url+"/box3list")
-    setDataBox3(data)
-  }
-  const getBox42Data = async()=>{
-    const {data} = await axios.get(url+"/box42list")
-    setDataBox42(data)
-  }
-  const getBox5Data = async()=>{
-    const {data} = await axios.get(url+"/box5list")
-    setDataBox5(data)
-  }
-  const getBox61Data = async()=>{
-    const {data} = await axios.get(url+"/box61list")
-    setDataBox61(data)
-  }
-  const getRowsBrowserData = async()=>{
-    const {data} = await axios.get(url+"/rowsBrowserlist")
-    setRowsBrowser(data)
-  }
-  const getRowsOSData = async()=>{
-    const {data} = await axios.get(url+"/rowsOSlist")
-    setRowsOS(data)
-  }
-  const getRowsCountryData = async()=>{
-    const {data} = await axios.get(url+"/rowsCountrylist")
-    setRowsCountry(data)
-  }
-  useEffect(()=>{
-    getBox21Data()
-    getBox3Data()
-    getBox42Data()
-    getBox5Data()
-    getBox61Data()
-    getRowsBrowserData()
-    getRowsOSData()
-    getRowsCountryData()
-  },[])
+  const [dataBox21, setDataBox21] = useState([]);
+  const [dataBox3, setDataBox3] = useState([]);
+  const [dataBox42, setDataBox42] = useState([]);
+  const [dataBox5, setDataBox5] = useState([]);
+  const [dataBox61, setDataBox61] = useState([]);
+  const [rowsBrowser, setRowsBrowser] = useState([]);
+  const [rowsOS, setRowsOS] = useState([]);
+  const [rowsCountry, setRowsCountry] = useState([]);
+
+  const { theme, toggleTheme } = useContext(themeContext);
+
+  const getBox21Data = async () => {
+    const { data } = await axios.get(url + "/box21list");
+    setDataBox21(data);
+  };
+  const getBox3Data = async () => {
+    const { data } = await axios.get(url + "/box3list");
+    setDataBox3(data);
+  };
+  const getBox42Data = async () => {
+    const { data } = await axios.get(url + "/box42list");
+    setDataBox42(data);
+  };
+  const getBox5Data = async () => {
+    const { data } = await axios.get(url + "/box5list");
+    setDataBox5(data);
+  };
+  const getBox61Data = async () => {
+    const { data } = await axios.get(url + "/box61list");
+    setDataBox61(data);
+  };
+  const getRowsBrowserData = async () => {
+    const { data } = await axios.get(url + "/rowsBrowserlist");
+    setRowsBrowser(data);
+  };
+  const getRowsOSData = async () => {
+    const { data } = await axios.get(url + "/rowsOSlist");
+    setRowsOS(data);
+  };
+  const getRowsCountryData = async () => {
+    const { data } = await axios.get(url + "/rowsCountrylist");
+    setRowsCountry(data);
+  };
+  useEffect(() => {
+    getBox21Data();
+    getBox3Data();
+    getBox42Data();
+    getBox5Data();
+    getBox61Data();
+    getRowsBrowserData();
+    getRowsOSData();
+    getRowsCountryData();
+  }, []);
 
   return (
     <div className="analytics">
       <Sidebar />
-      <div className="container">
+      <div className={`container ${theme}`}>
         <Navbar />
         <div className="analytics-boxes" style={{ marginTop: "100px" }}>
           <div className="row1">
@@ -477,7 +481,7 @@ export default function Analytics() {
               </div>
               <div className="right">
                 <img
-                  src="https://demos.themeselection.com/sneat-mui-react-nextjs-admin-template/demo-1/images/cards/illustration-john-light.png"
+                  src="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/illustrations/man-with-laptop.png"
                   alt="john-img"
                 />
               </div>
@@ -507,7 +511,7 @@ export default function Analytics() {
                   <div className="top">
                     <div>
                       <img
-                        src="https://demos.themeselection.com/sneat-mui-react-nextjs-admin-template/demo-1/images/cards/stats-vertical-wallet.png"
+                        src="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/icons/unicons/wallet-info.png"
                         alt=""
                       />
                     </div>
@@ -601,7 +605,7 @@ export default function Analytics() {
                     <div className="top">
                       <div>
                         <img
-                          src="https://demos.themeselection.com/sneat-mui-react-nextjs-admin-template/demo-1/images/cards/stats-vertical-paypal.png"
+                          src="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/icons/unicons/paypal.png"
                           alt=""
                         />
                       </div>
@@ -804,7 +808,7 @@ export default function Analytics() {
                       <div className="total-income">
                         <div className="img-wrapper">
                           <img
-                            src="https://demos.themeselection.com/sneat-mui-react-nextjs-admin-template/demo-1/images/cards/wallet-with-bg.png"
+                            src="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/icons/unicons/wallet-primary.png"
                             alt="wallet-with-bg"
                           />
                         </div>
@@ -860,7 +864,7 @@ export default function Analytics() {
                       <div className="total-expenses">
                         <div className="img-wrapper">
                           <img
-                            src="https://demos.themeselection.com/sneat-mui-react-nextjs-admin-template/demo-1/images/cards/paypal.png"
+                            src="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/icons/unicons/paypal.png"
                             alt="paypal"
                           />
                         </div>
@@ -916,7 +920,7 @@ export default function Analytics() {
                       <div className="total-profit">
                         <div className="img-wrapper">
                           <img
-                            src="https://demos.themeselection.com/sneat-mui-react-nextjs-admin-template/demo-1/images/cards/chart.png"
+                            src="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/icons/unicons/chart.png"
                             alt="cards-chart"
                           />
                         </div>
@@ -985,7 +989,7 @@ export default function Analytics() {
                 <div className="transaction">
                   <div className="img-wrapper">
                     <img
-                      src="https://demos.themeselection.com/sneat-mui-react-nextjs-admin-template/demo-1/images/cards/paypal.png"
+                      src="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/icons/unicons/paypal.png"
                       alt=""
                     />
                   </div>
@@ -1003,7 +1007,7 @@ export default function Analytics() {
                 <div className="transaction">
                   <div className="img-wrapper">
                     <img
-                      src="https://demos.themeselection.com/sneat-mui-react-nextjs-admin-template/demo-1/images/cards/wallet.png"
+                      src="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/icons/unicons/wallet.png"
                       alt=""
                     />
                   </div>
@@ -1021,7 +1025,7 @@ export default function Analytics() {
                 <div className="transaction">
                   <div className="img-wrapper">
                     <img
-                      src="https://demos.themeselection.com/sneat-mui-react-nextjs-admin-template/demo-1/images/cards/chart.png"
+                      src="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/icons/unicons/chart.png"
                       alt=""
                     />
                   </div>
@@ -1039,7 +1043,7 @@ export default function Analytics() {
                 <div className="transaction">
                   <div className="img-wrapper">
                     <img
-                      src="https://demos.themeselection.com/sneat-mui-react-nextjs-admin-template/demo-1/images/cards/credit-card.png"
+                      src="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/icons/unicons/cc-primary.png"
                       alt=""
                     />
                   </div>
@@ -1057,7 +1061,7 @@ export default function Analytics() {
                 <div className="transaction">
                   <div className="img-wrapper">
                     <img
-                      src="https://demos.themeselection.com/sneat-mui-react-nextjs-admin-template/demo-1/images/cards/wallet.png"
+                      src="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/icons/unicons/wallet.png"
                       alt=""
                     />
                   </div>
@@ -1075,7 +1079,7 @@ export default function Analytics() {
                 <div className="transaction">
                   <div className="img-wrapper">
                     <img
-                      src="https://demos.themeselection.com/sneat-mui-react-nextjs-admin-template/demo-1/images/cards/atm-card.png"
+                      src="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/icons/unicons/cc-warning.png"
                       alt=""
                     />
                   </div>
@@ -1097,7 +1101,7 @@ export default function Analytics() {
             <div className="box8">
               <div className="top">
                 <div>
-                  <span>Activity Timeline</span>
+                  <span className="timeline">Activity Timeline</span>
                 </div>
                 <div>
                   <MoreVertIcon className="more-icon" />
@@ -1119,12 +1123,14 @@ export default function Analytics() {
                         <p className="company">
                           Invoices have been paid to the company
                         </p>
-                        <div className="invoices-detail">
-                          <img
-                            src="https://demos.themeselection.com/sneat-mui-react-nextjs-admin-template/demo-1/images/icons/file-icons/pdf.png"
-                            alt="invoice.pdf"
-                          />
-                          <p className="pdf">Invoices.pdf</p>
+                        <div className={`invoices-detail ${theme}`}>
+                          <div className="invoices-detail-content">
+                            <img
+                              src="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets//img/icons/misc/pdf.png"
+                              alt="invoice.pdf"
+                            />
+                            <p className="pdf">Invoices.pdf</p>
+                          </div>
                         </div>
                       </div>
                     </TimelineContent>
@@ -1184,21 +1190,12 @@ export default function Analytics() {
                           </div>
                           <div className="img-3">
                             <img
-                              src="https://demos.themeselection.com/sneat-mui-react-nextjs-admin-template/demo-1/images/avatars/5.png"
+                              src="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/avatars/6.png"
                               alt=""
                             />
                           </div>
-                          <div className="img-4">
-                            <img
-                              src="https://demos.themeselection.com/sneat-mui-react-nextjs-admin-template/demo-1/images/avatars/12.png"
-                              alt=""
-                            />
-                          </div>
-                          <div className="img-5">
-                            <img
-                              src="https://demos.themeselection.com/sneat-mui-react-nextjs-admin-template/demo-1/images/avatars/5.png"
-                              alt=""
-                            />
+                          <div className={`avatar-initial ${theme}`}>
+                            <span className={`avatar-initial-text ${theme}`}>+3</span>
                           </div>
                         </div>
                       </div>
@@ -1299,9 +1296,7 @@ export default function Analytics() {
                               <TableCell style={{ width: "70px" }}>
                                 <div className="name">
                                   <img src={row.logoSrc} alt="" />
-                                  <div className="nameDetail">
-                                    {row.os}
-                                  </div>
+                                  <div className="nameDetail">{row.os}</div>
                                 </div>
                               </TableCell>
                               <TableCell

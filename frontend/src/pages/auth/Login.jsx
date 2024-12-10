@@ -14,6 +14,7 @@ import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import LoadingButton from "@mui/lab/LoadingButton";
 
 export default function Login() {
   let url = process.env.REACT_APP_baseURL;
@@ -30,8 +31,10 @@ export default function Login() {
   });
 
   const [passwordVisible, setPasswordVisible] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
+    setLoading(true);
     e.preventDefault();
     //when submit the form, valid the form inputs first; if pass, then call the APIs
     if (handleValidation()) {
@@ -77,7 +80,7 @@ export default function Login() {
     setValues({ ...values, [e.target.name]: e.target.value });
   };
 
-  const EndAdorment = ({ passwordVisible, setPasswordVisible}) => {
+  const EndAdorment = ({ passwordVisible, setPasswordVisible }) => {
     return (
       <InputAdornment position="end">
         <IconButton onClick={() => setPasswordVisible(!passwordVisible)}>
@@ -97,11 +100,13 @@ export default function Login() {
     <div className="login">
       <div className="container">
         <div className="container-left">
-          <img
-            className="img"
-            src="https://demos.themeselection.com/sneat-mui-nextjs-admin-template/demo-1/images/illustrations/characters-with-objects/7.png"
-            alt=""
-          />
+          <div className="img-wrapper">
+            <img
+              className="img"
+              src="https://demos.themeselection.com/sneat-mui-nextjs-admin-template/demo-1/images/illustrations/characters-with-objects/7.png"
+              alt=""
+            />
+          </div>
         </div>
         <div className="container-right">
           <Link to="/login">
@@ -136,7 +141,7 @@ export default function Login() {
                 onChange={(e) => handleChange(e)}
               />
               <TextField
-                type={passwordVisible?"text":"password"}
+                type={passwordVisible ? "text" : "password"}
                 label="Password"
                 placeholder="Enter your password"
                 name="password"
@@ -165,13 +170,25 @@ export default function Login() {
                   Forget password?
                 </Link>
               </div>
-              <Button
-                variant="contained"
-                type="submit"
-                className="submit-button"
-              >
-                Login
-              </Button>
+              {!loading ? (
+                <Button
+                  variant="contained"
+                  type="submit"
+                  className="submit-button"
+                >
+                  Login
+                </Button>
+              ) : (
+                <LoadingButton
+                  size="small"
+                  // onClick={handleClick}
+                  loading={loading}
+                  loadingIndicator="Loading…"
+                  variant="outlined"
+                >
+                  Fetch data
+                </LoadingButton>
+              )}
               <div className="signin-link">
                 <span className="question">New on our platform?</span>{" "}
                 <Link to="/register" className="signin">

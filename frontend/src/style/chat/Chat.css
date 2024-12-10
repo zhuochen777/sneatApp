@@ -1,5 +1,5 @@
 .chat .container {
-  width: 80%;
+  width: calc(100% - 140px);
   float: right;
   background-color: #f5f5f9;
   padding-left: 24px;

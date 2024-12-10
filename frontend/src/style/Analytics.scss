@@ -1,6 +1,6 @@
 .analytics {
     .container {
-        width: 80%;
+        width: calc(100% - 140px);
         float: right;
         background-color: rgb(245, 245, 249);
         padding-left: 24px;
@@ -41,9 +41,17 @@
                     }
 
                     .badge-btn {
-                        color: rgb(105, 108, 255);
-                        border-color: rgb(105, 108, 255);
                         height: 30px;
+                        color: #696cff;
+                        border-color: rgba(0, 0, 0, 0);
+                        background: #e7e7ff;
+                    }
+
+                    .badge-btn:hover {
+                        border-color: rgba(0, 0, 0, 0);
+                        background: #5f61e6;
+                        color: #fff;
+                        box-shadow: 0 .125rem .25rem 0 rgba(105, 108, 255, .4);
                     }
                 }
 
@@ -651,7 +659,7 @@
                 .iep-details {
                     .Mui-selected {
                         color: rgb(255, 255, 255);
-                        background-color: rgb(105, 108, 255);
+                        background-color: rgb(105, 108, 255) !important;
                         border-radius: 5px;
                     }
 
@@ -935,19 +943,30 @@
 
                         .invoices-detail {
                             display: flex;
+                            background-color: #f2f3f3;
+                            border-radius: .375rem;
+                            display: inline-block;
+                            padding: 5.5px 10px;
 
-                            img {
-                                width: 24px;
-                                height: 24px;
+                            .invoices-detail-content{
+                                display: flex;
+                                img {
+                                    width: 24px;
+                                    height: 24px;
+                                }
+    
+                                .pdf {
+                                    margin-left: 12px;
+                                    font-size: 1rem;
+                                    line-height: 1.5;
+                                    color: rgba(50, 71, 92, 0.87);
+                                    font-weight: 500;
+                                }
                             }
 
-                            .pdf {
-                                margin-left: 12px;
-                                font-size: 1rem;
-                                line-height: 1.5;
-                                color: rgba(50, 71, 92, 0.87);
-                                font-weight: 500;
-                            }
+                        }
+                        .invoices-detail.dark{
+                            background-color: #515379;
                         }
                     }
 
@@ -1043,10 +1062,12 @@
                             color: rgba(50, 71, 92, 0.6);
                             margin-bottom: 8px;
                         }
-                        .members{
+
+                        .members {
                             display: flex;
                             position: relative;
-                            div{
+
+                            div {
                                 width: 38px;
                                 height: 38px;
                                 border-radius: 50%;
@@ -1056,37 +1077,59 @@
                                 display: flex;
                                 justify-content: center;
                                 align-items: center;
-                                &:hover{
+                                transition: all .25s ease;
+
+                                &:hover {
                                     z-index: 6;
                                     top: -5px;
+                                    cursor: pointer;
                                 }
-                                img{
+
+                                img {
                                     width: 34px;
                                     height: 34px;
                                     border-radius: 50%;
+                                    background-color: #eeedf0;
                                 }
+                                .avatar-initial-text{
+                                    width: 34px;
+                                    height: 34px;
+                                    border-radius: 50%;
+                                    background-color: #eeedf0;
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                }
+                                .avatar-initial-text.dark{
+                                    background-color: #4d5075;
+                                }
+                                
                             }
-                            .img-1{
-                                left:0;
-                                z-index: 5;
-                            }
-                            .img-2{
-                                left: 30px;
-                                z-index: 4;
-                            }
-                            .img-3{
-                                left: 60px;
-                                z-index: 3;
-                            }
-                            .img-4{
-                                left: 90px;
+
+                            .img-1 {
+                                left: 0;
                                 z-index: 2;
                             }
-                            .img-5{
-                                left: 120px;
-                                z-index: 1;
+
+                            .img-2 {
+                                left: 30px;
+                                z-index: 3;
                             }
-                            
+
+                            .img-3 {
+                                left: 60px;
+                                z-index: 4;
+                            }
+
+                            .avatar-initial {
+                                left: 90px;
+                                z-index: 5;                               
+                            }
+
+                            .avatar-initial.dark{
+                                background-color: #404261;
+                            }
+
                         }
                     }
 
@@ -1098,54 +1141,67 @@
                 flex: 1;
                 background-color: white;
                 border-radius: 8px;
-               
-                .Mui-selected{
-                    color: rgb(255, 255, 255) !important;
+
+                .Mui-selected {
+                    color: rgb(255, 255, 255);
                     background-color: rgb(105, 108, 255);
                     border-radius: 5px;
                 }
-                .css-11xur9t-MuiPaper-root-MuiTableContainer-root{
+
+                .css-11xur9t-MuiPaper-root-MuiTableContainer-root {
                     box-shadow: none !important;
                 }
-                .css-1ex1afd-MuiTableCell-root{
+
+                .css-1ex1afd-MuiTableCell-root {
                     border: none;
                 }
-                .MuiTab-textColorPrimary{
-                    color: rgba(50, 71, 92, 0.6);
+
+                .MuiTab-textColorPrimary {
+                    // color: rgba(50, 71, 92, 0.6);
                 }
-                .MuiTabs-indicator{
+
+                .MuiTabs-indicator {
                     display: none;
                 }
-                .MuiTabPanel-root{
+
+                .MuiTabPanel-root {
                     padding: 0;
                 }
-                .MuiTableCell-root{
+
+                .MuiTableCell-root {
                     color: rgba(50, 71, 92, 0.6);
                     text-align: left;
                 }
-                .css-1azl6jz-MuiTableCell-root{
+
+                .css-1azl6jz-MuiTableCell-root {
                     border: none;
                 }
-                .css-1ygcj2i-MuiTableCell-root{
+
+                .css-1ygcj2i-MuiTableCell-root {
                     border: none;
                 }
-                .name{
+
+                .name {
                     display: flex;
                     align-items: center;
                     justify-content: start;
-                    img{
+
+                    img {
                         width: 24px;
                         height: 24px;
                     }
-                    .nameDetail{
+
+                    .nameDetail {
                         padding-left: 10px;
                         font-size: 16px;
                     }
                 }
-                .percentage{
+
+                .percentage {
                     display: flex;
                     align-items: center;
-                    .rc-progress-line{
+
+                    .rc-progress-line {
                         height: 10px;
                         width: 125px;
                         margin-right: 1rem;
@@ -1154,5 +1210,97 @@
                 }
             }
         }
+    }
+
+    .container.dark {
+        background-color: #2b2c40;
+
+        .box1 {
+            background-color: #404261;
+
+            p {
+                color: #fff !important;
+            }
+
+            .badge-btn {
+                background: #35365f !important;
+            }
+
+            .badge-btn:hover {
+                border-color: rgba(0, 0, 0, 0) !important;
+                background: #5f61e6 !important;
+                color: #fff !important;
+                box-shadow: 0 .125rem .25rem 0 rgba(105, 108, 255, .4) !important;
+            }
+        }
+
+        .box21,
+        .box22,
+        .box3,
+        .box41,
+        .box42,
+        .box43,
+        .box5,
+        .box7,
+        .box8,
+        .box9 {
+            background-color: #404261 !important;
+
+            p,
+            h5,
+            .statistics,
+            .sales,
+            h4,
+            .title,
+            .more-icon,
+            .timeline {
+                color: #fff !important;
+            }
+
+            button {
+                background-color: inherit !important;
+                color: #fff;
+            }
+
+            .img-1,
+            .img-2,
+            .img-3,
+            .img-4,
+            .img-5 {
+                background-color: #404261 !important;
+            }
+
+            .Mui-selected {
+                background-color: #5f61e6 !important;
+            }
+
+            .css-g9ohqm-MuiTable-root {
+                background-color: #404261 !important;
+
+                .MuiTableCell-root {
+                    color: #fff !important;
+                }
+            }
+        }
+
+        .box6 {
+            background-color: #404261 !important;
+
+            .css-1h9z7r5-MuiButtonBase-root-MuiTab-root {
+                color: #fff;
+            }
+
+            .data-wrapper {
+
+                p,
+                h6{
+                    color: #fff !important;
+                }
+            }
+            .data-detail p{
+                color: #fff !important;
+            }
+        }
+
     }
 }

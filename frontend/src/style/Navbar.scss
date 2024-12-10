@@ -6,7 +6,7 @@
     display: flex;
     align-items: center;
     position: fixed;
-    width: 80%;
+    width: calc(100% - 140px);
     z-index: 2;
 
     .wrapper {
@@ -22,6 +22,10 @@
             align-items: center;
             padding: 3px;
             height: 100%;
+
+            .icon.dark {
+                color: #fff;
+            }
 
             input {
                 height: 100%;
@@ -49,9 +53,14 @@
                 height: 38px;
                 background-color: white;
                 display: inline-block;
+                cursor: pointer;
 
                 .nav-icon {
                     font-size: 22px;
+                }
+
+                .nav-icon.dark {
+                    color: #fff;
                 }
 
                 .notifi-counter {
@@ -83,6 +92,14 @@
                         background-color: #8fdf82;
                     }
                 }
+
+                .status.dark {
+                    background-color: #404261;
+                }
+            }
+
+            .item.dark {
+                background-color: #404261;
             }
 
             .user-options.active {
@@ -137,16 +154,119 @@
                         align-items: center;
                         padding: 0.5rem 1.25rem;
                         color: rgba(34, 48, 62, 0.9);
-                        &:hover{
-                            background-color: rgba(34, 48, 62, 0.06);;
+
+                        &:hover {
+                            background-color: rgba(34, 48, 62, 0.06);
+                            ;
                         }
                     }
                 }
             }
-            .user-options.inactive{
+
+            .user-options.active.dark {
+                background-color: #404261;
+
+                h6,
+                p {
+                    color: #fff !important;
+                }
+
+                .icon.dark {
+                    color: #fff;
+                }
+
+                .options-top.dark:hover {
+                    background-color: rgba(105, 108, 255, 0.3);
+                }
+
+                .user-option-item:hover {
+                    background-color: rgba(105, 108, 255, 0.3);
+                }
+
+            }
+
+            .user-options.inactive {
+                display: none;
+            }
+
+            .themeMode-options.active {
+                position: absolute;
+                top: 70px;
+                right: 130px;
+                background-color: #ffffff;
+                box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+                border-radius: 6px;
+
+                ul {
+                    list-style: none;
+                    padding: 8px 0;
+
+                    li {
+                        display: flex;
+                        gap: .75rem;
+                        cursor: pointer;
+                        font-size: 0.9375rem;
+                        line-height: 1.46667;
+                        justify-content: start;
+                        align-items: center;
+                        // padding: 0.5rem 1.25rem;
+                        color: rgba(34, 48, 62, 0.9);
+                        padding: 8px 40px 8px 20px;
+
+                        &:hover {
+                            background-color: rgba(34, 48, 62, 0.06);
+                            ;
+                        }
+                    }
+                }
+            }
+
+            .themeMode-options.active.dark {
+                position: absolute;
+                top: 70px;
+                right: 130px;
+                background-color: #404261;
+                box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+                border-radius: 6px;
+
+                ul {
+                    list-style: none;
+                    padding: 8px 0;
+
+                    .theme-option {
+                        display: flex;
+                        gap: .75rem;
+                        cursor: pointer;
+                        font-size: 0.9375rem;
+                        line-height: 1.46667;
+                        justify-content: start;
+                        align-items: center;
+                        // padding: 0.5rem 1.25rem;
+                        color: #fff;
+                        padding: 8px 40px 8px 20px;
+
+                        &:hover {
+                            background-color: rgba(34, 48, 62, 0.06);
+                            ;
+                        }
+                    }
+                    .theme-option.dark{
+                        &:hover{
+                            background-color: #565982 !important;
+                        }
+                    }
+                }
+            }
+
+
+            .themeMode-options.inactive {
                 display: none;
             }
         }
 
     }
+}
+
+.navbar.dark {
+    background-color: #404261;
 }

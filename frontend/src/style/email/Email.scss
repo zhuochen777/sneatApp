@@ -1,6 +1,6 @@
 .email {
     .container {
-        width: 80%; //按键时宽度可变为90%
+        width: calc(100% - 140px);
         float: right;
         background-color: rgb(245, 245, 249);
         padding-left: 24px;
