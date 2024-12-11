@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import { useState } from "react";
 import Sidebar from "../../components/Sidebar";
 import Navbar from "../../components/Navbar";
@@ -42,6 +42,7 @@ import { Line as Linerc } from "rc-progress";
 import "../../style/Ecommerce.scss";
 import Footer from "../../components/Footer";
 import axios from "axios";
+import { themeContext } from "../../App.js";
 
 // const dataBox21Eco = [
 //   {
@@ -401,6 +402,7 @@ export default function Ecommerce() {
   const [dataBox73Eco, setDataBox73Eco] = useState([]);
   const [rowsBox8Eco, setRowsBox8Eco] = useState([]);
   const [dataBox9Eco, setDataBox9Eco] = useState([]);
+  const { theme, toggleTheme } = useContext(themeContext);
 
   const getBox21DataEco = async () => {
     const { data } = await axios.get(url + "/box21Ecolist");
@@ -455,7 +457,7 @@ export default function Ecommerce() {
   return (
     <div className="ecommerce">
       <Sidebar />
-      <div className="container">
+      <div className={`container ${theme}`}>
         <Navbar />
         <div
           className="ecommerce-boxes"
@@ -464,13 +466,13 @@ export default function Ecommerce() {
           <div className="row1">
             <div className="box1-wrapper">
               <div className="box1">
-                <p className="cong">Congratulations Katie!</p>
+                <p className="cong">Congratulations Katie! 🎉</p>
                 <p className="best">Best seller of the month</p>
                 <h5>$48.9k</h5>
-                <p className="target">78% of target</p>
+                <p className="target">78% of target 🚀</p>
                 <button>View Sales</button>
                 <img
-                  src="https://demos.themeselection.com/sneat-mui-react-nextjs-admin-template/demo-1/images/misc/trophy.png"
+                  src="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/illustrations/prize-light.png"
                   alt="trophy"
                 />
               </div>
@@ -487,7 +489,7 @@ export default function Ecommerce() {
                       <h4 className="percent1">23%</h4>
                       <div className="percent2">
                         <ArrowDownwardIcon className="icon" />
-                        <p>8.75%</p>
+                        <p className="percent down">8.75%</p>
                       </div>
                     </div>
                     <div className="chart">
@@ -518,7 +520,7 @@ export default function Ecommerce() {
                       <h4 className="percent1">82%</h4>
                       <div className="percent2">
                         <ArrowUpwardIcon className="icon" />
-                        <p>19.6%</p>
+                        <p className="percent up">19.6%</p>
                       </div>
                     </div>
                     <div className="chart">
@@ -553,7 +555,7 @@ export default function Ecommerce() {
                       <div className="top">
                         <div>
                           <img
-                            src="https://demos.themeselection.com/sneat-mui-react-nextjs-admin-template/demo-1/images/cards/stats-vertical-wallet.png"
+                            src="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/icons/unicons/wallet-info.png"
                             alt=""
                           />
                         </div>
@@ -572,7 +574,7 @@ export default function Ecommerce() {
                               marginRight: "0.25rem",
                             }}
                           />
-                          <p>28.14%</p>
+                          <p className="percent up">28.14%</p>
                         </div>
                       </div>
                     </div>
@@ -627,7 +629,7 @@ export default function Ecommerce() {
                       <div className="top">
                         <div>
                           <img
-                            src="https://demos.themeselection.com/sneat-mui-react-nextjs-admin-template/demo-1/images/cards/stats-vertical-wallet.png"
+                            src="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/icons/unicons/cc-primary.png"
                             alt=""
                           />
                         </div>
@@ -646,7 +648,7 @@ export default function Ecommerce() {
                               marginRight: "0.25rem",
                             }}
                           />
-                          <p>28.14%</p>
+                          <p className="percent up">28.14%</p>
                         </div>
                       </div>
                     </div>
@@ -701,10 +703,10 @@ export default function Ecommerce() {
                     </div>
                   </div>
                   <div className="bottom">
-                    <div className="report-item">
+                    <div className={`report-item ${theme}`}>
                       <div className="left">
                         <img
-                          src="https://demos.themeselection.com/sneat-mui-react-nextjs-admin-template/demo-1/images/cards/paypal-primary.png"
+                          src="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/svg/icons/paypal-icon.svg"
                           alt=""
                         />
                       </div>
@@ -713,13 +715,13 @@ export default function Ecommerce() {
                           <p className="title">Income</p>
                           <p className="dollar">$42,854</p>
                         </div>
-                        <p className="change pos">+2.7k</p>
+                        <p className="change pos percent up">+2.7k</p>
                       </div>
                     </div>
-                    <div className="report-item">
+                    <div className={`report-item ${theme}`}>
                       <div className="left">
                         <img
-                          src="https://demos.themeselection.com/sneat-mui-react-nextjs-admin-template/demo-1/images/cards/shopping-bag.png"
+                          src="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/svg/icons/credit-card-icon.svg"
                           alt=""
                         />
                       </div>
@@ -728,13 +730,13 @@ export default function Ecommerce() {
                           <p className="title">Expense</p>
                           <p className="dollar">$38,658</p>
                         </div>
-                        <p className="change neg">-1.15k</p>
+                        <p className="change neg percent down">-1.15k</p>
                       </div>
                     </div>
-                    <div className="report-item">
+                    <div className={`report-item ${theme}`}>
                       <div className="left">
                         <img
-                          src="https://demos.themeselection.com/sneat-mui-react-nextjs-admin-template/demo-1/images/cards/wallet-info.png"
+                          src="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/svg/icons/wallet-icon.svg"
                           alt=""
                         />
                       </div>
@@ -743,7 +745,7 @@ export default function Ecommerce() {
                           <p className="title">Profit</p>
                           <p className="dollar">$18,220</p>
                         </div>
-                        <p className="change pos">+1.34k</p>
+                        <p className="change pos percent up">+1.34k</p>
                       </div>
                     </div>
                   </div>
@@ -755,7 +757,7 @@ export default function Ecommerce() {
             <div className="box5-wrapper">
               <div className="box5">
                 <div className="top">
-                  <div>Performance</div>
+                  <div className="performance">Performance</div>
                   <button>
                     <MoreVertIcon />
                   </button>
@@ -827,7 +829,7 @@ export default function Ecommerce() {
                           <ArrowUpwardIcon
                             style={{ height: "22px", width: "22px" }}
                           />
-                          <p>4.8%</p>
+                          <p className="percent up">4.8%</p>
                         </div>
                       </div>
                       <div className="right">
@@ -853,7 +855,7 @@ export default function Ecommerce() {
                       </div>
                       <div className="change">
                         <ArrowUpwardIcon className="icon pos" />
-                        <p>12.8%</p>
+                        <p className="percent up">12.8%</p>
                       </div>
                     </div>
                     <div className="conversion-item">
@@ -863,7 +865,7 @@ export default function Ecommerce() {
                       </div>
                       <div className="change">
                         <ArrowDownwardIcon className="icon neg" />
-                        <p>-8.3%</p>
+                        <p className="percent down">-8.3%</p>
                       </div>
                     </div>
                     <div className="conversion-item">
@@ -873,7 +875,7 @@ export default function Ecommerce() {
                       </div>
                       <div className="change">
                         <ArrowUpwardIcon className="icon pos" />
-                        <p>9.12%</p>
+                        <p className="percent up">9.12%</p>
                       </div>
                     </div>
                     <div className="conversion-item conversion-last">
@@ -883,7 +885,7 @@ export default function Ecommerce() {
                       </div>
                       <div className="change">
                         <ArrowUpwardIcon className="icon pos" />
-                        <p>2.24%</p>
+                        <p className="percent up">2.24%</p>
                       </div>
                     </div>
                   </div>
@@ -897,7 +899,7 @@ export default function Ecommerce() {
                         <div className="top">
                           <div>
                             <img
-                              src="https://demos.themeselection.com/sneat-mui-react-nextjs-admin-template/demo-1/images/cards/stats-vertical-desktop.png"
+                              src="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/icons/unicons/computer.png"
                               alt=""
                             />
                           </div>
@@ -916,7 +918,7 @@ export default function Ecommerce() {
                                 marginRight: "0.25rem",
                               }}
                             />
-                            <p>52.76%</p>
+                            <p className="percent up">52.76%</p>
                           </div>
                         </div>
                       </div>
@@ -954,7 +956,7 @@ export default function Ecommerce() {
                           <h5>$84.7k</h5>
                           <div className="change">
                             <ArrowDownwardIcon className="icon" />
-                            <p>8.2%</p>
+                            <p className="percent down">8.2%</p>
                           </div>
                         </div>
                         <div className="month">
@@ -1147,7 +1149,7 @@ export default function Ecommerce() {
               <div className="box9">
                 <div className="top">
                   <div className="header">
-                    <span>Total Balance</span>
+                    <span className="totalBalance">Total Balance</span>
                   </div>
                   <div className="button">
                     <button>
@@ -1201,7 +1203,7 @@ export default function Ecommerce() {
                       </LineChart>
                     </ResponsiveContainer>
                   </div>
-                  <hr
+                  <hr className="divider"
                     style={{
                       marginBottom: "24px",
                       borderColor: "rgba(50, 71, 92, 0.12)",

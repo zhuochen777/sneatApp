@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useContext} from "react";
 import "../../style/email/Email.scss";
 import Sidebar from "../../components/Sidebar";
 import Navbar from "../../components/Navbar";
@@ -19,9 +19,11 @@ import MailLockIcon from "@mui/icons-material/MailLock";
 import DeleteIcon from "@mui/icons-material/Delete";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import { NavLink, Outlet } from "react-router-dom";
+import { themeContext } from "../../App.js";
 
 export default function Email() {
   const [openDrawer, setOpenDrawer] = React.useState(false);
+  const { theme, toggleTheme } = useContext(themeContext);
 
   const toggleDrawer = (flag) => {
     setOpenDrawer(flag);
@@ -30,7 +32,7 @@ export default function Email() {
   return (
     <div className="email">
       <Sidebar />
-      <div className="container">
+      <div className={`container ${theme}`}>
         <Navbar />
         <div
           className="email-boxes"
@@ -128,10 +130,10 @@ export default function Email() {
                         <NavLink to="spam">
                           <ListItem disablePadding>
                             <ListItemButton>
-                              <ListItemIcon>
-                                <MailLockIcon />
+                              <ListItemIcon className="mail-icon">
+                                <MailLockIcon/>
                               </ListItemIcon>
-                              <ListItemText primary="Spam" />
+                              <ListItemText primary="Spam" className="mail-text"/>
                             </ListItemButton>
                           </ListItem>
                         </NavLink>
@@ -139,10 +141,10 @@ export default function Email() {
                         <NavLink to="trash">
                           <ListItem disablePadding>
                             <ListItemButton>
-                              <ListItemIcon>
+                              <ListItemIcon className="mail-icon">
                                 <DeleteIcon />
                               </ListItemIcon>
-                              <ListItemText primary="Trash" />
+                              <ListItemText primary="Trash" className="mail-text"/>
                             </ListItemButton>
                           </ListItem>
                         </NavLink>

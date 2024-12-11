@@ -4,9 +4,10 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import DraftsIcon from "@mui/icons-material/Drafts";
 import ReportIcon from "@mui/icons-material/Report";
 import MarkunreadIcon from "@mui/icons-material/Markunread";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import EmailDetail from "./EmailDetail";
 import axios from "axios";
+import { themeContext } from "../../App.js";
 
 export default function EmailItem({
   selectedEmails,
@@ -20,6 +21,7 @@ export default function EmailItem({
   const [showOptions, setShowOptions] = useState(false);
   const [openDrawer, setOpenDrawer] = useState(false);
   const [time, setTime] = useState("");
+  const { theme, toggleTheme } = useContext(themeContext);
 
   const toggleDrawer = (flag) => {
     setOpenDrawer(flag);
@@ -82,7 +84,7 @@ export default function EmailItem({
       mm = "0" + mm;
     }
 
-    setTime(hh+":"+mm)
+    setTime(hh + ":" + mm);
   };
 
   useEffect(() => {
@@ -96,9 +98,13 @@ export default function EmailItem({
         onMouseEnter={() => setShowOptions(true)}
         onMouseLeave={() => setShowOptions(false)}
         style={
-          email.read
+          email.read && theme === "light"
             ? { backgroundColor: "white" }
-            : { backgroundColor: "#F2F2F2" }
+            : !email.read && theme === "light"
+            ? { backgroundColor: "#F2F2F2" }
+            : email.read && theme === "dark"
+            ? { backgroundColor: "#404261" }
+            : { backgroundColor: "rgba(230, 230, 241,0.2)" }
         }
       >
         <div className="item-left">
@@ -188,9 +194,7 @@ export default function EmailItem({
                     ></div>
                   ))}
                 </div>
-                <div className="time">
-                  {time}
-                </div>
+                <div className="time">{time}</div>
               </div>
             )}
           </div>

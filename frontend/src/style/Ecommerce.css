@@ -69,6 +69,10 @@
   text-transform: uppercase;
 }
 
+.ecommerce .container .row1 .box1-wrapper .box1 button:hover {
+  cursor: pointer;
+}
+
 .ecommerce .container .row1 .box1-wrapper .box1 img {
   position: absolute;
   bottom: -2px;
@@ -1137,7 +1141,13 @@
   font-weight: 600;
 }
 
-.ecommerce .container .row4 .box8-wrapper .box8 .table-chart .payment .unpaid .first,
+.ecommerce .container .row4 .box8-wrapper .box8 .table-chart .payment .unpaid .first {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #696cff;
+  font-weight: 600;
+}
+
 .ecommerce .container .row4 .box8-wrapper .box8 .table-chart .payment .unpaid .second {
   font-weight: 400;
   font-size: 16px;
@@ -1332,4 +1342,78 @@
 .ecommerce .container .row4 .box9-wrapper .box9 .bottom .more-wrapper .rightArrow .arrow {
   width: 28px;
   height: 28px;
+}
+
+.ecommerce .container.dark {
+  background-color: #2b2c40;
+}
+
+.ecommerce .container.dark .percent.up {
+  color: #71dd37 !important;
+}
+
+.ecommerce .container.dark .percent.down {
+  color: #ff3e1d !important;
+}
+
+.ecommerce .container.dark .box1, .ecommerce .container.dark .box2, .ecommerce .container.dark .box31, .ecommerce .container.dark .box32, .ecommerce .container.dark .box33, .ecommerce .container.dark .box34, .ecommerce .container.dark .box4, .ecommerce .container.dark .box5, .ecommerce .container.dark .box6, .ecommerce .container.dark .box71, .ecommerce .container.dark .box72, .ecommerce .container.dark .box73, .ecommerce .container.dark .box8, .ecommerce .container.dark .box9 {
+  background-color: #404261 !important;
+}
+
+.ecommerce .container.dark .box1 p, .ecommerce .container.dark .box1 h6, .ecommerce .container.dark .box1 h4, .ecommerce .container.dark .box1 h5, .ecommerce .container.dark .box2 p, .ecommerce .container.dark .box2 h6, .ecommerce .container.dark .box2 h4, .ecommerce .container.dark .box2 h5, .ecommerce .container.dark .box31 p, .ecommerce .container.dark .box31 h6, .ecommerce .container.dark .box31 h4, .ecommerce .container.dark .box31 h5, .ecommerce .container.dark .box32 p, .ecommerce .container.dark .box32 h6, .ecommerce .container.dark .box32 h4, .ecommerce .container.dark .box32 h5, .ecommerce .container.dark .box33 p, .ecommerce .container.dark .box33 h6, .ecommerce .container.dark .box33 h4, .ecommerce .container.dark .box33 h5, .ecommerce .container.dark .box34 p, .ecommerce .container.dark .box34 h6, .ecommerce .container.dark .box34 h4, .ecommerce .container.dark .box34 h5, .ecommerce .container.dark .box4 p, .ecommerce .container.dark .box4 h6, .ecommerce .container.dark .box4 h4, .ecommerce .container.dark .box4 h5, .ecommerce .container.dark .box5 p, .ecommerce .container.dark .box5 h6, .ecommerce .container.dark .box5 h4, .ecommerce .container.dark .box5 h5, .ecommerce .container.dark .box6 p, .ecommerce .container.dark .box6 h6, .ecommerce .container.dark .box6 h4, .ecommerce .container.dark .box6 h5, .ecommerce .container.dark .box71 p, .ecommerce .container.dark .box71 h6, .ecommerce .container.dark .box71 h4, .ecommerce .container.dark .box71 h5, .ecommerce .container.dark .box72 p, .ecommerce .container.dark .box72 h6, .ecommerce .container.dark .box72 h4, .ecommerce .container.dark .box72 h5, .ecommerce .container.dark .box73 p, .ecommerce .container.dark .box73 h6, .ecommerce .container.dark .box73 h4, .ecommerce .container.dark .box73 h5, .ecommerce .container.dark .box8 p, .ecommerce .container.dark .box8 h6, .ecommerce .container.dark .box8 h4, .ecommerce .container.dark .box8 h5, .ecommerce .container.dark .box9 p, .ecommerce .container.dark .box9 h6, .ecommerce .container.dark .box9 h4, .ecommerce .container.dark .box9 h5 {
+  color: #fff !important;
+}
+
+.ecommerce .container.dark .box2 .recharts-text {
+  fill: #fff;
+}
+
+.ecommerce .container.dark .box31 button, .ecommerce .container.dark .box34 button, .ecommerce .container.dark .box6 button, .ecommerce .container.dark .box71 button, .ecommerce .container.dark .box9 button {
+  background-color: #404261 !important;
+  color: #fff !important;
+}
+
+.ecommerce .container.dark .box33 text {
+  fill: #fff;
+}
+
+.ecommerce .container.dark .box41 .income, .ecommerce .container.dark .box41 .overview, .ecommerce .container.dark .box9 .income, .ecommerce .container.dark .box9 .overview {
+  color: #fff !important;
+}
+
+.ecommerce .container.dark .box41 .recharts-text, .ecommerce .container.dark .box9 .recharts-text {
+  fill: #fff;
+}
+
+.ecommerce .container.dark .box42 .title, .ecommerce .container.dark .box42 .ave {
+  color: #fff !important;
+}
+
+.ecommerce .container.dark .box42 .report-item.dark {
+  background-color: #505379 !important;
+}
+
+.ecommerce .container.dark .box42 .report-item.dark .left {
+  background-color: #2b2c40 !important;
+}
+
+.ecommerce .container.dark .box5 .performance {
+  color: #fff !important;
+}
+
+.ecommerce .container.dark .box5 button {
+  background-color: #404261 !important;
+  color: #fff !important;
+}
+
+.ecommerce .container.dark .box8 .MuiTableCell-root, .ecommerce .container.dark .box8 .actions, .ecommerce .container.dark .box8 .second {
+  color: #fff !important;
+}
+
+.ecommerce .container.dark .box9 .totalBalance {
+  color: #fff !important;
+}
+
+.ecommerce .container.dark .box9 .divider {
+  border-color: #fff !important;
 }

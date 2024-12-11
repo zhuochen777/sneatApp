@@ -66,6 +66,9 @@
                         border: none;
                         text-transform: uppercase;
                     }
+                    button:hover{
+                        cursor: pointer;
+                    }
 
 
                     img {
@@ -1066,17 +1069,20 @@
                     border-radius: 8px;
 
                     .table-chart {
-                        .css-1ex1afd-MuiTableCell-root{
+                        .css-1ex1afd-MuiTableCell-root {
                             padding: 7px 16px;
                         }
-                        tr:last-child{
-                            th{
+
+                        tr:last-child {
+                            th {
                                 border: none;
                             }
-                            td{
+
+                            td {
                                 border: none;
                             }
                         }
+
                         .cell {
                             font-size: 12px;
                             letter-spacing: 1px;
@@ -1190,7 +1196,12 @@
 
                             .unpaid {
 
-                                .first,
+                                .first {
+                                    font-size: 16px;
+                                    line-height: 1.5;
+                                    color: rgb(105, 108, 255);
+                                    font-weight: 600;
+                                }
                                 .second {
                                     font-weight: 400;
                                     font-size: 16px;
@@ -1403,6 +1414,81 @@
                         }
                     }
                 }
+            }
+        }
+    }
+
+    .container.dark {
+        background-color: #2b2c40;
+        .percent.up{
+            color: rgb(113,221,55) !important;
+        }
+        .percent.down{
+            color: rgb(255,62,29) !important;
+        }
+        .box1,.box2,.box31,.box32,.box33,.box34,.box4,.box5,.box6,.box71,.box72,.box73,.box8,.box9 {
+            background-color: #404261 !important;
+            p ,h6,h4,h5{
+                color: #fff !important;
+            }
+        }
+        .box2{
+            .recharts-text{
+                fill: #fff;
+            }
+            
+        }
+        .box31,.box34,.box6,.box71,.box9{
+            button{
+                background-color: #404261 !important;
+                color: #fff !important;
+            }
+        }
+        .box33{
+            text{
+                fill: #fff;
+            }
+        }
+        .box41,.box9{
+            .income,.overview{
+                color: #fff !important;
+            }
+            .recharts-text{
+                fill: #fff;
+            }
+        }
+        .box42{
+            .title,.ave{
+                color: #fff !important;
+            }
+            .report-item.dark{
+                background-color: #505379 !important;
+                .left{
+                    background-color: #2b2c40 !important;
+                }
+            }
+        }
+        .box5{
+            .performance{
+                color: #fff !important;
+            }
+            button{
+                background-color: #404261 !important;
+                color: #fff !important;
+            }
+        }
+        .box8{
+            .MuiTableCell-root,.actions,.second{
+                color:#fff !important;
+            }
+            
+        }
+        .box9{
+            .totalBalance{
+                color: #fff !important;
+            }
+            .divider{
+                border-color: #fff !important;
             }
         }
     }
