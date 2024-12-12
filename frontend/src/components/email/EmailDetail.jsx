@@ -9,9 +9,10 @@ import StarOutlineIcon from "@mui/icons-material/StarOutline";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import MailLockIcon from "@mui/icons-material/MailLock";
 import InboxIcon from "@mui/icons-material/Inbox";
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef,useContext } from "react";
 import axios from "axios";
 import "../../style/email/EmailDetail.scss";
+import { themeContext } from "../../App.js";
 
 export default function EmailDetail({
   toggleDrawer,
@@ -28,6 +29,8 @@ export default function EmailDetail({
     { id: 3, name: "private" },
     { id: 4, name: "important" },
   ];
+
+  const { theme, toggleTheme } = useContext(themeContext);
 
   const [showThirdOption, setShowThirdOption] = useState(false);
   const [showFourthOption, setShowFourthOption] = useState(false);
@@ -114,7 +117,7 @@ export default function EmailDetail({
   }, []);
 
   return (
-    <div className="emailDetail">
+    <div className={`emailDetail ${theme}`}>
       <div className="header">
         <div className="left">
           <button>
@@ -301,7 +304,7 @@ export default function EmailDetail({
               </button>
             </div>
           </div>
-          <hr />
+          <hr className="divider"/>
           <div className="main">{email.body}</div>
         </div>
         <div className="bottom">

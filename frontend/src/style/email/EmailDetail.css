@@ -316,3 +316,79 @@
   color: #696cff;
   cursor: pointer;
 }
+
+.emailDetail.dark .header {
+  background-color: #404261;
+}
+
+.emailDetail.dark .header .left button {
+  background-color: #404261;
+  color: #d5d5e2;
+}
+
+.emailDetail.dark .header .left .subject-label p {
+  color: #d5d5e2;
+}
+
+.emailDetail.dark .header .right button {
+  background-color: #404261;
+  color: #d5d5e2;
+}
+
+.emailDetail.dark .actions {
+  background-color: #404261;
+}
+
+.emailDetail.dark .actions .actions-content .left button {
+  background-color: #404261;
+  color: #d5d5e2;
+}
+
+.emailDetail.dark .actions .actions-content .right button {
+  background-color: #404261;
+  color: #d5d5e2;
+}
+
+.emailDetail.dark main {
+  background-color: #4d5075;
+}
+
+.emailDetail.dark main .email-info {
+  overflow: hidden;
+  background-color: #404261;
+}
+
+.emailDetail.dark main .email-info .top {
+  background-color: #404261;
+}
+
+.emailDetail.dark main .email-info .top .left .sender-detail .sender,
+.emailDetail.dark main .email-info .top .left .sender-detail .from {
+  color: #d5d5e2;
+}
+
+.emailDetail.dark main .email-info .top .right .time {
+  color: #d5d5e2;
+}
+
+.emailDetail.dark main .email-info .top .right button {
+  background-color: #404261;
+  color: #d5d5e2;
+}
+
+.emailDetail.dark main .email-info .divider {
+  background-color: #8b8bc0;
+}
+
+.emailDetail.dark main .email-info .main {
+  background-color: #404261;
+  color: #9899ad;
+}
+
+.emailDetail.dark main .bottom .bottom-wrapper {
+  background-color: #404261;
+}
+
+.emailDetail.dark main .bottom .bottom-wrapper p {
+  color: #9899ad;
+}

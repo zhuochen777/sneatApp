@@ -94,7 +94,7 @@
   display: flex;
   align-items: center;
   transition: 0.3s;
-  color: #696cff;
+  color: rgba(50, 71, 92, 0.6);
   border-radius: 6px;
 }
 

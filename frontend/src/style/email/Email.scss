@@ -548,6 +548,9 @@
 
                                     .more-options {
                                         button {
+                                            &:hover{
+                                                background-color: rgba(230, 230, 241, 0.2);
+                                            }
                                             .more-icon{
                                                 color: #fff;
                                             }

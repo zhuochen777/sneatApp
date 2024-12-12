@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import HomeIcon from "@mui/icons-material/Home";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
@@ -25,6 +25,7 @@ export default function Sidebar() {
   const [chartsOpen, setChartsOpen] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const { theme, toggleTheme } = useContext(themeContext);
+  const [selected, setSelected] = useState(0);
 
   const handleMouseInDrawerOpen = () => {
     setSidebarOpen(true);
@@ -32,6 +33,13 @@ export default function Sidebar() {
   const handleMouseInDrawerClose = () => {
     setSidebarOpen(false);
   };
+
+  const selectHandle = (id) => {
+    setSelected(id);
+  };
+
+  console.log(selected);
+  
 
   return (
     <div
@@ -103,7 +111,15 @@ export default function Sidebar() {
                     style={{ listStyle: "none", margin: "0", padding: "0" }}
                     className="sublistItem-list"
                   >
-                    <li className={`sublistItem-item ${theme}`}>
+                    <li
+                      className={`sublistItem-item ${theme}`}
+                      onClick={() => selectHandle(1)}
+                      style={{
+                        backgroundColor:
+                          selected === 1 ? "rgba(105,108,255,0.2)" : "",
+                        borderRadius: "6px",
+                      }}
+                    >
                       <a
                         href="/dashboards/analytics"
                         className={`listRow ${theme}`}
@@ -119,7 +135,15 @@ export default function Sidebar() {
                         </Link>
                       </a>
                     </li>
-                    <li className={`sublistItem-item ${theme}`}>
+                    <li
+                      className={`sublistItem-item ${theme}`}
+                      onClick={() => selectHandle(2)}
+                      style={{
+                        backgroundColor:
+                          selected === 2 ? "rgba(105,108,255,0.2)" : "",
+                        borderRadius: "6px",
+                      }}
+                    >
                       <a href="" className={`listRow ${theme}`}>
                         <span>
                           <CircleIcon className="circle-icon icon" />
@@ -132,7 +156,15 @@ export default function Sidebar() {
                         </Link>
                       </a>
                     </li>
-                    <li className={`sublistItem-item ${theme}`}>
+                    <li
+                      className={`sublistItem-item ${theme}`}
+                      onClick={() => selectHandle(3)}
+                      style={{
+                        backgroundColor:
+                          selected === 3 ? "rgba(105,108,255,0.2)" : "",
+                        borderRadius: "6px",
+                      }}
+                    >
                       <a href="" className={`listRow ${theme}`}>
                         <span>
                           <CircleIcon className="circle-icon icon" />
@@ -174,8 +206,15 @@ export default function Sidebar() {
             </p>
           )}
 
-          <li className={`email nav-option ${theme}`}>
-            <a href="">
+          <li
+            className={`email nav-option ${theme}`}
+            onClick={() => selectHandle(4)}
+            style={{
+              backgroundColor: selected === 4 ? "rgba(105,108,255,0.2)" : "",
+              borderRadius: "6px",
+            }}
+          >
+            <a href="/apps/email">
               <div>
                 <EmailIcon className={`icon ${theme}`} />
                 <Link to="/apps/email" className="listItem">
@@ -186,7 +225,14 @@ export default function Sidebar() {
               </div>
             </a>
           </li>
-          <li className={`chat nav-option ${theme}`}>
+          <li
+            className={`chat nav-option ${theme}`}
+            onClick={() => selectHandle(5)}
+            style={{
+              backgroundColor: selected === 5 ? "rgba(105,108,255,0.2)" : "",
+              borderRadius: "6px",
+            }}
+          >
             <a href="">
               <div>
                 <ChatBubbleIcon className={`icon ${theme}`} />
@@ -198,7 +244,14 @@ export default function Sidebar() {
               </div>
             </a>
           </li>
-          <li className={`calendar nav-option ${theme}`}>
+          <li
+            className={`calendar nav-option ${theme}`}
+            onClick={() => selectHandle(6)}
+            style={{
+              backgroundColor: selected === 6 ? "rgba(105,108,255,0.2)" : "",
+              borderRadius: "6px",
+            }}
+          >
             <a href="">
               <div>
                 <CalendarMonthIcon className={`icon ${theme}`} />

@@ -502,6 +502,10 @@
   color: #d5d5e2;
 }
 
+.email .container.dark .email-content .box-wrapper .email-part .all-emails .email-item .main-part .item-right .more-options button:hover {
+  background-color: rgba(230, 230, 241, 0.2);
+}
+
 .email .container.dark .email-content .box-wrapper .email-part .all-emails .email-item .main-part .item-right .more-options button .more-icon {
   color: #fff;
 }
