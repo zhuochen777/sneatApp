@@ -1,0 +1,281 @@
+.crm {
+    .container {
+        width: calc(100% - 140px);
+        float: right;
+        background-color: rgb(245, 245, 249);
+        padding-left: 24px;
+        padding-right: 24px;
+
+        .crm-boxes {
+            .row1 {
+                display: flex;
+                margin-bottom: 24px;
+
+                .box1 {
+                    flex: 1;
+                    // border: 1px solid black;
+                    margin-right: 24px;
+                    border-radius: 8px;
+                    background-color: #fff;
+                    box-shadow: 0 .1875rem .5rem 0 rgba(34, 48, 62, .1);
+
+                    .card-header {
+                        padding: 24px;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+
+                        h5 {
+                            font-size: 18px;
+                            color: #384551;
+                            margin-right: 8px;
+                        }
+
+                        .action {
+                            button {
+                                border: none;
+                                background-color: #fff;
+                                color: #a7acb2;
+                                cursor: pointer;
+                            }
+                        }
+                    }
+
+                    .card-desc {
+                        padding: 0 24px;
+
+                        .score {
+                            display: flex;
+                            align-items: center;
+                            margin-bottom: 10px;
+
+                            h2 {
+                                margin-right: 8px;
+                                line-height: 35px;
+                                font-size: 38px;
+                            }
+
+                            .ratings {
+                                margin-bottom: 4px;
+
+                                .css-i4bv87-MuiSvgIcon-root {
+                                    fill: rgba(255, 171, 0, 1)
+                                }
+
+                                .css-i4bv87-MuiSvgIcon-root:nth-child(5) {
+                                    fill: #bdc1c5;
+                                }
+
+                            }
+                        }
+
+                        .points {
+                            display: flex;
+                            align-items: center;
+
+                            .point-number {
+                                margin-right: 8px;
+                                background-color: #e7e7ff;
+                                color: #696cff;
+                                padding: 5.5px 10px;
+                                font-size: 13px;
+                                border-radius: 4px;
+                            }
+
+                            .point-desc {
+                                height: 20px;
+                                line-height: 20px;
+                                font-size: 15px;
+                                color: #858d95;
+                            }
+                        }
+                    }
+
+                    .customerRatingsChart {
+                        height: 227px;
+
+                        .recharts-cartesian-grid,
+                        .recharts-cartesian-axis-line,
+                        .recharts-cartesian-axis-tick-line {
+                            display: none;
+                        }
+
+                        .recharts-curve.recharts-line-curve {
+                            stroke-width: 3;
+                        }
+                    }
+                }
+
+                .box2 {
+                    flex: 1;
+                    // border: 1px solid black;
+                    margin-right: 24px;
+                    border-radius: 8px;
+                    background-color: #fff;
+                    box-shadow: 0 .1875rem .5rem 0 rgba(34, 48, 62, .1);
+
+                    .card-header {
+                        padding: 24px;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+
+                        .card-title {
+                            h5 {
+                                margin-bottom: 4px;
+                                font-size: 18px;
+                                line-height: 28px;
+                            }
+
+                            p {
+                                color: #858d95;
+                                font-size: 15px;
+                            }
+                        }
+
+                        .card-dropdown {
+                            button {
+                                border: none;
+                                background-color: #fff;
+                                color: #a7acb2;
+                                cursor: pointer;
+                            }
+                        }
+
+                    }
+
+                    .card-body {
+                        height: 275px;
+
+                        .recharts-cartesian-axis-tick-line,
+                        .recharts-cartesian-axis-line {
+                            display: none;
+                        }
+                    }
+                }
+
+                .box3 {
+                    flex: 1;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 24px;
+                    .topBoxes {
+                        display: flex;
+                        gap: 24px;
+                        flex: 1;
+                        .box31 {
+                            flex: 1;
+                            box-shadow: 0 .1875rem .5rem 0 rgba(34, 48, 62, .1);
+                            // border: 1px solid black;
+                            border-radius: 8px;
+                            background-color: #fff;
+                            .card-header{
+                                padding: 24px 24px 16px;
+                                span{
+                                    margin-bottom: 4px;
+                                    color:#646e78;
+                                    font-size: 15px;
+                                }
+                                h4{
+                                    font-size: 24px;
+                                }
+                            }
+                            .card-chart{
+                                height: 80px;
+                            }
+                        }
+
+                        .box32 {
+                            flex: 1;
+                            
+                            // border: 1px solid black;
+                            border-radius: 8px;
+                            background-color: #fff;
+                            box-shadow: 0 .1875rem .5rem 0 rgba(34, 48, 62, .1);
+                           
+                            .card-header{
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: center;
+                                padding: 24px 24px 0px;
+                                .card-dropdown{
+                                    button {
+                                        border: none;
+                                        background-color: #fff;
+                                        color: #a7acb2;
+                                        cursor: pointer;
+                                    }
+                                }
+                            }
+                            .card-body{
+                                padding: 0 24px 24px;
+                                p{
+                                    margin-bottom: 4px;
+                                    color:#646e78;
+                                    font-size: 15px;
+                                }
+                                h4{
+                                    margin-bottom: 12px;
+                                    font-size: 24px;
+                                }
+                                .bottom{
+                                    color: red;
+                                    display: flex;
+                                    align-items: center;
+                                    font-size: 13px;
+                                }
+                            }
+                        }
+                    }
+
+                    .box33 {
+                        // border: 1px solid black;
+                        // margin-top: 24px;
+                        border-radius: 8px;
+                        background-color: #fff;
+                        flex:1;
+                        box-shadow: 0 .1875rem .5rem 0 rgba(34, 48, 62, .1);
+                        .box33-content{
+                            padding: 24px;
+                            display: flex;
+                            justify-content: space-between;
+                            .card-left{
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: space-between;
+                                .card-title{
+                                    margin-bottom: 15px;
+                                    h5{
+                                        font-size: 18px;
+                                    }
+                                    p{
+                                        font-size: 15px;
+                                        color: #646e78;
+                                    }
+                                }
+                                .card-data{
+                                    
+                                    h4{
+                                        font-size: 24px;
+                                        color:#384551;
+                                    }
+                                    p{
+                                        color: rgb(113,221,55);
+                                        display: flex;
+                                        align-items: center;
+                                    }
+                                }
+                            }
+                            .card-right{
+                                // height: 100px;
+                                border: 1px solid red;
+                                width: 200px;
+                                
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

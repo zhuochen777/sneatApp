@@ -165,6 +165,9 @@
                                 background-color: rgba(105, 108, 255, 0.3);
                             }
                         }
+                        .sublistItem-item.selectedTab{
+                            background-color: red;
+                        }
                     }
 
                     .dashboard-content.open {

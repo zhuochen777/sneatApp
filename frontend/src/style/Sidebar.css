@@ -137,6 +137,10 @@
   background-color: rgba(105, 108, 255, 0.3);
 }
 
+.sidebar .main ul.sidebar-ul li .dashboard-item .dashboard-content .sublistItem-item.selectedTab {
+  background-color: red;
+}
+
 .sidebar .main ul.sidebar-ul li .dashboard-item .dashboard-content.open {
   height: auto;
 }

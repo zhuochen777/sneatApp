@@ -25,7 +25,7 @@ export default function Sidebar() {
   const [chartsOpen, setChartsOpen] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const { theme, toggleTheme } = useContext(themeContext);
-  const [selected, setSelected] = useState(0);
+  // const [selected, setSelected] = useState(0);
 
   const handleMouseInDrawerOpen = () => {
     setSidebarOpen(true);
@@ -34,12 +34,14 @@ export default function Sidebar() {
     setSidebarOpen(false);
   };
 
-  const selectHandle = (id) => {
-    setSelected(id);
-  };
+  // const selectHandle = (id) => {
+  //   setSelected(id);
+  // };
 
-  console.log(selected);
-  
+  // useEffect(() => {
+  //   localStorage.setItem("selected", JSON.stringify(selected));
+  // }, [selected]);
+
 
   return (
     <div
@@ -113,12 +115,7 @@ export default function Sidebar() {
                   >
                     <li
                       className={`sublistItem-item ${theme}`}
-                      onClick={() => selectHandle(1)}
-                      style={{
-                        backgroundColor:
-                          selected === 1 ? "rgba(105,108,255,0.2)" : "",
-                        borderRadius: "6px",
-                      }}
+                      // onClick={() => selectHandle(1)}
                     >
                       <a
                         href="/dashboards/analytics"
@@ -137,19 +134,14 @@ export default function Sidebar() {
                     </li>
                     <li
                       className={`sublistItem-item ${theme}`}
-                      onClick={() => selectHandle(2)}
-                      style={{
-                        backgroundColor:
-                          selected === 2 ? "rgba(105,108,255,0.2)" : "",
-                        borderRadius: "6px",
-                      }}
+                      // onClick={() => selectHandle(2)}
                     >
                       <a href="" className={`listRow ${theme}`}>
                         <span>
                           <CircleIcon className="circle-icon icon" />
                         </span>
                         <Link
-                          to="/dashboards/analytics"
+                          to="/dashboards/crm"
                           className={`listRow ${theme}`}
                         >
                           CRM
@@ -158,12 +150,6 @@ export default function Sidebar() {
                     </li>
                     <li
                       className={`sublistItem-item ${theme}`}
-                      onClick={() => selectHandle(3)}
-                      style={{
-                        backgroundColor:
-                          selected === 3 ? "rgba(105,108,255,0.2)" : "",
-                        borderRadius: "6px",
-                      }}
                     >
                       <a href="" className={`listRow ${theme}`}>
                         <span>
@@ -208,11 +194,6 @@ export default function Sidebar() {
 
           <li
             className={`email nav-option ${theme}`}
-            onClick={() => selectHandle(4)}
-            style={{
-              backgroundColor: selected === 4 ? "rgba(105,108,255,0.2)" : "",
-              borderRadius: "6px",
-            }}
           >
             <a href="/apps/email">
               <div>
@@ -227,11 +208,7 @@ export default function Sidebar() {
           </li>
           <li
             className={`chat nav-option ${theme}`}
-            onClick={() => selectHandle(5)}
-            style={{
-              backgroundColor: selected === 5 ? "rgba(105,108,255,0.2)" : "",
-              borderRadius: "6px",
-            }}
+            // onClick={() => selectHandle(5)}
           >
             <a href="">
               <div>
@@ -246,11 +223,7 @@ export default function Sidebar() {
           </li>
           <li
             className={`calendar nav-option ${theme}`}
-            onClick={() => selectHandle(6)}
-            style={{
-              backgroundColor: selected === 6 ? "rgba(105,108,255,0.2)" : "",
-              borderRadius: "6px",
-            }}
+            // onClick={() => selectHandle(6)}
           >
             <a href="">
               <div>
@@ -313,14 +286,6 @@ export default function Sidebar() {
                           <CircleIcon className="circle-icon icon" />
                         </span>
                         <span className={`listRow ${theme}`}>Edit</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="">
-                        <span className={`listRow ${theme}`}>
-                          <CircleIcon className="circle-icon icon" />
-                        </span>
-                        <span className={`listRow ${theme}`}>Add</span>
                       </a>
                     </li>
                   </ul>
@@ -480,22 +445,22 @@ export default function Sidebar() {
                       <span className={`listRow ${theme}`}>Select</span>
                     </a>
                   </li>
-                  <li>
+                  {/* <li>
                     <a href="">
                       <span className={`listRow ${theme}`}>
                         <CircleIcon className="circle-icon icon" />
                       </span>
                       <span className={`listRow ${theme}`}>Checkbox</span>
                     </a>
-                  </li>
-                  <li>
+                  </li> */}
+                  {/* <li>
                     <a href="">
                       <span className={`listRow ${theme}`}>
                         <CircleIcon className="circle-icon icon" />
                       </span>
                       <span className={`listRow ${theme}`}>Radio</span>
                     </a>
-                  </li>
+                  </li> */}
                 </ul>
               </div>
             </div>

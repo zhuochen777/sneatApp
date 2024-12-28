@@ -12,11 +12,12 @@ import Register from "./pages/auth/Register";
 import { useState } from "react";
 import { createContext } from "react";
 import "./App.scss"
+import Crm from "./pages/dashboards/Crm";
 
 export const themeContext = createContext(null);
 
 function App() {
-  const [theme, setTheme] = useState("dark");
+  const [theme, setTheme] = useState("light");
 
   const toggleTheme = (themeMode) => {
     setTheme(themeMode);
@@ -32,6 +33,7 @@ function App() {
           <Route path="login" element={<Login />} />
           <Route path="dashboards/analytics" element={<Analytics />} />
           <Route path="dashboards/ecommerce" element={<Ecommerce />} />
+          <Route path="dashboards/crm" element={<Crm />} />
           <Route path="apps/email" element={<Email />}>
             <Route index element={<Navigate to="inbox" />} />
             <Route path=":type" element={<Emails />} />
