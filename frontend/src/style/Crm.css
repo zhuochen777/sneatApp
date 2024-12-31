@@ -269,6 +269,267 @@
 }
 
 .crm .container .crm-boxes .row1 .box3 .box33 .box33-content .card-right {
-  border: 1px solid red;
   width: 200px;
+  height: 150px;
+}
+
+.crm .container .crm-boxes .row2 {
+  display: flex;
+}
+
+.crm .container .crm-boxes .row2 .box4 {
+  flex: 2;
+}
+
+.crm .container .crm-boxes .row2 .box4 .box4-content {
+  display: flex;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 0.1875rem 0.5rem 0 rgba(34, 48, 62, 0.1);
+  margin-right: 8px;
+}
+
+.crm .container .crm-boxes .row2 .box4 .box4-content .box4-left,
+.crm .container .crm-boxes .row2 .box4 .box4-content .box4-right {
+  width: calc(50%);
+  border-right: 1px solid lightgrey;
+}
+
+.crm .container .crm-boxes .row2 .box4 .box4-content .box4-left .card-header,
+.crm .container .crm-boxes .row2 .box4 .box4-content .box4-right .card-header {
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.crm .container .crm-boxes .row2 .box4 .box4-content .box4-left .card-header h5,
+.crm .container .crm-boxes .row2 .box4 .box4-content .box4-right .card-header h5 {
+  margin-right: 5px;
+  font-size: 18px;
+}
+
+.crm .container .crm-boxes .row2 .box4 .box4-content .box4-left .card-header h5 .sales,
+.crm .container .crm-boxes .row2 .box4 .box4-content .box4-right .card-header h5 .sales {
+  color: #696cff;
+}
+
+.crm .container .crm-boxes .row2 .box4 .box4-content .box4-left .card-header .card-dropdown button,
+.crm .container .crm-boxes .row2 .box4 .box4-content .box4-right .card-header .card-dropdown button {
+  border: none;
+  background-color: #fff;
+  color: #a7acb2;
+  cursor: pointer;
+}
+
+.crm .container .crm-boxes .row2 .box4 .box4-content .box4-left .card-body,
+.crm .container .crm-boxes .row2 .box4 .box4-content .box4-right .card-body {
+  padding: 24px;
+}
+
+.crm .container .crm-boxes .row2 .box4 .box4-content .box4-left .card-body ul,
+.crm .container .crm-boxes .row2 .box4 .box4-content .box4-right .card-body ul {
+  list-style: none;
+}
+
+.crm .container .crm-boxes .row2 .box4 .box4-content .box4-left .card-body ul .sales-item,
+.crm .container .crm-boxes .row2 .box4 .box4-content .box4-right .card-body ul .sales-item {
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+}
+
+.crm .container .crm-boxes .row2 .box4 .box4-content .box4-left .card-body ul .sales-item .avatar,
+.crm .container .crm-boxes .row2 .box4 .box4-content .box4-right .card-body ul .sales-item .avatar {
+  height: 38px;
+  width: 38px;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.crm .container .crm-boxes .row2 .box4 .box4-content .box4-left .card-body ul .sales-item .avatar img,
+.crm .container .crm-boxes .row2 .box4 .box4-content .box4-right .card-body ul .sales-item .avatar img {
+  width: 100%;
+  height: 100%;
+}
+
+.crm .container .crm-boxes .row2 .box4 .box4-content .box4-left .card-body ul .sales-item .sales-desc,
+.crm .container .crm-boxes .row2 .box4 .box4-content .box4-right .card-body ul .sales-item .sales-desc {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.crm .container .crm-boxes .row2 .box4 .box4-content .box4-left .card-body ul .sales-item .sales-desc .sales-desc-left h6,
+.crm .container .crm-boxes .row2 .box4 .box4-content .box4-right .card-body ul .sales-item .sales-desc .sales-desc-left h6 {
+  font-size: 15px;
+}
+
+.crm .container .crm-boxes .row2 .box4 .box4-content .box4-left .card-body ul .sales-item .sales-desc .sales-desc-left small,
+.crm .container .crm-boxes .row2 .box4 .box4-content .box4-right .card-body ul .sales-item .sales-desc .sales-desc-left small {
+  font-size: 13px;
+  color: #646e78;
+}
+
+.crm .container .crm-boxes .row2 .box4 .box4-content .box4-left .card-body ul .sales-item .sales-desc .sales-desc-right,
+.crm .container .crm-boxes .row2 .box4 .box4-content .box4-right .card-body ul .sales-item .sales-desc .sales-desc-right {
+  font-size: 15px;
+  color: #646e78;
+  display: flex;
+  align-items: center;
+}
+
+.crm .container .crm-boxes .row2 .box4 .box4-content .box4-left .card-body ul .sales-item .sales-desc .sales-desc-right .num,
+.crm .container .crm-boxes .row2 .box4 .box4-content .box4-right .card-body ul .sales-item .sales-desc .sales-desc-right .num {
+  margin-left: 12px;
+  padding: 5.5px 10px;
+  border-radius: 4px;
+}
+
+.crm .container .crm-boxes .row2 .box4 .box4-content .box4-left .card-body ul .sales-item .sales-desc .sales-desc-right .up,
+.crm .container .crm-boxes .row2 .box4 .box4-content .box4-right .card-body ul .sales-item .sales-desc .sales-desc-right .up {
+  background-color: #e8fadf;
+  color: #71dd37;
+}
+
+.crm .container .crm-boxes .row2 .box4 .box4-content .box4-left .card-body ul .sales-item .sales-desc .sales-desc-right .down,
+.crm .container .crm-boxes .row2 .box4 .box4-content .box4-right .card-body ul .sales-item .sales-desc .sales-desc-right .down {
+  background-color: #ffe0db;
+  color: #ff3e1d;
+}
+
+.crm .container .crm-boxes .row2 .box5 {
+  flex: 1;
+}
+
+.crm .container .crm-boxes .row2 .box5 .box5-content {
+  margin-left: 16px;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 0.1875rem 0.5rem 0 rgba(34, 48, 62, 0.1);
+}
+
+.crm .container .crm-boxes .row2 .box5 .box5-content .card-header {
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.crm .container .crm-boxes .row2 .box5 .box5-content .card-header h5 {
+  margin-right: 5px;
+  font-size: 18px;
+}
+
+.crm .container .crm-boxes .row2 .box5 .box5-content .card-header span {
+  color: #646e78;
+  font-size: 15px;
+}
+
+.crm .container .crm-boxes .row2 .box5 .box5-content .card-header .card-dropdown button {
+  border: none;
+  background-color: #fff;
+  color: #a7acb2;
+  cursor: pointer;
+}
+
+.crm .container .crm-boxes .row2 .box5 .box5-content .card-body {
+  padding: 24px;
+}
+
+.crm .container .crm-boxes .row2 .box5 .box5-content .card-body ul {
+  list-style: none;
+}
+
+.crm .container .crm-boxes .row2 .box5 .box5-content .card-body ul .earning-item {
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+}
+
+.crm .container .crm-boxes .row2 .box5 .box5-content .card-body ul .earning-item .avatar {
+  height: 38px;
+  width: 38px;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.crm .container .crm-boxes .row2 .box5 .box5-content .card-body ul .earning-item .avatar img {
+  width: 100%;
+  height: 100%;
+}
+
+.crm .container .crm-boxes .row2 .box5 .box5-content .card-body ul .earning-item .earning-desc {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.crm .container .crm-boxes .row2 .box5 .box5-content .card-body ul .earning-item .earning-desc .earning-desc-left h6 {
+  font-size: 15px;
+}
+
+.crm .container .crm-boxes .row2 .box5 .box5-content .card-body ul .earning-item .earning-desc .earning-desc-left small {
+  font-size: 13px;
+  color: #646e78;
+}
+
+.crm .container .crm-boxes .row2 .box5 .box5-content .card-body ul .earning-item .earning-desc .earning-desc-right {
+  font-size: 15px;
+  color: #646e78;
+  display: flex;
+  align-items: center;
+}
+
+.crm .container .crm-boxes .row2 .box5 .box5-content .card-body ul .earning-item .earning-desc .earning-desc-right .num {
+  padding: 5.5px 10px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+}
+
+.crm .container .crm-boxes .row2 .box5 .box5-content .card-body ul .earning-item .earning-desc .earning-desc-right .up {
+  color: #71dd37;
+  width: 20px;
+  height: 20px;
+}
+
+.crm .container .crm-boxes .row2 .box5 .box5-content .card-body .chart {
+  height: 124px;
+}
+
+.crm .container .crm-boxes .row2 .box5 .box5-content .card-body .chart .recharts-cartesian-axis-line {
+  display: none;
+}
+
+.crm .container .crm-boxes .row2 .box5 .box5-content .card-body .chart .recharts-cartesian-axis-tick-line {
+  display: none;
+}
+
+.crm .container .crm-boxes .row3 {
+  display: flex;
+}
+
+.crm .container .crm-boxes .row3 .box6 {
+  flex: 1;
+}
+
+.crm .container .crm-boxes .row3 .box6 .box6-content {
+  margin-right: 12px;
+}
+
+.crm .container .crm-boxes .row3 .box6 .box6-content .card-header {
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.crm .container .crm-boxes .row3 .box7 {
+  flex: 1;
+  border: 1px solid red;
+}
+
+.crm .container .crm-boxes .row3 .box8 {
+  flex: 1;
+  border: 1px solid red;
 }

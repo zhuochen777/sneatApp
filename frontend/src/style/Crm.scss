@@ -159,46 +159,53 @@
                     display: flex;
                     flex-direction: column;
                     gap: 24px;
+
                     .topBoxes {
                         display: flex;
                         gap: 24px;
                         flex: 1;
+
                         .box31 {
                             flex: 1;
                             box-shadow: 0 .1875rem .5rem 0 rgba(34, 48, 62, .1);
                             // border: 1px solid black;
                             border-radius: 8px;
                             background-color: #fff;
-                            .card-header{
+
+                            .card-header {
                                 padding: 24px 24px 16px;
-                                span{
+
+                                span {
                                     margin-bottom: 4px;
-                                    color:#646e78;
+                                    color: #646e78;
                                     font-size: 15px;
                                 }
-                                h4{
+
+                                h4 {
                                     font-size: 24px;
                                 }
                             }
-                            .card-chart{
+
+                            .card-chart {
                                 height: 80px;
                             }
                         }
 
                         .box32 {
                             flex: 1;
-                            
+
                             // border: 1px solid black;
                             border-radius: 8px;
                             background-color: #fff;
                             box-shadow: 0 .1875rem .5rem 0 rgba(34, 48, 62, .1);
-                           
-                            .card-header{
+
+                            .card-header {
                                 display: flex;
                                 justify-content: space-between;
                                 align-items: center;
                                 padding: 24px 24px 0px;
-                                .card-dropdown{
+
+                                .card-dropdown {
                                     button {
                                         border: none;
                                         background-color: #fff;
@@ -207,18 +214,22 @@
                                     }
                                 }
                             }
-                            .card-body{
+
+                            .card-body {
                                 padding: 0 24px 24px;
-                                p{
+
+                                p {
                                     margin-bottom: 4px;
-                                    color:#646e78;
+                                    color: #646e78;
                                     font-size: 15px;
                                 }
-                                h4{
+
+                                h4 {
                                     margin-bottom: 12px;
                                     font-size: 24px;
                                 }
-                                .bottom{
+
+                                .bottom {
                                     color: red;
                                     display: flex;
                                     align-items: center;
@@ -233,47 +244,309 @@
                         // margin-top: 24px;
                         border-radius: 8px;
                         background-color: #fff;
-                        flex:1;
+                        flex: 1;
                         box-shadow: 0 .1875rem .5rem 0 rgba(34, 48, 62, .1);
-                        .box33-content{
+
+                        .box33-content {
                             padding: 24px;
                             display: flex;
                             justify-content: space-between;
-                            .card-left{
+
+                            .card-left {
                                 display: flex;
                                 flex-direction: column;
                                 justify-content: space-between;
-                                .card-title{
+
+                                .card-title {
                                     margin-bottom: 15px;
-                                    h5{
+
+                                    h5 {
                                         font-size: 18px;
                                     }
-                                    p{
+
+                                    p {
                                         font-size: 15px;
                                         color: #646e78;
                                     }
                                 }
-                                .card-data{
-                                    
-                                    h4{
+
+                                .card-data {
+
+                                    h4 {
                                         font-size: 24px;
-                                        color:#384551;
+                                        color: #384551;
                                     }
-                                    p{
-                                        color: rgb(113,221,55);
+
+                                    p {
+                                        color: rgb(113, 221, 55);
                                         display: flex;
                                         align-items: center;
                                     }
                                 }
                             }
-                            .card-right{
+
+                            .card-right {
                                 // height: 100px;
-                                border: 1px solid red;
+                                // border: 1px solid red;
                                 width: 200px;
-                                
+                                height: 150px;
                             }
                         }
                     }
+                }
+            }
+
+            .row2 {
+                display: flex;
+
+                .box4 {
+                    flex: 2;
+
+                    .box4-content {
+                        display: flex;
+                        border-radius: 8px;
+                        background-color: #fff;
+                        box-shadow: 0 .1875rem .5rem 0 rgba(34, 48, 62, .1);
+                        margin-right: 8px;
+
+                        .box4-left,
+                        .box4-right {
+                            width: calc(50%);
+                            border-right: 1px solid lightgrey;
+
+                            .card-header {
+                                padding: 24px;
+                                display: flex;
+                                justify-content: space-between;
+
+                                h5 {
+                                    margin-right: 5px;
+                                    font-size: 18px;
+
+                                    .sales {
+                                        color: #696cff;
+                                    }
+                                }
+
+                                .card-dropdown {
+                                    button {
+                                        border: none;
+                                        background-color: #fff;
+                                        color: #a7acb2;
+                                        cursor: pointer;
+                                    }
+                                }
+                            }
+
+                            .card-body {
+                                padding: 24px;
+
+                                ul {
+                                    list-style: none;
+
+                                    .sales-item {
+                                        margin-bottom: 28px;
+                                        display: flex;
+                                        align-items: center;
+
+                                        .avatar {
+                                            height: 38px;
+                                            width: 38px;
+                                            margin-right: 12px;
+                                            flex-shrink: 0;
+
+                                            img {
+                                                width: 100%;
+                                                height: 100%
+                                            }
+                                        }
+
+                                        .sales-desc {
+                                            width: 100%;
+                                            display: flex;
+                                            justify-content: space-between;
+                                            align-items: center;
+
+                                            .sales-desc-left {
+                                                h6 {
+                                                    font-size: 15px;
+                                                }
+
+                                                small {
+                                                    font-size: 13px;
+                                                    color: #646e78;
+                                                }
+                                            }
+
+                                            .sales-desc-right {
+                                                font-size: 15px;
+                                                color: #646e78;
+                                                display: flex;
+                                                align-items: center;
+
+                                                .num {
+                                                    margin-left: 12px;
+                                                    padding: 5.5px 10px;
+                                                    border-radius: 4px;
+                                                }
+
+                                                .up {
+                                                    background-color: #e8fadf;
+                                                    color: #71dd37;
+
+                                                }
+
+                                                .down {
+                                                    background-color: #ffe0db;
+                                                    color: #ff3e1d;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        .box4-right {}
+                    }
+
+                }
+
+                .box5 {
+                    flex: 1;
+                    // border: 1px solid red;
+
+                    .box5-content {
+
+                        margin-left: 16px;
+                        border-radius: 8px;
+                        background-color: #fff;
+                        box-shadow: 0 .1875rem .5rem 0 rgba(34, 48, 62, .1);
+
+                        .card-header {
+                            padding: 24px;
+                            display: flex;
+                            justify-content: space-between;
+
+                            h5 {
+                                margin-right: 5px;
+                                font-size: 18px;
+                            }
+
+                            span {
+                                color: #646e78;
+                                font-size: 15px;
+                            }
+
+                            .card-dropdown {
+                                button {
+                                    border: none;
+                                    background-color: #fff;
+                                    color: #a7acb2;
+                                    cursor: pointer;
+                                }
+                            }
+                        }
+
+                        .card-body {
+                            padding: 24px;
+
+                            ul {
+                                list-style: none;
+
+                                .earning-item {
+                                    margin-bottom: 28px;
+                                    display: flex;
+                                    align-items: center;
+
+                                    .avatar {
+                                        height: 38px;
+                                        width: 38px;
+                                        margin-right: 12px;
+                                        flex-shrink: 0;
+
+                                        img {
+                                            width: 100%;
+                                            height: 100%
+                                        }
+                                    }
+
+                                    .earning-desc {
+                                        width: 100%;
+                                        display: flex;
+                                        justify-content: space-between;
+                                        align-items: center;
+
+                                        .earning-desc-left {
+                                            h6 {
+                                                font-size: 15px;
+                                            }
+
+                                            small {
+                                                font-size: 13px;
+                                                color: #646e78;
+                                            }
+                                        }
+
+                                        .earning-desc-right {
+                                            font-size: 15px;
+                                            color: #646e78;
+                                            display: flex;
+                                            align-items: center;
+
+                                            .num {
+                                                // margin-left: 12px;
+                                                padding: 5.5px 10px;
+                                                border-radius: 4px;
+                                                display: flex;
+                                                align-items: center;
+                                            }
+
+                                            .up {
+                                                color: #71dd37;
+                                                width: 20px;
+                                                height: 20px;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            .chart{
+                                height: 124px;
+                                .recharts-cartesian-axis-line{
+                                    display: none;
+                                }
+                                .recharts-cartesian-axis-tick-line{
+                                    display: none;
+                                }
+
+                            }
+                        }
+                    }
+                }
+            }
+            .row3{
+                display: flex;
+                .box6{
+                    flex: 1;
+                    // border: 1px solid red;
+                    .box6-content{
+                        margin-right: 12px;
+                        // border: 1px solid blue;
+                        .card-header{
+                            padding: 24px;
+                            display: flex;
+                            justify-content: space-between;
+                        }
+                    }
+                }
+                .box7{
+                    flex: 1;
+                    border: 1px solid red;
+                }
+                .box8{
+                    flex: 1;
+                    border: 1px solid red;
                 }
             }
         }
