@@ -22,7 +22,19 @@ import {
 } from "recharts";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import { ResponsiveHeatMap } from "@nivo/heatmap";
+import { CircularProgressbar } from "react-circular-progressbar";
+import "react-circular-progressbar/dist/styles.css";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Paper from "@mui/material/Paper";
+import Footer from "../../components/Footer";
 
 const dataBox1 = [
   {
@@ -176,6 +188,412 @@ const dataBox5 = [
     name: "Su",
     "Series-1": 75,
   },
+];
+
+const dataBox6 = [
+  {
+    id: "8k",
+    data: [
+      {
+        x: "Jan",
+        y: 575,
+      },
+      {
+        x: "Feb",
+        y: 350,
+      },
+      {
+        x: "Mar",
+        y: 220,
+      },
+      {
+        x: "Apr",
+        y: 290,
+      },
+      {
+        x: "May",
+        y: 650,
+      },
+      {
+        x: "Jun",
+        y: 260,
+      },
+      {
+        x: "Jul",
+        y: 275,
+      },
+      {
+        x: "Aug",
+        y: 815,
+      },
+    ],
+  },
+  {
+    id: "7k",
+    data: [
+      {
+        x: "Jan",
+        y: 575,
+      },
+      {
+        x: "Feb",
+        y: 1305,
+      },
+      {
+        x: "Mar",
+        y: 1220,
+      },
+      {
+        x: "Apr",
+        y: 1290,
+      },
+      {
+        x: "May",
+        y: 1250,
+      },
+      {
+        x: "Jun",
+        y: 1260,
+      },
+      {
+        x: "Jul",
+        y: 3200,
+      },
+      {
+        x: "Aug",
+        y: 815,
+      },
+    ],
+  },
+  {
+    id: "6k",
+    data: [
+      {
+        x: "Jan",
+        y: 320,
+      },
+      {
+        x: "Feb",
+        y: 220,
+      },
+      {
+        x: "Mar",
+        y: 520,
+      },
+      {
+        x: "Apr",
+        y: 505,
+      },
+      {
+        x: "May",
+        y: 514,
+      },
+      {
+        x: "Jun",
+        y: 472,
+      },
+      {
+        x: "Jul",
+        y: 371,
+      },
+      {
+        x: "Aug",
+        y: 258,
+      },
+    ],
+  },
+  {
+    id: "5k",
+    data: [
+      {
+        x: "Jan",
+        y: 492,
+      },
+      {
+        x: "Feb",
+        y: 468,
+      },
+      {
+        x: "Mar",
+        y: 1760,
+      },
+      {
+        x: "Apr",
+        y: 895,
+      },
+      {
+        x: "May",
+        y: 397,
+      },
+      {
+        x: "Jun",
+        y: 761,
+      },
+      {
+        x: "Jul",
+        y: 49,
+      },
+      {
+        x: "Aug",
+        y: 292,
+      },
+    ],
+  },
+  {
+    id: "4k",
+    data: [
+      {
+        x: "Jan",
+        y: 443,
+      },
+      {
+        x: "Feb",
+        y: 812,
+      },
+      {
+        x: "Mar",
+        y: 985,
+      },
+      {
+        x: "Apr",
+        y: 1320,
+      },
+      {
+        x: "May",
+        y: 376,
+      },
+      {
+        x: "Jun",
+        y: 217,
+      },
+      {
+        x: "Jul",
+        y: 948,
+      },
+      {
+        x: "Aug",
+        y: 368,
+      },
+    ],
+  },
+  {
+    id: "3k",
+    data: [
+      {
+        x: "Jan",
+        y: 1440,
+      },
+      {
+        x: "Feb",
+        y: 878,
+      },
+      {
+        x: "Mar",
+        y: 857,
+      },
+      {
+        x: "Apr",
+        y: 768,
+      },
+      {
+        x: "May",
+        y: 929,
+      },
+      {
+        x: "Jun",
+        y: 1420,
+      },
+      {
+        x: "Jul",
+        y: 896,
+      },
+      {
+        x: "Aug",
+        y: 558,
+      },
+    ],
+  },
+  {
+    id: "2k",
+    data: [
+      {
+        x: "Jan",
+        y: 15,
+      },
+      {
+        x: "Feb",
+        y: 172,
+      },
+      {
+        x: "Mar",
+        y: 821,
+      },
+      {
+        x: "Apr",
+        y: 998,
+      },
+      {
+        x: "May",
+        y: 892,
+      },
+      {
+        x: "Jun",
+        y: 1670,
+      },
+      {
+        x: "Jul",
+        y: 300,
+      },
+      {
+        x: "Aug",
+        y: 548,
+      },
+    ],
+  },
+  {
+    id: "1k",
+    data: [
+      {
+        x: "Jan",
+        y: 783,
+      },
+      {
+        x: "Feb",
+        y: 1860,
+      },
+      {
+        x: "Mar",
+        y: 67,
+      },
+      {
+        x: "Apr",
+        y: 222,
+      },
+      {
+        x: "May",
+        y: 980,
+      },
+      {
+        x: "Jun",
+        y: 395,
+      },
+      {
+        x: "Jul",
+        y: 335,
+      },
+      {
+        x: "Aug",
+        y: 483,
+      },
+    ],
+  },
+];
+
+function createDataBox9(name, avatar, title, project, task, progress, color) {
+  return { name, avatar, title, project, task, progress, color };
+}
+
+const rowsBox9 = [
+  createDataBox9(
+    "Nathan Wagner",
+    "https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/avatars/17.png",
+    "iOS Developer",
+    "ZIPCAR",
+    "87/135",
+    70,
+    "purple"
+  ),
+  createDataBox9(
+    "Emma Bowen",
+    "https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/avatars/8.png",
+    "UI/UX Designer",
+    "BITBANK",
+    "320/440",
+    90,
+    "red"
+  ),
+  createDataBox9(
+    "Adrian McGuire",
+    "https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/avatars/11.png",
+    "PHP Developer",
+    "PAYERS",
+    "50/82",
+    75,
+    "orange"
+  ),
+  createDataBox9(
+    "Alma Gonzalez",
+    "https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/avatars/2.png",
+    "Product Manager",
+    "BRANDI",
+    "98/260",
+    70,
+    "lightblue"
+  ),
+  createDataBox9(
+    "Allen Kristian",
+    "https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/avatars/11.png",
+    "Frontend Developer",
+    "CRYPTER",
+    "690/760",
+    60,
+    "lightblue"
+  ),
+];
+
+function createDataBox10(name, avatar, email, amount, status, paidBy) {
+  return { name, avatar, email, amount, status, paidBy };
+}
+
+const rowsBox10 = [
+  createDataBox10(
+    "Henry Barnes",
+    "https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/avatars/7.png",
+    "jok@puc.co.uk",
+    495.65,
+    "Paid",
+    "https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/icons/payments/master-light.png"
+  ),
+  createDataBox10(
+    "Hallie Warner",
+    "https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/avatars/20.png",
+    "hellie@war.co.uk",
+    93.81,
+    "Pending",
+    "https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/icons/payments/master-light.png"
+  ),
+  createDataBox10(
+    "Gerald Flowers",
+    "https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/avatars/9.png",
+    "initus@odemi.com",
+    934.35,
+    "Pending",
+    "https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/icons/payments/paypal_logo-light.png"
+  ),
+  createDataBox10(
+    "John Davidson",
+    "https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/avatars/14.png",
+    "jtum@upkesja.gov",
+    794.97,
+    "Paid",
+    "https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/icons/payments/master-light.png"
+  ),
+  createDataBox10(
+    "Jayden Harris",
+    "https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/avatars/17.png",
+    "wipare@tin.com",
+    19.49,
+    "Paid",
+    "https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/icons/payments/master-light.png"
+  ),
+  createDataBox10(
+    "Rena Ferguson",
+    "https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/avatars/8.png",
+    "nur@kaomor.edu",
+    636.27,
+    "Failed",
+    "https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/icons/payments/paypal_logo-light.png"
+  ),
 ];
 
 export default function Crm() {
@@ -718,15 +1136,77 @@ export default function Crm() {
                 <div className="card-header">
                   <div className="card-header-left">
                     <h5>Sales Analytics</h5>
-                    <span>+42.6%</span>
-                    <span>Than last year</span>
+                    <span className="num">+42.6%</span>
+                    <span className="last-year">Than last year</span>
                   </div>
                   <div className="btn-group">
-                    <button>2022</button>
-                    <button><KeyboardArrowDownIcon/></button>
+                    <button className="btn-one">2022</button>
+                    <button className="btn-two">
+                      <KeyboardArrowDownIcon className="icon" />
+                    </button>
                   </div>
                 </div>
-                <div className="card-body"></div>
+                <div className="card-body">
+                  <div className="chart">
+                    <ResponsiveHeatMap
+                      data={dataBox6}
+                      margin={{ top: 0, right: 50, bottom: 60, left: 60 }}
+                      valueFormat=">-.2s"
+                      axisBottom={{
+                        tickSize: 5,
+                        tickPadding: 5,
+                        tickRotation: -90,
+                        legend: "",
+                        legendOffset: 46,
+                        truncateTickAt: 0,
+                      }}
+                      // axisRight={{
+                      //   tickSize: 5,
+                      //   tickPadding: 5,
+                      //   tickRotation: 0,
+                      //   legend: "country",
+                      //   legendPosition: "middle",
+                      //   legendOffset: 70,
+                      //   truncateTickAt: 0,
+                      // }}
+                      axisLeft={{
+                        tickSize: 5,
+                        tickPadding: 5,
+                        tickRotation: 0,
+                        // legend: "country",
+                        legendPosition: "middle",
+                        legendOffset: -72,
+                        truncateTickAt: 0,
+                      }}
+                      colors={{
+                        type: "diverging",
+                        scheme: "red_yellow_blue",
+                        divergeAt: 0.5,
+                        minValue: 0,
+                        maxValue: 2000,
+                      }}
+                      emptyColor="#555555"
+                      // legends={[
+                      //   {
+                      //     anchor: "bottom",
+                      //     translateX: 0,
+                      //     translateY: 30,
+                      //     length: 400,
+                      //     thickness: 8,
+                      //     direction: "row",
+                      //     tickPosition: "after",
+                      //     tickSize: 3,
+                      //     tickSpacing: 4,
+                      //     tickOverlap: false,
+                      //     tickFormat: ">-.2s",
+                      //     title: "Value →",
+                      //     titleAlign: "start",
+                      //     titleOffset: 4,
+                      //   },
+                      // ]}
+                    />
+                  </div>
+                </div>
               </div>
             </div>
             <div className="box7">
@@ -747,16 +1227,16 @@ export default function Crm() {
                     <li className="country-item">
                       <div className="avatar">
                         <img
-                          src="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/icons/unicons/laptop-secondary.png"
+                          src="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/vendor/fonts/flags/1x1/us.svg"
                           alt=""
                         />
                       </div>
                       <div className="country-desc">
                         <div className="country-desc-left">
                           <h6>
-                            $8,567{" "}
+                            <span className="dollar">$8,567</span>
                             <div className="num up">
-                              <ArrowUpwardIcon />
+                              <KeyboardArrowUpIcon className="icon" />
                               25.8%
                             </div>
                           </h6>
@@ -770,16 +1250,16 @@ export default function Crm() {
                     <li className="country-item">
                       <div className="avatar">
                         <img
-                          src="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/icons/unicons/computer.png"
+                          src="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/vendor/fonts/flags/1x1/br.svg"
                           alt=""
                         />
                       </div>
                       <div className="country-desc">
                         <div className="country-desc-left">
                           <h6>
-                            $2,415k{" "}
+                            <span className="dollar">$2,415k</span>
                             <div className="num down">
-                              <ArrowDownwardIcon />
+                              <KeyboardArrowDownIcon className="icon" />
                               6.2%
                             </div>
                           </h6>
@@ -793,16 +1273,16 @@ export default function Crm() {
                     <li className="country-item">
                       <div className="avatar">
                         <img
-                          src="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/icons/unicons/watch.png"
+                          src="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/vendor/fonts/flags/1x1/in.svg"
                           alt=""
                         />
                       </div>
                       <div className="country-desc">
                         <div className="country-desc-left">
                           <h6>
-                            $865k{" "}
+                            <span className="dollar">$865k</span>
                             <div className="num up">
-                              <ArrowUpwardIcon />
+                              <KeyboardArrowUpIcon />
                               12.4%
                             </div>
                           </h6>
@@ -816,16 +1296,16 @@ export default function Crm() {
                     <li className="country-item">
                       <div className="avatar">
                         <img
-                          src="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/icons/unicons/watch.png"
+                          src="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/vendor/fonts/flags/1x1/au.svg"
                           alt=""
                         />
                       </div>
                       <div className="country-desc">
                         <div className="country-desc-left">
                           <h6>
-                            $745k{" "}
+                            <span className="dollar">$745k</span>
                             <div className="num down">
-                              <ArrowDownwardIcon />
+                              <KeyboardArrowDownIcon className="icon" />
                               11.9%
                             </div>
                           </h6>
@@ -839,16 +1319,16 @@ export default function Crm() {
                     <li className="country-item">
                       <div className="avatar">
                         <img
-                          src="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/icons/unicons/watch.png"
+                          src="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/vendor/fonts/flags/1x1/fr.svg"
                           alt=""
                         />
                       </div>
                       <div className="country-desc">
                         <div className="country-desc-left">
                           <h6>
-                            $45k{" "}
+                            <span className="dollar">$45k</span>
                             <div className="num up">
-                              <ArrowUpwardIcon />
+                              <KeyboardArrowUpIcon className="icon" />
                               16.2%
                             </div>
                           </h6>
@@ -862,16 +1342,16 @@ export default function Crm() {
                     <li className="country-item">
                       <div className="avatar">
                         <img
-                          src="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/icons/unicons/watch.png"
+                          src="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/vendor/fonts/flags/1x1/cn.svg"
                           alt=""
                         />
                       </div>
                       <div className="country-desc">
                         <div className="country-desc-left">
                           <h6>
-                            $12k{" "}
+                            <span className="dollar">$12k</span>
                             <div className="num up">
-                              <ArrowUpwardIcon />
+                              <KeyboardArrowUpIcon className="icon" />
                               14.8%
                             </div>
                           </h6>
@@ -898,7 +1378,9 @@ export default function Crm() {
                     </button>
                   </div>
                 </div>
-                <div className="chart"></div>
+                <div className="circularBar">
+                  <CircularProgressbar value={75} text="75% Sales" />
+                </div>
                 <div className="card-body">
                   <div className="card-body-left">
                     <span className="dot"></span>
@@ -912,7 +1394,134 @@ export default function Crm() {
               </div>
             </div>
           </div>
+          <div className="row4">
+            <div className="box9">
+              <div className="box9-content">
+                <div className="card-header">
+                  <div className="card-header-left">
+                    <h5>Team Members</h5>
+                  </div>
+                  <div className="card-dropdown">
+                    <button>
+                      <MoreVertIcon />
+                    </button>
+                  </div>
+                </div>
+                <div className="card-body">
+                  <TableContainer component={Paper}>
+                    <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                      <TableHead>
+                        <TableRow>
+                          <TableCell>NAME</TableCell>
+                          <TableCell align="left">PROJECT</TableCell>
+                          <TableCell align="left">TASK</TableCell>
+                          <TableCell align="left">PROGRESS</TableCell>
+                        </TableRow>
+                      </TableHead>
+                      <TableBody>
+                        {rowsBox9.map((row) => (
+                          <TableRow
+                            key={row.name}
+                            sx={{
+                              "&:last-child td, &:last-child th": { border: 0 },
+                            }}
+                          >
+                            <TableCell component="th" scope="row">
+                              <div className="name-wrapper">
+                                <div className="avatar">
+                                  <img src={row.avatar} alt="" />
+                                </div>
+                                <div className="name-details">
+                                  <div className="name-team">{row.name}</div>
+                                  <div className="name-title">{row.title}</div>
+                                </div>
+                              </div>
+                            </TableCell>
+                            <TableCell align="left">
+                              <div className={`${row.color} project-name`}>
+                                {row.project}
+                              </div>
+                            </TableCell>
+                            <TableCell align="left">{row.task}</TableCell>
+                            <TableCell align="center">
+                              {" "}
+                              <CircularProgressbar
+                                value={row.progress}
+                                className={row.color}
+                              />
+                            </TableCell>
+                          </TableRow>
+                        ))}
+                      </TableBody>
+                    </Table>
+                  </TableContainer>
+                </div>
+              </div>
+            </div>
+            <div className="box10">
+              <div className="box10-content">
+                <div className="chart">
+                  <TableContainer component={Paper}>
+                    <Table aria-label="simple table">
+                      <TableHead>
+                        <TableRow>
+                          <TableCell>CUSTOMER</TableCell>
+                          <TableCell align="left">AMOUNT</TableCell>
+                          <TableCell align="left">STATUS</TableCell>
+                          <TableCell align="center">PAID BY</TableCell>
+                          <TableCell align="center">ACTIONS</TableCell>
+                        </TableRow>
+                      </TableHead>
+                      <TableBody>
+                        {rowsBox10.map((row) => (
+                          <TableRow
+                            key={row.name}
+                            sx={{
+                              "&:last-child td, &:last-child th": { border: 0 },
+                            }}
+                          >
+                            <TableCell component="th" scope="row">
+                              <div className="customer-wrapper">
+                                <div className="customer-avatar">
+                                  <img src={row.avatar} alt="" />
+                                </div>
+                                <div className="customer-details">
+                                  <div className="customer-team">
+                                    {row.name}
+                                  </div>
+                                  <div className="customer-email">
+                                    {row.email}
+                                  </div>
+                                </div>
+                              </div>
+                            </TableCell>
+                            <TableCell align="left">${row.amount}</TableCell>
+                            <TableCell align="left">
+                              <div className={`${row.status} status`}>{row.status}</div>
+                            </TableCell>
+                            <TableCell align="center">
+                              <div>
+                                <img src={row.paidBy} alt="" />
+                              </div>
+                            </TableCell>
+                            <TableCell align="center">
+                              <div className="action">
+                                <button>
+                                  <MoreVertIcon />
+                                </button>
+                              </div>
+                            </TableCell>
+                          </TableRow>
+                        ))}
+                      </TableBody>
+                    </Table>
+                  </TableContainer>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+        <Footer/>
       </div>
     </div>
   );

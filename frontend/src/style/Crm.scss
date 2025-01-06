@@ -298,6 +298,7 @@
 
             .row2 {
                 display: flex;
+                margin-bottom: 24px;
 
                 .box4 {
                     flex: 2;
@@ -407,7 +408,9 @@
                             }
                         }
 
-                        .box4-right {}
+                        .box4-right {
+                            border-right: none;
+                        }
                     }
 
                 }
@@ -511,12 +514,15 @@
                                     }
                                 }
                             }
-                            .chart{
+
+                            .chart {
                                 height: 124px;
-                                .recharts-cartesian-axis-line{
+
+                                .recharts-cartesian-axis-line {
                                     display: none;
                                 }
-                                .recharts-cartesian-axis-tick-line{
+
+                                .recharts-cartesian-axis-tick-line {
                                     display: none;
                                 }
 
@@ -525,28 +531,525 @@
                     }
                 }
             }
-            .row3{
+
+            .row3 {
                 display: flex;
-                .box6{
+                margin-bottom: 24px;
+
+                .box6 {
                     flex: 1;
+
                     // border: 1px solid red;
-                    .box6-content{
+                    .box6-content {
                         margin-right: 12px;
+                        border-radius: 8px;
+                        background-color: #fff;
+                        box-shadow: 0 .1875rem .5rem 0 rgba(34, 48, 62, .1);
+
                         // border: 1px solid blue;
-                        .card-header{
+                        .card-header {
                             padding: 24px;
                             display: flex;
                             justify-content: space-between;
+
+                            .card-header-left {
+                                h5 {
+                                    margin-right: 8px;
+                                    margin-bottom: 8px;
+                                    font-size: 18px;
+                                }
+
+                                .num {
+                                    background-color: #e8fadf;
+                                    color: #71dd37;
+                                    margin-right: 4px;
+                                    padding: 5.5px 10px;
+                                    font-size: 13px;
+                                    border-radius: 4px;
+                                }
+
+                                .last-year {
+                                    font-size: 15px;
+                                }
+                            }
+
+                            .btn-group {
+                                display: inline-flex;
+                                height: 50%;
+
+                                .btn-one {
+                                    border-top-right-radius: 0;
+                                    border-bottom-right-radius: 0;
+                                    color: #696cff;
+                                    border-color: rgba(0, 0, 0, 0);
+                                    background: #e7e7ff;
+                                    padding: 5px 12px;
+                                    border-radius: 4px 0 0 4px;
+                                    border-right: 0.5px solid #cfd0ff;
+                                    cursor: pointer;
+
+                                    &:hover {
+                                        background: #5f61e6;
+                                        color: #fff;
+                                        box-shadow: 0 .125rem .25rem 0 rgba(105, 108, 255, .4);
+                                    }
+                                }
+
+                                .btn-two {
+                                    border-radius: 4px;
+                                    border-top-left-radius: 0;
+                                    border-bottom-left-radius: 0;
+                                    border-color: rgba(0, 0, 0, 0);
+                                    color: #696cff;
+                                    background: #e7e7ff;
+                                    cursor: pointer;
+
+                                    .icon {
+                                        height: 100%;
+                                    }
+
+                                    &:hover {
+                                        background: #5f61e6;
+                                        color: #fff;
+                                        box-shadow: 0 .125rem .25rem 0 rgba(105, 108, 255, .4);
+                                    }
+                                }
+                            }
+                        }
+
+                        .card-body {
+                            .chart {
+                                height: 425px;
+                                padding-top: 55px;
+                            }
                         }
                     }
                 }
-                .box7{
+
+                .box7 {
                     flex: 1;
-                    border: 1px solid red;
+
+                    // border: 1px solid red;
+                    .box7-content {
+                        margin-left: 10px;
+                        margin-right: 8px;
+                        border-radius: 8px;
+                        background-color: #fff;
+                        box-shadow: 0 .1875rem .5rem 0 rgba(34, 48, 62, .1);
+
+                        .card-header {
+                            padding: 24px;
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+
+                            .card-header-left {
+                                h5 {
+                                    margin-right: 8px;
+                                    margin-bottom: 8px;
+                                    font-size: 18px;
+                                }
+
+                                span {
+                                    color: #858d95;
+                                    font-size: 15px;
+                                }
+
+                            }
+
+                            .card-dropdown {
+                                button {
+                                    border: none;
+                                    background-color: #fff;
+                                    color: #a7acb2;
+                                    cursor: pointer;
+                                }
+                            }
+                        }
+
+                        .card-body {
+                            padding: 24px;
+
+                            ul {
+                                list-style: none;
+
+                                .country-item {
+                                    margin-bottom: 28px;
+                                    display: flex;
+                                    align-items: center;
+
+                                    .avatar {
+                                        height: 38px;
+                                        width: 38px;
+                                        margin-right: 12px;
+                                        flex-shrink: 0;
+                                        border-radius: 50%;
+                                        overflow: hidden;
+
+                                        img {
+                                            width: 100%;
+                                            height: 100%
+                                        }
+                                    }
+
+                                    .country-desc {
+                                        width: 100%;
+                                        display: flex;
+                                        justify-content: space-between;
+                                        align-items: center;
+
+                                        .country-desc-left {
+                                            h6 {
+                                                font-size: 15px;
+                                                display: flex;
+                                                align-items: center;
+
+                                                .dollar {
+                                                    color: #384551;
+                                                    margin-right: 8px;
+                                                }
+
+                                                .num.up,
+                                                .num.down {
+                                                    display: flex;
+                                                    align-items: center;
+                                                    color: #71dd37;
+                                                    font-size: 13px;
+
+                                                    .icon {
+                                                        width: 22px;
+                                                        height: 22px;
+                                                    }
+                                                }
+
+                                                .num.down {
+                                                    color: #ff3e1d;
+                                                }
+                                            }
+
+                                            small {
+                                                font-size: 13px;
+                                                color: #646e78;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
                 }
-                .box8{
+
+                .box8 {
                     flex: 1;
-                    border: 1px solid red;
+
+                    .box8-content {
+                        // border: 1px solid red;
+                        margin-left: 16px;
+                        border-radius: 8px;
+                        background-color: #fff;
+                        box-shadow: 0 .1875rem .5rem 0 rgba(34, 48, 62, .1);
+
+                        .card-header {
+                            padding: 24px;
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+
+                            .card-header-left {
+                                h5 {
+                                    margin-right: 8px;
+                                    margin-bottom: 8px;
+                                    font-size: 18px;
+                                }
+                            }
+
+                            .card-dropdown {
+                                button {
+                                    border: none;
+                                    background-color: #fff;
+                                    color: #a7acb2;
+                                    cursor: pointer;
+                                }
+                            }
+                        }
+
+                        .circularBar {
+                            height: 320px;
+                            padding: 56px 0;
+
+                            .CircularProgressbar {
+                                height: 100%;
+
+                                .CircularProgressbar-path {
+                                    stroke: rgba(113, 221, 55, 0.85);
+                                }
+
+                                .CircularProgressbar-text {
+                                    stroke: #646e78;
+                                    fill: #646e78;
+                                    font-size: 8px;
+                                }
+                            }
+                        }
+
+                        .card-body {
+                            padding: 24px;
+                            display: flex;
+                            justify-content: center;
+
+                            .card-body-left {
+                                display: flex;
+                                align-items: center;
+                                margin-right: 16px;
+                                color: #646e78;
+
+                                .dot {
+                                    display: inline-block;
+                                    width: 8px;
+                                    height: 8px;
+                                    background-color: rgba(113, 221, 55, 0.85);
+                                    border-radius: 50%;
+                                    margin-right: 8px;
+                                }
+                            }
+
+                            .card-body-right {
+                                display: flex;
+                                align-items: center;
+                                color: #646e78;
+
+                                .dot {
+                                    display: inline-block;
+                                    width: 8px;
+                                    height: 8px;
+                                    background-color: #EBEEF0;
+                                    border-radius: 50%;
+                                    margin-right: 8px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .row4 {
+                display: flex;
+                margin-bottom: 24px;
+
+                .box9 {
+                    flex: 40%;
+
+                    // border: 1px solid red;
+                    padding-right: 12px;
+
+                    .box9-content {
+                        border-radius: 8px;
+                        background-color: #fff;
+                        box-shadow: 0 .1875rem .5rem 0 rgba(34, 48, 62, .1);
+                        overflow: hidden;
+
+                        .card-header {
+                            padding: 22px;
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+
+                            .card-header-left {
+                                h5 {
+                                    margin-right: 8px;
+                                    margin-bottom: 8px;
+                                    font-size: 18px;
+                                }
+                            }
+
+                            .card-dropdown {
+                                button {
+                                    border: none;
+                                    background-color: #fff;
+                                    color: #a7acb2;
+                                    cursor: pointer;
+                                }
+                            }
+                        }
+
+                        .card-body {
+                            .MuiTableContainer-root {
+                                box-shadow: none;
+                            }
+
+                            .MuiTable-root {
+                                border: none;
+                            }
+
+                            .MuiTableCell-root {
+                                border: none;
+                            }
+
+                            .CircularProgressbar {
+                                height: 40px;
+                                width: 40px;
+                            }
+
+                            .CircularProgressbar.purple {
+                                .CircularProgressbar-path {
+                                    stroke: purple;
+                                }
+                            }
+
+                            .CircularProgressbar.red {
+                                .CircularProgressbar-path {
+                                    stroke: red;
+                                }
+                            }
+
+                            .CircularProgressbar.orange {
+                                .CircularProgressbar-path {
+                                    stroke: orange;
+                                }
+                            }
+
+                            .CircularProgressbar.lightblue {
+                                .CircularProgressbar-path {
+                                    stroke: lightblue;
+                                }
+                            }
+
+                            .project-name {
+                                display: inline-block;
+                                padding: 5.5px 10px;
+                                border-radius: 4px;
+                                font-size: 13px;
+
+                                &.purple {
+                                    color: purple;
+                                    background-color: rgba(purple, 0.2);
+                                }
+
+                                &.red {
+                                    color: red;
+                                    background-color: rgba(red, 0.2);
+                                }
+
+                                &.orange {
+                                    color: orange;
+                                    background-color: rgba(orange, 0.2);
+                                }
+
+                                &.lightblue {
+                                    color: lightblue;
+                                    background-color: rgba(lightblue, 0.2);
+                                }
+                            }
+
+                            .name-wrapper {
+                                display: flex;
+
+                                .avatar {
+                                    width: 38px;
+                                    height: 38px;
+                                    border-radius: 50%;
+                                    overflow: hidden;
+                                    margin-right: 12px;
+
+                                    img {
+                                        width: 100%;
+                                        height: 100%;
+                                    }
+                                }
+
+                                .name-details {
+                                    .name-team {
+                                        font-size: 15px;
+                                        color: #384551;
+                                    }
+
+                                    .name-title {
+                                        font-size: 13px;
+                                        color: #646e78;
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+                }
+
+                .box10 {
+                    flex: 60%;
+                    padding-left: 12px;
+
+                    .box10-content {
+                        border-radius: 8px;
+                        background-color: #fff;
+                        box-shadow: 0 .1875rem .5rem 0 rgba(34, 48, 62, .1);
+
+                        .chart {
+                            .MuiTableContainer-root {
+                                border-radius: 12px;
+                            }
+
+                            .MuiTable-root,.css-11xur9t-MuiPaper-root-MuiTableContainer-root{
+                                box-shadow: none !important;
+                            }
+
+                            .customer-wrapper {
+                                display: flex;
+
+                                .customer-avatar {
+                                    width: 32px;
+                                    height: 32px;
+                                    border-radius: 50%;
+                                    overflow: hidden;
+                                    margin-right: 8px;
+
+                                    img {
+                                        width: 100%;
+                                        height: 100%;
+                                    }
+                                }
+
+                                .customer-details {
+                                    .customer-team {
+                                        font-size: 15px;
+                                        color: #384551;
+                                    }
+
+                                    .customer-email {
+                                        font-size: 13px;
+                                        color: #646e78;
+                                    }
+                                }
+                            }
+
+                            .status {
+                                padding: 5.5px 10px;
+                                display: inline-block;
+                                border-radius: 4px;
+
+                                &.Paid {
+                                    background-color: #e8fadf;
+                                    color: #71dd37;
+                                }
+                                &.Failed {
+                                    background-color: #ffe0db;
+                                    color: #ff3e1d;
+                                }
+                                &.Pending{
+                                    background-color: #fff2d6;
+                                    color: #ffab00;
+                                }
+                            }
+                            .action {
+                                button {
+                                    border: none;
+                                    background-color: #fff;
+                                    color: #a7acb2;
+                                    cursor: pointer;
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
