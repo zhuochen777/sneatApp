@@ -1,4 +1,5 @@
 import React, { PureComponent } from "react";
+import { useState, useEffect } from "react";
 import Sidebar from "../../components/Sidebar";
 import Navbar from "../../components/Navbar";
 import "../../style/Crm.scss";
@@ -35,568 +36,623 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Footer from "../../components/Footer";
+import axios from "axios";
 
-const dataBox1 = [
-  {
-    name: "",
-    "This Month": 20,
-    "Last Month": 20,
-  },
-  {
-    name: "Jan",
-    "This Month": 32,
-    "Last Month": 54,
-  },
-  {
-    name: "Feb",
-    "This Month": 22,
-    "Last Month": 20,
-  },
-  {
-    name: "Mar",
-    "This Month": 65,
-    "Last Month": 38,
-  },
-  {
-    name: "Apr",
-    "This Month": 40,
-    "Last Month": 22,
-  },
-  {
-    name: "May",
-    "This Month": 46,
-    "Last Month": 28,
-  },
-  {
-    name: "Jun",
-    "This Month": 34,
-    "Last Month": 16,
-  },
-  {
-    name: "Jul",
-    "This Month": 70,
-    "Last Month": 19,
-  },
-  {
-    name: "",
-    "This Month": 75,
-    "Last Month": 11,
-  },
-];
+// const dataBox1 = [
+//   {
+//     name: "",
+//     "This Month": 20,
+//     "Last Month": 20,
+//   },
+//   {
+//     name: "Jan",
+//     "This Month": 32,
+//     "Last Month": 54,
+//   },
+//   {
+//     name: "Feb",
+//     "This Month": 22,
+//     "Last Month": 20,
+//   },
+//   {
+//     name: "Mar",
+//     "This Month": 65,
+//     "Last Month": 38,
+//   },
+//   {
+//     name: "Apr",
+//     "This Month": 40,
+//     "Last Month": 22,
+//   },
+//   {
+//     name: "May",
+//     "This Month": 46,
+//     "Last Month": 28,
+//   },
+//   {
+//     name: "Jun",
+//     "This Month": 34,
+//     "Last Month": 16,
+//   },
+//   {
+//     name: "Jul",
+//     "This Month": 70,
+//     "Last Month": 19,
+//   },
+//   {
+//     name: "",
+//     "This Month": 75,
+//     "Last Month": 11,
+//   },
+// ];
 
-const dataBox2 = [
-  {
-    name: "Jan",
-    "PRODUCT A": 75,
-    "PRODUCT B": 25,
-  },
-  {
-    name: "Feb",
-    "PRODUCT A": 50,
-    "PRODUCT B": 29,
-  },
-  {
-    name: "Mar",
-    "PRODUCT A": 55,
-    "PRODUCT B": 32,
-  },
-  {
-    name: "Apr",
-    "PRODUCT A": 60,
-    "PRODUCT B": 35,
-  },
-  {
-    name: "May",
-    "PRODUCT A": 48,
-    "PRODUCT B": 34,
-  },
-  {
-    name: "Jun",
-    "PRODUCT A": 82,
-    "PRODUCT B": 18,
-  },
-  {
-    name: "Jul",
-    "PRODUCT A": 59,
-    "PRODUCT B": 30,
-  },
-];
+// const dataBox2 = [
+//   {
+//     name: "Jan",
+//     "PRODUCT A": 75,
+//     "PRODUCT B": 25,
+//   },
+//   {
+//     name: "Feb",
+//     "PRODUCT A": 50,
+//     "PRODUCT B": 29,
+//   },
+//   {
+//     name: "Mar",
+//     "PRODUCT A": 55,
+//     "PRODUCT B": 32,
+//   },
+//   {
+//     name: "Apr",
+//     "PRODUCT A": 60,
+//     "PRODUCT B": 35,
+//   },
+//   {
+//     name: "May",
+//     "PRODUCT A": 48,
+//     "PRODUCT B": 34,
+//   },
+//   {
+//     name: "Jun",
+//     "PRODUCT A": 82,
+//     "PRODUCT B": 18,
+//   },
+//   {
+//     name: "Jul",
+//     "PRODUCT A": 59,
+//     "PRODUCT B": 30,
+//   },
+// ];
 
-const dataBox31 = [
-  {
-    "Series-1": 280,
-  },
-  {
-    "Series-1": 280,
-  },
-  {
-    "Series-1": 240,
-  },
-  {
-    "Series-1": 240,
-  },
-  {
-    "Series-1": 200,
-  },
-  {
-    "Series-1": 200,
-  },
-  {
-    "Series-1": 260,
-  },
-  {
-    "Series-1": 260,
-  },
-  {
-    "Series-1": 310,
-  },
-];
+// const dataBox31 = [
+//   {
+//     "Series-1": 280,
+//   },
+//   {
+//     "Series-1": 280,
+//   },
+//   {
+//     "Series-1": 240,
+//   },
+//   {
+//     "Series-1": 240,
+//   },
+//   {
+//     "Series-1": 200,
+//   },
+//   {
+//     "Series-1": 200,
+//   },
+//   {
+//     "Series-1": 260,
+//   },
+//   {
+//     "Series-1": 260,
+//   },
+//   {
+//     "Series-1": 310,
+//   },
+// ];
 
-const dataBox33 = [
-  { name: "Fashion", value: 30 },
-  { name: "Electronic", value: 20 },
-  { name: "Sports", value: 30 },
-  { name: "Decors", value: 20 },
-];
+// const dataBox33 = [
+//   { name: "Fashion", value: 30 },
+//   { name: "Electronic", value: 20 },
+//   { name: "Sports", value: 30 },
+//   { name: "Decors", value: 20 },
+// ];
 
-const dataBox5 = [
-  {
-    name: "Mo",
-    "Series-1": 40,
-  },
-  {
-    name: "Tu",
-    "Series-1": 96,
-  },
-  {
-    name: "We",
-    "Series-1": 60,
-  },
-  {
-    name: "Th",
-    "Series-1": 45,
-  },
-  {
-    name: "Fr",
-    "Series-1": 90,
-  },
-  {
-    name: "Sa",
-    "Series-1": 50,
-  },
-  {
-    name: "Su",
-    "Series-1": 75,
-  },
-];
+// const dataBox5 = [
+//   {
+//     name: "Mo",
+//     "Series-1": 40,
+//   },
+//   {
+//     name: "Tu",
+//     "Series-1": 96,
+//   },
+//   {
+//     name: "We",
+//     "Series-1": 60,
+//   },
+//   {
+//     name: "Th",
+//     "Series-1": 45,
+//   },
+//   {
+//     name: "Fr",
+//     "Series-1": 90,
+//   },
+//   {
+//     name: "Sa",
+//     "Series-1": 50,
+//   },
+//   {
+//     name: "Su",
+//     "Series-1": 75,
+//   },
+// ];
 
-const dataBox6 = [
-  {
-    id: "8k",
-    data: [
-      {
-        x: "Jan",
-        y: 575,
-      },
-      {
-        x: "Feb",
-        y: 350,
-      },
-      {
-        x: "Mar",
-        y: 220,
-      },
-      {
-        x: "Apr",
-        y: 290,
-      },
-      {
-        x: "May",
-        y: 650,
-      },
-      {
-        x: "Jun",
-        y: 260,
-      },
-      {
-        x: "Jul",
-        y: 275,
-      },
-      {
-        x: "Aug",
-        y: 815,
-      },
-    ],
-  },
-  {
-    id: "7k",
-    data: [
-      {
-        x: "Jan",
-        y: 575,
-      },
-      {
-        x: "Feb",
-        y: 1305,
-      },
-      {
-        x: "Mar",
-        y: 1220,
-      },
-      {
-        x: "Apr",
-        y: 1290,
-      },
-      {
-        x: "May",
-        y: 1250,
-      },
-      {
-        x: "Jun",
-        y: 1260,
-      },
-      {
-        x: "Jul",
-        y: 3200,
-      },
-      {
-        x: "Aug",
-        y: 815,
-      },
-    ],
-  },
-  {
-    id: "6k",
-    data: [
-      {
-        x: "Jan",
-        y: 320,
-      },
-      {
-        x: "Feb",
-        y: 220,
-      },
-      {
-        x: "Mar",
-        y: 520,
-      },
-      {
-        x: "Apr",
-        y: 505,
-      },
-      {
-        x: "May",
-        y: 514,
-      },
-      {
-        x: "Jun",
-        y: 472,
-      },
-      {
-        x: "Jul",
-        y: 371,
-      },
-      {
-        x: "Aug",
-        y: 258,
-      },
-    ],
-  },
-  {
-    id: "5k",
-    data: [
-      {
-        x: "Jan",
-        y: 492,
-      },
-      {
-        x: "Feb",
-        y: 468,
-      },
-      {
-        x: "Mar",
-        y: 1760,
-      },
-      {
-        x: "Apr",
-        y: 895,
-      },
-      {
-        x: "May",
-        y: 397,
-      },
-      {
-        x: "Jun",
-        y: 761,
-      },
-      {
-        x: "Jul",
-        y: 49,
-      },
-      {
-        x: "Aug",
-        y: 292,
-      },
-    ],
-  },
-  {
-    id: "4k",
-    data: [
-      {
-        x: "Jan",
-        y: 443,
-      },
-      {
-        x: "Feb",
-        y: 812,
-      },
-      {
-        x: "Mar",
-        y: 985,
-      },
-      {
-        x: "Apr",
-        y: 1320,
-      },
-      {
-        x: "May",
-        y: 376,
-      },
-      {
-        x: "Jun",
-        y: 217,
-      },
-      {
-        x: "Jul",
-        y: 948,
-      },
-      {
-        x: "Aug",
-        y: 368,
-      },
-    ],
-  },
-  {
-    id: "3k",
-    data: [
-      {
-        x: "Jan",
-        y: 1440,
-      },
-      {
-        x: "Feb",
-        y: 878,
-      },
-      {
-        x: "Mar",
-        y: 857,
-      },
-      {
-        x: "Apr",
-        y: 768,
-      },
-      {
-        x: "May",
-        y: 929,
-      },
-      {
-        x: "Jun",
-        y: 1420,
-      },
-      {
-        x: "Jul",
-        y: 896,
-      },
-      {
-        x: "Aug",
-        y: 558,
-      },
-    ],
-  },
-  {
-    id: "2k",
-    data: [
-      {
-        x: "Jan",
-        y: 15,
-      },
-      {
-        x: "Feb",
-        y: 172,
-      },
-      {
-        x: "Mar",
-        y: 821,
-      },
-      {
-        x: "Apr",
-        y: 998,
-      },
-      {
-        x: "May",
-        y: 892,
-      },
-      {
-        x: "Jun",
-        y: 1670,
-      },
-      {
-        x: "Jul",
-        y: 300,
-      },
-      {
-        x: "Aug",
-        y: 548,
-      },
-    ],
-  },
-  {
-    id: "1k",
-    data: [
-      {
-        x: "Jan",
-        y: 783,
-      },
-      {
-        x: "Feb",
-        y: 1860,
-      },
-      {
-        x: "Mar",
-        y: 67,
-      },
-      {
-        x: "Apr",
-        y: 222,
-      },
-      {
-        x: "May",
-        y: 980,
-      },
-      {
-        x: "Jun",
-        y: 395,
-      },
-      {
-        x: "Jul",
-        y: 335,
-      },
-      {
-        x: "Aug",
-        y: 483,
-      },
-    ],
-  },
-];
+// const dataBox6 = [
+//   {
+//     id: "8k",
+//     data: [
+//       {
+//         x: "Jan",
+//         y: 575,
+//       },
+//       {
+//         x: "Feb",
+//         y: 350,
+//       },
+//       {
+//         x: "Mar",
+//         y: 220,
+//       },
+//       {
+//         x: "Apr",
+//         y: 290,
+//       },
+//       {
+//         x: "May",
+//         y: 650,
+//       },
+//       {
+//         x: "Jun",
+//         y: 260,
+//       },
+//       {
+//         x: "Jul",
+//         y: 275,
+//       },
+//       {
+//         x: "Aug",
+//         y: 815,
+//       },
+//     ],
+//   },
+//   {
+//     id: "7k",
+//     data: [
+//       {
+//         x: "Jan",
+//         y: 575,
+//       },
+//       {
+//         x: "Feb",
+//         y: 1305,
+//       },
+//       {
+//         x: "Mar",
+//         y: 1220,
+//       },
+//       {
+//         x: "Apr",
+//         y: 1290,
+//       },
+//       {
+//         x: "May",
+//         y: 1250,
+//       },
+//       {
+//         x: "Jun",
+//         y: 1260,
+//       },
+//       {
+//         x: "Jul",
+//         y: 3200,
+//       },
+//       {
+//         x: "Aug",
+//         y: 815,
+//       },
+//     ],
+//   },
+//   {
+//     id: "6k",
+//     data: [
+//       {
+//         x: "Jan",
+//         y: 320,
+//       },
+//       {
+//         x: "Feb",
+//         y: 220,
+//       },
+//       {
+//         x: "Mar",
+//         y: 520,
+//       },
+//       {
+//         x: "Apr",
+//         y: 505,
+//       },
+//       {
+//         x: "May",
+//         y: 514,
+//       },
+//       {
+//         x: "Jun",
+//         y: 472,
+//       },
+//       {
+//         x: "Jul",
+//         y: 371,
+//       },
+//       {
+//         x: "Aug",
+//         y: 258,
+//       },
+//     ],
+//   },
+//   {
+//     id: "5k",
+//     data: [
+//       {
+//         x: "Jan",
+//         y: 492,
+//       },
+//       {
+//         x: "Feb",
+//         y: 468,
+//       },
+//       {
+//         x: "Mar",
+//         y: 1760,
+//       },
+//       {
+//         x: "Apr",
+//         y: 895,
+//       },
+//       {
+//         x: "May",
+//         y: 397,
+//       },
+//       {
+//         x: "Jun",
+//         y: 761,
+//       },
+//       {
+//         x: "Jul",
+//         y: 49,
+//       },
+//       {
+//         x: "Aug",
+//         y: 292,
+//       },
+//     ],
+//   },
+//   {
+//     id: "4k",
+//     data: [
+//       {
+//         x: "Jan",
+//         y: 443,
+//       },
+//       {
+//         x: "Feb",
+//         y: 812,
+//       },
+//       {
+//         x: "Mar",
+//         y: 985,
+//       },
+//       {
+//         x: "Apr",
+//         y: 1320,
+//       },
+//       {
+//         x: "May",
+//         y: 376,
+//       },
+//       {
+//         x: "Jun",
+//         y: 217,
+//       },
+//       {
+//         x: "Jul",
+//         y: 948,
+//       },
+//       {
+//         x: "Aug",
+//         y: 368,
+//       },
+//     ],
+//   },
+//   {
+//     id: "3k",
+//     data: [
+//       {
+//         x: "Jan",
+//         y: 1440,
+//       },
+//       {
+//         x: "Feb",
+//         y: 878,
+//       },
+//       {
+//         x: "Mar",
+//         y: 857,
+//       },
+//       {
+//         x: "Apr",
+//         y: 768,
+//       },
+//       {
+//         x: "May",
+//         y: 929,
+//       },
+//       {
+//         x: "Jun",
+//         y: 1420,
+//       },
+//       {
+//         x: "Jul",
+//         y: 896,
+//       },
+//       {
+//         x: "Aug",
+//         y: 558,
+//       },
+//     ],
+//   },
+//   {
+//     id: "2k",
+//     data: [
+//       {
+//         x: "Jan",
+//         y: 15,
+//       },
+//       {
+//         x: "Feb",
+//         y: 172,
+//       },
+//       {
+//         x: "Mar",
+//         y: 821,
+//       },
+//       {
+//         x: "Apr",
+//         y: 998,
+//       },
+//       {
+//         x: "May",
+//         y: 892,
+//       },
+//       {
+//         x: "Jun",
+//         y: 1670,
+//       },
+//       {
+//         x: "Jul",
+//         y: 300,
+//       },
+//       {
+//         x: "Aug",
+//         y: 548,
+//       },
+//     ],
+//   },
+//   {
+//     id: "1k",
+//     data: [
+//       {
+//         x: "Jan",
+//         y: 783,
+//       },
+//       {
+//         x: "Feb",
+//         y: 1860,
+//       },
+//       {
+//         x: "Mar",
+//         y: 67,
+//       },
+//       {
+//         x: "Apr",
+//         y: 222,
+//       },
+//       {
+//         x: "May",
+//         y: 980,
+//       },
+//       {
+//         x: "Jun",
+//         y: 395,
+//       },
+//       {
+//         x: "Jul",
+//         y: 335,
+//       },
+//       {
+//         x: "Aug",
+//         y: 483,
+//       },
+//     ],
+//   },
+// ];
 
-function createDataBox9(name, avatar, title, project, task, progress, color) {
-  return { name, avatar, title, project, task, progress, color };
-}
+// function createDataBox9(name, avatar, title, project, task, progress, color) {
+//   return { name, avatar, title, project, task, progress, color };
+// }
 
-const rowsBox9 = [
-  createDataBox9(
-    "Nathan Wagner",
-    "https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/avatars/17.png",
-    "iOS Developer",
-    "ZIPCAR",
-    "87/135",
-    70,
-    "purple"
-  ),
-  createDataBox9(
-    "Emma Bowen",
-    "https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/avatars/8.png",
-    "UI/UX Designer",
-    "BITBANK",
-    "320/440",
-    90,
-    "red"
-  ),
-  createDataBox9(
-    "Adrian McGuire",
-    "https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/avatars/11.png",
-    "PHP Developer",
-    "PAYERS",
-    "50/82",
-    75,
-    "orange"
-  ),
-  createDataBox9(
-    "Alma Gonzalez",
-    "https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/avatars/2.png",
-    "Product Manager",
-    "BRANDI",
-    "98/260",
-    70,
-    "lightblue"
-  ),
-  createDataBox9(
-    "Allen Kristian",
-    "https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/avatars/11.png",
-    "Frontend Developer",
-    "CRYPTER",
-    "690/760",
-    60,
-    "lightblue"
-  ),
-];
+// const rowsBox9 = [
+//   createDataBox9(
+//     "Nathan Wagner",
+//     "https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/avatars/17.png",
+//     "iOS Developer",
+//     "ZIPCAR",
+//     "87/135",
+//     70,
+//     "purple"
+//   ),
+//   createDataBox9(
+//     "Emma Bowen",
+//     "https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/avatars/8.png",
+//     "UI/UX Designer",
+//     "BITBANK",
+//     "320/440",
+//     90,
+//     "red"
+//   ),
+//   createDataBox9(
+//     "Adrian McGuire",
+//     "https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/avatars/11.png",
+//     "PHP Developer",
+//     "PAYERS",
+//     "50/82",
+//     75,
+//     "orange"
+//   ),
+//   createDataBox9(
+//     "Alma Gonzalez",
+//     "https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/avatars/2.png",
+//     "Product Manager",
+//     "BRANDI",
+//     "98/260",
+//     70,
+//     "lightblue"
+//   ),
+//   createDataBox9(
+//     "Allen Kristian",
+//     "https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/avatars/11.png",
+//     "Frontend Developer",
+//     "CRYPTER",
+//     "690/760",
+//     60,
+//     "lightblue"
+//   ),
+// ];
 
-function createDataBox10(name, avatar, email, amount, status, paidBy) {
-  return { name, avatar, email, amount, status, paidBy };
-}
+// function createDataBox10(name, avatar, email, amount, status, paidBy) {
+//   return { name, avatar, email, amount, status, paidBy };
+// }
 
-const rowsBox10 = [
-  createDataBox10(
-    "Henry Barnes",
-    "https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/avatars/7.png",
-    "jok@puc.co.uk",
-    495.65,
-    "Paid",
-    "https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/icons/payments/master-light.png"
-  ),
-  createDataBox10(
-    "Hallie Warner",
-    "https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/avatars/20.png",
-    "hellie@war.co.uk",
-    93.81,
-    "Pending",
-    "https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/icons/payments/master-light.png"
-  ),
-  createDataBox10(
-    "Gerald Flowers",
-    "https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/avatars/9.png",
-    "initus@odemi.com",
-    934.35,
-    "Pending",
-    "https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/icons/payments/paypal_logo-light.png"
-  ),
-  createDataBox10(
-    "John Davidson",
-    "https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/avatars/14.png",
-    "jtum@upkesja.gov",
-    794.97,
-    "Paid",
-    "https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/icons/payments/master-light.png"
-  ),
-  createDataBox10(
-    "Jayden Harris",
-    "https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/avatars/17.png",
-    "wipare@tin.com",
-    19.49,
-    "Paid",
-    "https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/icons/payments/master-light.png"
-  ),
-  createDataBox10(
-    "Rena Ferguson",
-    "https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/avatars/8.png",
-    "nur@kaomor.edu",
-    636.27,
-    "Failed",
-    "https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/icons/payments/paypal_logo-light.png"
-  ),
-];
+// const rowsBox10 = [
+//   createDataBox10(
+//     "Henry Barnes",
+//     "https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/avatars/7.png",
+//     "jok@puc.co.uk",
+//     495.65,
+//     "Paid",
+//     "https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/icons/payments/master-light.png"
+//   ),
+//   createDataBox10(
+//     "Hallie Warner",
+//     "https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/avatars/20.png",
+//     "hellie@war.co.uk",
+//     93.81,
+//     "Pending",
+//     "https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/icons/payments/master-light.png"
+//   ),
+//   createDataBox10(
+//     "Gerald Flowers",
+//     "https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/avatars/9.png",
+//     "initus@odemi.com",
+//     934.35,
+//     "Pending",
+//     "https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/icons/payments/paypal_logo-light.png"
+//   ),
+//   createDataBox10(
+//     "John Davidson",
+//     "https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/avatars/14.png",
+//     "jtum@upkesja.gov",
+//     794.97,
+//     "Paid",
+//     "https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/icons/payments/master-light.png"
+//   ),
+//   createDataBox10(
+//     "Jayden Harris",
+//     "https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/avatars/17.png",
+//     "wipare@tin.com",
+//     19.49,
+//     "Paid",
+//     "https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/icons/payments/master-light.png"
+//   ),
+//   createDataBox10(
+//     "Rena Ferguson",
+//     "https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/avatars/8.png",
+//     "nur@kaomor.edu",
+//     636.27,
+//     "Failed",
+//     "https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/icons/payments/paypal_logo-light.png"
+//   ),
+// ];
 
 export default function Crm() {
+  let url = process.env.REACT_APP_baseURL;
+  const [dataBox1, setDataBox1] = useState([]);
+  const [dataBox2, setDataBox2] = useState([]);
+  const [dataBox31, setDataBox31] = useState([]);
+  const [dataBox33, setDataBox33] = useState([]);
+  const [dataBox5, setDataBox5] = useState([]);
+  const [dataBox6, setDataBox6] = useState([]);
+  const [rowsBox9, setRowsBox9] = useState([]);
+  const [rowsBox10, setRowsBox10] = useState([]);
+
+  const getBox1Data = async () => {
+    const { data } = await axios.get(url + "/box1Crmlist");
+    setDataBox1(data);
+  };
+  const getBox2Data = async () => {
+    const { data } = await axios.get(url + "/box2Crmlist");
+    setDataBox2(data);
+  };
+  const getBox31Data = async () => {
+    const { data } = await axios.get(url + "/box31Crmlist");
+    setDataBox31(data);
+  };
+  const getBox33Data = async () => {
+    const { data } = await axios.get(url + "/box33Crmlist");
+    setDataBox33(data);
+  };
+  const getBox5Data = async () => {
+    const { data } = await axios.get(url + "/box5Crmlist");
+    setDataBox5(data);
+  };
+  const getBox6Data = async () => {
+    const { data } = await axios.get(url + "/box6Crmlist");
+    setDataBox6(data);
+  };
+  const getRowsBox9Data = async () => {
+    const { data } = await axios.get(url + "/rowsBox9Crmlist");
+    setRowsBox9(data);
+  };
+  const getRowsBox10Data = async () => {
+    const { data } = await axios.get(url + "/rowsBox10Crmlist");
+    setRowsBox10(data);
+  };
+
+  useEffect(() => {
+    getBox1Data();
+    getBox2Data();
+    getBox31Data();
+    getBox33Data();
+    getBox5Data();
+    getBox6Data();
+    getRowsBox9Data();
+    getRowsBox10Data();
+  }, []);
+
   return (
     <div className="crm">
       <Sidebar />
@@ -1497,7 +1553,9 @@ export default function Crm() {
                             </TableCell>
                             <TableCell align="left">${row.amount}</TableCell>
                             <TableCell align="left">
-                              <div className={`${row.status} status`}>{row.status}</div>
+                              <div className={`${row.status} status`}>
+                                {row.status}
+                              </div>
                             </TableCell>
                             <TableCell align="center">
                               <div>
@@ -1521,7 +1579,7 @@ export default function Crm() {
             </div>
           </div>
         </div>
-        <Footer/>
+        <Footer />
       </div>
     </div>
   );

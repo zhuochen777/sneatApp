@@ -11,6 +11,7 @@ const box61Router_ana = require("./api/analytics/box61");
 const rowsBrowserRouter_ana = require("./api/analytics/rowsBrowser");
 const rowsOSRouter_ana = require("./api/analytics/rowsOS");
 const rowsCountryRouter_ana = require("./api/analytics/rowsCountry");
+
 const box21EcoRouter = require("./api/ecommerce/box21Eco");
 const box22EcoRouter = require("./api/ecommerce/box22Eco");
 const box32EcoRouter = require("./api/ecommerce/box32Eco");
@@ -20,6 +21,16 @@ const box6EcoRouter = require("./api/ecommerce/box6Eco");
 const box73EcoRouter = require("./api/ecommerce/box73Eco");
 const box8EcoRouter = require("./api/ecommerce/box8Eco");
 const box9EcoRouter = require("./api/ecommerce/box9Eco");
+
+const box1CrmRouter = require("./api/crm/box1Crm")
+const box2CrmRouter = require("./api/crm/box2Crm")
+const box31CrmRouter = require("./api/crm/box31Crm")
+const box33CrmRouter = require("./api/crm/box33Crm")
+const box5CrmRouter = require("./api/crm/box5Crm")
+const box6CrmRouter = require("./api/crm/box6Crm")
+const box9CrmRouter = require("./api/crm/rowsBox9Crm")
+const box10CrmRouter = require("./api/crm/rowsBox10Crm")
+
 const emailRouter = require("./api/email/emailRoutes")
 const userRouter = require("./api/chat/userRoutes")
 const userchatRouter = require("./api/chat/userchatRoutes")
@@ -38,6 +49,7 @@ app.use(box61Router_ana);
 app.use(rowsBrowserRouter_ana);
 app.use(rowsOSRouter_ana);
 app.use(rowsCountryRouter_ana);
+
 app.use(box21EcoRouter)
 app.use(box22EcoRouter)
 app.use(box32EcoRouter)
@@ -47,6 +59,16 @@ app.use(box6EcoRouter)
 app.use(box73EcoRouter)
 app.use(box8EcoRouter)
 app.use(box9EcoRouter)
+
+app.use(box1CrmRouter)
+app.use(box2CrmRouter)
+app.use(box31CrmRouter)
+app.use(box33CrmRouter)
+app.use(box5CrmRouter)
+app.use(box6CrmRouter)
+app.use(box9CrmRouter)
+app.use(box10CrmRouter)
+
 app.use(emailRouter)
 app.use(userRouter)
 app.use(userchatRouter)
