@@ -42,7 +42,6 @@ export default function Sidebar() {
   //   localStorage.setItem("selected", JSON.stringify(selected));
   // }, [selected]);
 
-
   return (
     <div
       className={`sidebar ${theme}`}
@@ -148,9 +147,7 @@ export default function Sidebar() {
                         </Link>
                       </a>
                     </li>
-                    <li
-                      className={`sublistItem-item ${theme}`}
-                    >
+                    <li className={`sublistItem-item ${theme}`}>
                       <a href="" className={`listRow ${theme}`}>
                         <span>
                           <CircleIcon className="circle-icon icon" />
@@ -192,9 +189,7 @@ export default function Sidebar() {
             </p>
           )}
 
-          <li
-            className={`email nav-option ${theme}`}
-          >
+          <li className={`email nav-option ${theme}`}>
             <a href="/apps/email">
               <div>
                 <EmailIcon className={`icon ${theme}`} />
@@ -210,7 +205,7 @@ export default function Sidebar() {
             className={`chat nav-option ${theme}`}
             // onClick={() => selectHandle(5)}
           >
-            <a href="">
+            <a href="/apps/chat">
               <div>
                 <ChatBubbleIcon className={`icon ${theme}`} />
                 <Link to="/apps/chat" className="listItem">
@@ -225,12 +220,29 @@ export default function Sidebar() {
             className={`calendar nav-option ${theme}`}
             // onClick={() => selectHandle(6)}
           >
-            <a href="">
+            <a href="/apps/calendar">
               <div>
                 <CalendarMonthIcon className={`icon ${theme}`} />
-                {sidebarOpen && (
-                  <span className={`listRow ${theme}`}>Calendar</span>
-                )}
+                <Link to="/apps/calendar" className="listItem">
+                  {sidebarOpen && (
+                    <span className={`listRow ${theme}`}>Calendar</span>
+                  )}
+                </Link>
+              </div>
+            </a>
+          </li>
+          <li
+            className={`kanban nav-option ${theme}`}
+            // onClick={() => selectHandle(6)}
+          >
+            <a href="/apps/kanban">
+              <div>
+                <CalendarMonthIcon className={`icon ${theme}`} />
+                <Link to="/apps/kanban" className="listItem">
+                  {sidebarOpen && (
+                    <span className={`listRow ${theme}`}>Kanban</span>
+                  )}
+                </Link>
               </div>
             </a>
           </li>

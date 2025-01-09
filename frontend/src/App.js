@@ -13,6 +13,7 @@ import { useState } from "react";
 import { createContext } from "react";
 import "./App.scss"
 import Crm from "./pages/dashboards/Crm";
+import Calendar from "./pages/apps/Calendar";
 
 export const themeContext = createContext(null);
 
@@ -40,6 +41,7 @@ function App() {
             <Route path="label/:labeltype" element={<Emails />} />
           </Route>
           <Route path="apps/chat" element={<Chat />} />
+          <Route path="apps/calendar" element={<Calendar />} />
         </Routes>
       </div>
     </themeContext.Provider>

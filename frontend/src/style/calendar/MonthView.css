@@ -1,0 +1,8 @@
+.calendar-right {
+  flex: 80%;
+  display: grid;
+}
+
+.calendar-right .month-row {
+  display: flex;
+}
