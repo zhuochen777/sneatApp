@@ -1,3 +1,76 @@
 .calendar-left {
   flex: 20%;
 }
+
+.calendar-left .sidebar-top {
+  border-bottom: 0.5px solid rgba(34, 48, 62, 0.12);
+  border-right: 0.5px solid rgba(34, 48, 62, 0.12);
+}
+
+.calendar-left .sidebar-top .btn-wrapper {
+  padding: 24px;
+}
+
+.calendar-left .sidebar-top .btn-wrapper button {
+  width: 100%;
+  background-color: #696CFF;
+  border: none;
+  font-size: 15px;
+  padding: 8px 20px;
+  color: white;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.calendar-left .sidebar-top .btn-wrapper button .add-icon {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.calendar-left .sidebar-top .btn-wrapper button .add-icon .MuiSvgIcon-root {
+  width: 18px;
+  height: 18px;
+}
+
+.calendar-left .sidebar-middle {
+  border-bottom: 0.5px solid rgba(34, 48, 62, 0.12);
+}
+
+.calendar-left .sidebar-middle .css-1wy8uaa-MuiButtonBase-root-MuiPickersDay-root.Mui-selected {
+  background-color: rgba(105, 108, 255, 0.16);
+  color: #696CFF;
+}
+
+.calendar-left .sidebar-middle .MuiPickersDay-today {
+  background-color: rgba(105, 108, 255, 0.16);
+  color: #696CFF;
+  border: none;
+}
+
+.calendar-left .sidebar-middle .MuiPickersDay-today.Mui-selected {
+  background-color: rgba(105, 108, 255, 0.16);
+  color: #696CFF;
+}
+
+.calendar-left .sidebar-bottom {
+  padding: 24px;
+}
+
+.calendar-left .sidebar-bottom h5 {
+  margin-bottom: 12px;
+  font-size: 18px;
+  color: rgba(34, 48, 62, 0.7);
+}
+
+.calendar-left .sidebar-bottom .PrivateSwitchBase-input.css-1m9pwf3 {
+  width: 36px;
+  height: 36px;
+}
+
+.calendar-left .sidebar-bottom .css-i4bv87-MuiSvgIcon-root {
+  fill: grey;
+}

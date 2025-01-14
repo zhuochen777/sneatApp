@@ -1,3 +1,78 @@
 .calendar-left {
-    flex: 20%
+    flex: 20%;
+    
+    .sidebar-top {
+        border-bottom: 0.5px solid rgba(34, 48, 62, 0.12);
+        border-right: 0.5px solid rgba(34, 48, 62, 0.12);
+
+        .btn-wrapper {
+            padding: 24px;
+
+            button {
+                width: 100%;
+                background-color: #696CFF;
+                border: none;
+                font-size: 15px;
+                padding: 8px 20px;
+                color: white;
+                border-radius: 6px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+
+                .add-icon {
+                    display: flex;
+                    align-items: center;
+                    margin-right: 10px;
+
+                    .MuiSvgIcon-root {
+                        width: 18px;
+                        height: 18px;
+                    }
+                }
+            }
+        }
+    }
+
+    .sidebar-middle {
+        border-bottom: 0.5px solid rgba(34, 48, 62, 0.12);
+
+        .css-1wy8uaa-MuiButtonBase-root-MuiPickersDay-root.Mui-selected {
+            background-color: rgba(105, 108, 255, .16);
+            color: #696CFF;
+        }
+
+        .MuiPickersDay-today {
+            background-color: rgba(105, 108, 255, .16);
+            color: #696CFF;
+            border: none;
+        }
+
+        .MuiPickersDay-today.Mui-selected {
+            background-color: rgba(105, 108, 255, .16);
+            color: #696CFF;
+        }
+    }
+
+    .sidebar-bottom {
+        padding: 24px;
+
+        h5 {
+            margin-bottom: 12px;
+            font-size: 18px;
+            color: rgba(34, 48, 62, .7);
+        }
+
+        .PrivateSwitchBase-input.css-1m9pwf3{
+            width: 36px;
+            height: 36px;
+        }
+
+        .css-i4bv87-MuiSvgIcon-root{
+            fill:grey;
+        }
+
+        
+    }
 }

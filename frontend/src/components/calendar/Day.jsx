@@ -1,11 +1,15 @@
-import React from "react";
+import React, {useContext} from "react";
 import "../../style/calendar/Day.scss";
 import dayjs from "dayjs";
+import { monthContext } from "../../App";
+
 
 export default function Day({ day }) {
-  const month = dayjs().month() + 1;
-  console.log("month", month);
-  console.log("MM", parseInt(day.format("MM")));
+  const {monthIndex} = useContext(monthContext)
+
+  const month = monthIndex + 1;
+  // console.log("month", month);
+  // console.log("MM", parseInt(day.format("MM")));
 
   return (
     <div className={`day-box ${day.format("MM-DD-YY")===dayjs().format("MM-DD-YY")?"today":""}`}>

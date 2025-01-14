@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import Sidebar from "../../components/Sidebar";
 import Navbar from "../../components/Navbar";
 import "../../style/calendar/Calendar.scss";
@@ -6,9 +6,11 @@ import Footer from "../../components/Footer";
 import dayjs from "dayjs";
 import CalendarSidebar from "../../components/calendar/CalendarSidebar";
 import MonthView from "../../components/calendar/MonthView";
+import { monthContext } from "../../App";
 
 export default function Calendar() {
   const [currentMonthData, setCurrentMonthData] = useState([]);
+  const {monthIndex} = useContext(monthContext)
 
   const getMonth = (month = dayjs().month()) => {
     const year = dayjs().year();
@@ -28,6 +30,10 @@ export default function Calendar() {
   useEffect(() => {
     setCurrentMonthData(getMonth());
   }, []);
+
+  useEffect(()=>{
+    setCurrentMonthData(getMonth(monthIndex))
+  },[monthIndex])
 
   return (
     <>
