@@ -37,6 +37,8 @@ const userchatRouter = require("./api/chat/userchatRoutes")
 const chatRouter = require("./api/chat/chatRoutes")
 const authRouter = require("./api/auth/authRoutes")
 
+const eventRouter = require("./api/calendar/eventRoutes")
+
 const app = express();
 app.use(cors());
 app.use(bodyParser.urlencoded({extended:false}))
@@ -74,6 +76,8 @@ app.use(userRouter)
 app.use(userchatRouter)
 app.use(chatRouter)
 app.use(authRouter)
+
+app.use(eventRouter)
 
 app.get("/", async (req, res) => {
   return res.status(234).send("success");

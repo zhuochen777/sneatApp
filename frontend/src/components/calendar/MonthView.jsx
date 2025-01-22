@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import Day from "./Day";
 import "../../style/calendar/MonthView.scss";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
@@ -8,26 +8,28 @@ import dayjs from "dayjs";
 
 export default function MonthView({ currentMonthData }) {
   // console.log(currentMonthData);
-const {monthIndex, setMonthIndex} = useContext(monthContext)
+  const { monthIndex, setMonthIndex } = useContext(monthContext);
 
-const handlePrevMonth = ()=>{
-  setMonthIndex(monthIndex - 1)
-}
-const handleNextMonth = ()=>{
-  setMonthIndex(monthIndex + 1)
-}
+  const handlePrevMonth = () => {
+    setMonthIndex(monthIndex - 1);
+  };
+  const handleNextMonth = () => {
+    setMonthIndex(monthIndex + 1);
+  };
 
   return (
     <div className="calendar-right">
       <div className="calendar-right-top">
         <div className="toolbar-left">
-          <button className="btn-left" onClick={()=>handlePrevMonth()}>
+          <button className="btn-left" onClick={() => handlePrevMonth()}>
             <KeyboardArrowLeftIcon />
           </button>
           <button className="btn-right">
-            <KeyboardArrowRightIcon onClick={()=>handleNextMonth()}/>
+            <KeyboardArrowRightIcon onClick={() => handleNextMonth()} />
           </button>
-          <h2>{dayjs(new Date(dayjs().year(), monthIndex)).format("MMMM YYYY")}</h2>
+          <h2>
+            {dayjs(new Date(dayjs().year(), monthIndex)).format("MMMM YYYY")}
+          </h2>
         </div>
         <div className="toolbar-right">
           {/* 
@@ -72,19 +74,17 @@ const handleNextMonth = ()=>{
             </tr>
           </thead>
           <tbody>
-            {currentMonthData.map((row, i) => {
-              return (
-                <tr key={i} className="month-row">
-                  {row.map((day, index) => {
-                    return (
-                      <td className="each-day">
-                        <Day day={day} key={index} />
-                      </td>
-                    );
-                  })}
-                </tr>
-              );
-            })}
+            {currentMonthData.map((row, idx) => (
+              <tr key={idx} className="month-row">
+                {row.map((day, index) => {
+                  return (
+                    <td className="each-day">
+                      <Day day={day} key={index} />
+                    </td>
+                  );
+                })}
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>

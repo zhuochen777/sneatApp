@@ -24,11 +24,17 @@ function App() {
   //for month change in Calendar module
   const [monthIndex, setMonthIndex] = useState(dayjs().month());
   const [smallCalendarMonthIndex, setSmallCalendarMonthIndex] = useState(null);
-  const [smallCalendarSelectedDay, setSmallCalendarSelectedDay] =
-    useState(null);
+  const [smallCalendarSelectedDay, setSmallCalendarSelectedDay] = useState(
+    dayjs()
+  );
+  const [openDrawer, setOpenDrawer] = useState(false);
 
   const toggleTheme = (themeMode) => {
     setTheme(themeMode);
+  };
+
+  const toggleDrawer = (flag) => {
+    setOpenDrawer(flag);
   };
 
   useEffect(() => {
@@ -46,6 +52,9 @@ function App() {
         setSmallCalendarMonthIndex,
         smallCalendarSelectedDay,
         setSmallCalendarSelectedDay,
+        openDrawer,
+        setOpenDrawer,
+        toggleDrawer,
       }}
     >
       <themeContext.Provider value={{ theme, toggleTheme }}>
