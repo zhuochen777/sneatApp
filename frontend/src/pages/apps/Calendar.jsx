@@ -22,24 +22,42 @@ import InputLabel from "@mui/material/InputLabel";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import axios from "axios";
+import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
+import { useNavigate } from "react-router-dom";
 
 export default function Calendar() {
   let url = process.env.REACT_APP_baseURL;
+  let navigate = useNavigate();
 
-  const { monthIndex, openDrawer, toggleDrawer, smallCalendarSelectedDay } =
-    useContext(monthContext);
+  const {
+    monthIndex,
+    openDrawer,
+    toggleDrawer,
+    smallCalendarSelectedDay,
+    selectedEvent,
+    setSelectedEvent,
+  } = useContext(monthContext);
+
   const [currentMonthData, setCurrentMonthData] = useState([]);
   // const [valueStartDate, setValueStartDate] = useState(dayjs("2025-01-10"));
   // const [valueEndDate, setValueEndDate] = useState(dayjs("2025-01-10"));
-  const [eventDetails, setEventDetails] = useState({
-    title: "",
-    calendar: "Business",
-    startDate: smallCalendarSelectedDay,
-    endDate: smallCalendarSelectedDay,
-    eventURL: "",
-    guests: [],
-    description: "",
-  });
+  // const [eventDetails, setEventDetails] = useState({
+  //   title: "",
+  //   calendar: "Business",
+  //   startDate: smallCalendarSelectedDay,
+  //   endDate: smallCalendarSelectedDay,
+  //   eventURL: "",
+  //   guests: [],
+  //   description: "",
+  // });
+
+  const [title, setTitle] = useState("");
+  const [calendar, setCalendar] = useState("Business");
+  const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
+  const [eventURL, setEventURL] = useState("");
+  const [guests, setGuests] = useState([]);
+  const [description, setDescription] = useState("");
 
   const [showWarning, setShowWarning] = useState(false);
 
@@ -63,7 +81,7 @@ export default function Calendar() {
   // };
 
   const addValidateHandle = () => {
-    if (eventDetails.title.length === 0) {
+    if (title.length === 0) {
       setShowWarning(true);
       return false;
     } else {
@@ -71,37 +89,56 @@ export default function Calendar() {
     }
   };
 
-  const addEventHandle = async () => {
-    if (addValidateHandle()) {
-      const result = await axios.post(url + `/calendar/add`, {
-        ...eventDetails,
-        startDate: eventDetails.startDate.toDate(),
-        endDate: eventDetails.endDate.toDate(),
-      });
+  const resetEventHandle = () => {
+    setTitle("");
+    setCalendar("Business");
+    setStartDate(smallCalendarSelectedDay);
+    setEndDate(smallCalendarSelectedDay);
+    setEventURL("");
+    setGuests([]);
+    setDescription("");
+  };
 
-      if (result.data === "success") {
-        toggleDrawer(false);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const calendarEvent = {
+      title,
+      calendar,
+      startDate: startDate.toDate(),
+      endDate: endDate.toDate(),
+      eventURL,
+      guests,
+      description,
+    };
+
+    if (selectedEvent) {
+      if (addValidateHandle()) {
+        const result = await axios.post(
+          url + `/calendar/update/${selectedEvent._id}`,
+          { calendarEvent }
+        );
+        if (result.data === "success") {
+          toggleDrawer(false);
+        }
+      }
+    } else {
+      if (addValidateHandle()) {
+        const result = await axios.post(url + `/calendar/add`, {
+          calendarEvent,
+        });
+        if (result.data === "success") {
+          toggleDrawer(false);
+        }
       }
     }
   };
 
-  const resetEventHandle = () => {
-    setEventDetails({
-      ...eventDetails,
-      title: "",
-      calendar: "Business",
-      startDate: smallCalendarSelectedDay,
-      endDate: smallCalendarSelectedDay,
-      eventURL: "",
-      guests: [],
-      description: "",
-    });
+  const deleteHandle = async () => {
+    const result = await axios.post(url + `/calendar/delete/${selectedEvent._id}`);
+    if (result.data === "success") {
+      toggleDrawer(false);
+    }
   };
-
-  const closeEventDrawer=()=>{
-    toggleDrawer(false)
-    resetEventHandle()
-  }
 
   useEffect(() => {
     setCurrentMonthData(getMonth());
@@ -111,6 +148,30 @@ export default function Calendar() {
     setCurrentMonthData(getMonth(monthIndex));
   }, [monthIndex]);
 
+  useEffect(() => {
+    setStartDate(smallCalendarSelectedDay);
+    setEndDate(smallCalendarSelectedDay);
+  }, [smallCalendarSelectedDay]);
+
+  useEffect(() => {
+    if (selectedEvent) {
+      setTitle(selectedEvent.title);
+      setCalendar(selectedEvent.calendar);
+      setStartDate(dayjs(selectedEvent.startDate));
+      setEndDate(dayjs(selectedEvent.endDate));
+      setEventURL(selectedEvent.eventURL);
+      setGuests(selectedEvent.guests);
+      setDescription(selectedEvent.description);
+    } else {
+      setTitle("");
+      setCalendar("Business");
+      setStartDate(null);
+      setEndDate(null);
+      setEventURL("");
+      setGuests([]);
+      setDescription("");
+    }
+  }, [selectedEvent]);
 
   const calendars = [
     {
@@ -158,7 +219,6 @@ export default function Calendar() {
 
   const theme = useTheme();
 
-
   return (
     <>
       <div className="calendar">
@@ -179,15 +239,36 @@ export default function Calendar() {
       </div>
       <Drawer
         open={openDrawer}
-        onClose={() => toggleDrawer(false)}
+        onClose={() => {
+          toggleDrawer(false);
+          setSelectedEvent(null);
+        }}
         anchor="right"
       >
-        <div className="event-wrapper" style={{ width: "400px" }}>
+        <form className="event-wrapper" style={{ width: "400px" }}>
           <div className="event-header">
-            <h5>Add Event</h5>
-            <button onClick={() => closeEventDrawer()}>
-              <CloseIcon />
-            </button>
+            {selectedEvent ? (
+              <>
+                <h5>Update Event</h5>{" "}
+                <div className="event-header-right">
+                  <button>
+                    <DeleteOutlineIcon onClick={() => deleteHandle()} />
+                  </button>
+                  <button onClick={() => toggleDrawer(false)}>
+                    <CloseIcon />
+                  </button>
+                </div>
+              </>
+            ) : (
+              <>
+                <h5>Add Event</h5>{" "}
+                <div className="event-header-right">
+                  <button onClick={() => toggleDrawer(false)}>
+                    <CloseIcon />
+                  </button>
+                </div>
+              </>
+            )}
           </div>
           <div className="event-body">
             <form action="">
@@ -200,10 +281,8 @@ export default function Calendar() {
                   helperText="This field is required"
                   name="title"
                   required
-                  value={eventDetails.title}
-                  onChange={(e) =>
-                    setEventDetails({ ...eventDetails, title: e.target.value })
-                  }
+                  value={title}
+                  onChange={(e) => setTitle(e.target.value)}
                 />
               ) : (
                 <TextField
@@ -213,10 +292,8 @@ export default function Calendar() {
                   className="input-field title-input"
                   name="title"
                   required
-                  value={eventDetails.title}
-                  onChange={(e) =>
-                    setEventDetails({ ...eventDetails, title: e.target.value })
-                  }
+                  value={title}
+                  onChange={(e) => setTitle(e.target.value)}
                 />
               )}
               <TextField
@@ -227,10 +304,8 @@ export default function Calendar() {
                 // helperText="Please select your currency"
                 className="input-field"
                 name="calendar"
-                value={eventDetails.calendar}
-                onChange={(e) =>
-                  setEventDetails({ ...eventDetails, calendar: e.target.value })
-                }
+                value={calendar}
+                onChange={(e) => setCalendar(e.target.value)}
               >
                 {calendars.map((calendar) => (
                   <MenuItem key={calendar.value} value={calendar.value}>
@@ -241,20 +316,16 @@ export default function Calendar() {
               <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <DateTimePicker
                   label="Start Date"
-                  value={eventDetails.startDate}
-                  onChange={(newValue) =>
-                    setEventDetails({ ...eventDetails, startDate: newValue })
-                  }
+                  value={startDate}
+                  onChange={(newValue) => setStartDate(newValue)}
                   className="input-field"
                 />
               </LocalizationProvider>
               <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <DateTimePicker
                   label="End Date"
-                  value={eventDetails.endDate}
-                  onChange={(newValue) =>
-                    setEventDetails({ ...eventDetails, endDate: newValue })
-                  }
+                  value={endDate}
+                  onChange={(newValue) => setEndDate(newValue)}
                   className="input-field"
                 />
               </LocalizationProvider>
@@ -264,10 +335,8 @@ export default function Calendar() {
                 variant="outlined"
                 className="input-field"
                 name="eventURL"
-                value={eventDetails.eventURL}
-                onChange={(e) =>
-                  setEventDetails({ ...eventDetails, eventURL: e.target.value })
-                }
+                value={eventURL}
+                onChange={(e) => setEventURL(e.target.value)}
               />
               <FormControl>
                 <InputLabel id="demo-multiple-name-label">Guests</InputLabel>
@@ -275,12 +344,10 @@ export default function Calendar() {
                   labelId="demo-multiple-name-label"
                   id="demo-multiple-name"
                   multiple
-                  value={eventDetails.guests}
                   name="guests"
                   className="input-field"
-                  onChange={(e) =>
-                    setEventDetails({ ...eventDetails, guests: e.target.value })
-                  }
+                  value={guests}
+                  onChange={(e) => setGuests(e.target.value)}
                   input={<OutlinedInput label="Name" />}
                   MenuProps={MenuProps}
                 >
@@ -288,7 +355,7 @@ export default function Calendar() {
                     <MenuItem
                       key={name}
                       value={name}
-                      style={getStyles(name, eventDetails.guests, theme)}
+                      style={getStyles(name, guests, theme)}
                     >
                       {name}
                     </MenuItem>
@@ -300,26 +367,21 @@ export default function Calendar() {
                 minRows={4}
                 className="input-field"
                 name="description"
-                value={eventDetails.description}
-                onChange={(e) =>
-                  setEventDetails({
-                    ...eventDetails,
-                    description: e.target.value,
-                  })
-                }
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
               />
               <div className="buttons-wrapper">
                 <Button
                   variant="contained"
                   className="btn-add"
-                  onClick={() => addEventHandle()}
+                  onClick={(e) => handleSubmit(e)}
                 >
                   Add
                 </Button>
                 <Button
                   variant="contained"
                   className="btn-reset"
-                  onClick={(e) => {
+                  onClick={() => {
                     resetEventHandle();
                   }}
                 >
@@ -328,7 +390,7 @@ export default function Calendar() {
               </div>
             </form>
           </div>
-        </div>
+        </form>
       </Drawer>
     </>
   );

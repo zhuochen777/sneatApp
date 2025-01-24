@@ -40,15 +40,8 @@ export default function MonthView({ currentMonthData }) {
         </div>
       </div>
       <div className="calendar-right-bottom">
-        <table
-          style={{ borderCollapse: "collapse", width: "100%", height: "100%" }}
-        >
-          <thead
-            style={{
-              height: "40px",
-              borderLeft: "0.5px solid rgba(34, 48, 62, 0.12)",
-            }}
-          >
+        <table>
+          <thead>
             <tr className="col-header">
               <th className="dayofWeek">
                 <div>Sun</div>

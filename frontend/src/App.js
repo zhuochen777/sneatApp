@@ -15,19 +15,26 @@ import "./App.scss";
 import Crm from "./pages/dashboards/Crm";
 import Calendar from "./pages/apps/Calendar";
 import dayjs from "dayjs";
+import axios from "axios";
 
 export const themeContext = createContext(null);
 export const monthContext = createContext(null);
 
 function App() {
+  let url = process.env.REACT_APP_baseURL;
   const [theme, setTheme] = useState("light");
+
   //for month change in Calendar module
+  //useState in calendar module
   const [monthIndex, setMonthIndex] = useState(dayjs().month());
   const [smallCalendarMonthIndex, setSmallCalendarMonthIndex] = useState(null);
   const [smallCalendarSelectedDay, setSmallCalendarSelectedDay] = useState(
     dayjs()
   );
   const [openDrawer, setOpenDrawer] = useState(false);
+  const [allSavedEvents, setAllSavedEvents] = useState([]);
+  const [selectedEvent, setSelectedEvent] = useState(null);
+  const [filters, setFilters] = useState([])
 
   const toggleTheme = (themeMode) => {
     setTheme(themeMode);
@@ -35,6 +42,14 @@ function App() {
 
   const toggleDrawer = (flag) => {
     setOpenDrawer(flag);
+    if (!flag) {
+      setSelectedEvent(null);
+    }
+  };
+
+  const getAllSavedEvents = async () => {
+    const result = await axios.get(url + `/calendar/all`);
+    setAllSavedEvents(result.data);
   };
 
   useEffect(() => {
@@ -42,6 +57,10 @@ function App() {
       setMonthIndex(smallCalendarMonthIndex);
     }
   }, [smallCalendarMonthIndex]);
+
+  useEffect(() => {
+    getAllSavedEvents();
+  }, [allSavedEvents]);
 
   return (
     <monthContext.Provider
@@ -55,6 +74,9 @@ function App() {
         openDrawer,
         setOpenDrawer,
         toggleDrawer,
+        selectedEvent,
+        setSelectedEvent,
+        allSavedEvents,
       }}
     >
       <themeContext.Provider value={{ theme, toggleTheme }}>

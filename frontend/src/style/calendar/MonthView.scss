@@ -61,15 +61,45 @@
     }
 
     .calendar-right-bottom {
-        .dayofWeek{
-            font-weight: 500;
-        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            height: 100%;
 
-        .month-row {
-            .each-day {
-                border: 1px solid rgba(34, 48, 62, .12);
-                height: 130px;
+            thead {
+                height: 40px;
+                border-left: 0.5px solid rgba(34, 48, 62, 0.12);
+
+                .col-header {
+                    display: flex;
+                    height: 100%;
+                    
+                    .dayofWeek {
+                        font-weight: 500;
+                        flex: 1;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+                }
+            }
+
+            tbody {
+                .month-row {
+                    display: flex;
+
+                    .each-day {
+                        border: 1px solid rgba(34, 48, 62, .12);
+                        height: 130px;
+                        flex: 1;
+                        width: 0;
+                        overflow: hidden;     
+                    }
+                }
             }
         }
+
+
+
     }
 }

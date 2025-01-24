@@ -2,37 +2,40 @@ import React, { useContext, useEffect, useState } from "react";
 import "../../style/calendar/Day.scss";
 import dayjs from "dayjs";
 import { monthContext } from "../../App";
-import axios from "axios";
+// import axios from "axios";
 
 export default function Day({ day }) {
-  let url = process.env.REACT_APP_baseURL;
-  const { monthIndex, setOpenDrawer, setSmallCalendarSelectedDay } =
-    useContext(monthContext);
+  // let url = process.env.REACT_APP_baseURL;
+  const {
+    monthIndex,
+    toggleDrawer,
+    setSmallCalendarSelectedDay,
+    setSelectedEvent,
+    allSavedEvents
+  } = useContext(monthContext);
 
   const month = monthIndex + 1;
-  // console.log("month", month);
-  // console.log("MM", parseInt(day.format("MM")));
-  const [allSavedEvents, setAllSavedEvents] = useState([]);
-  const [dayEvents, setDayEvents] = useState([])
 
-  const getAllSavedEvents = async () => {
-    const result = await axios.get(url + `/calendar/all`);
-    setAllSavedEvents(result.data);
+  const [dayEvents, setDayEvents] = useState([]);
+  
+  const selectEventHandle = (e, event) => {
+    e.stopPropagation();
+    setSelectedEvent(event);
+    toggleDrawer(true);
   };
 
   useEffect(() => {
     const eventsOfTheDay = allSavedEvents.filter(
       (event) =>
-        dayjs(event.startDay).format("MM-DD-YY") >=
-          day.format("MM-DD-YY") &&
-        dayjs(event.endDate).format("MM-DD-YY") <= day.format("MM-DD-YY")
+        Date.parse(dayjs(event.startDate).format("MM-DD-YY")) <=
+          Date.parse(day.format("MM-DD-YY")) &&
+        Date.parse(day.format("MM-DD-YY")) <=
+          Date.parse(dayjs(event.endDate).format("MM-DD-YY"))
     );
-    setDayEvents(eventsOfTheDay)
+
+    setDayEvents(eventsOfTheDay);
   }, [day, allSavedEvents]);
 
-  useEffect(() => {
-    getAllSavedEvents();
-  }, []);
 
   return (
     <div
@@ -40,8 +43,8 @@ export default function Day({ day }) {
         day.format("MM-DD-YY") === dayjs().format("MM-DD-YY") ? "today" : ""
       }`}
       onClick={() => {
-        setOpenDrawer(true);
-        setSmallCalendarSelectedDay(day);
+        setSmallCalendarSelectedDay(day)
+        toggleDrawer(true)
       }}
     >
       <header className="day-box-top">
@@ -55,9 +58,15 @@ export default function Day({ day }) {
         </p>
       </header>
       <div className="day-box-content">
-        {dayEvents.map((event, index)=><div>
-          {event.title}
-        </div>)}
+        {dayEvents.map((event, index) => (
+          <div
+            key={index}
+            className={`${event.calendar}-event event-name`}
+            onClick={(e) => selectEventHandle(e, event)}
+          >
+            {event.title}
+          </div>
+        ))}
       </div>
     </div>
   );

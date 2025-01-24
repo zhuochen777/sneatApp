@@ -27,7 +27,14 @@
   font-size: 18px;
 }
 
-.event-wrapper .event-header button {
+.event-wrapper .event-header .event-header-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+
+.event-wrapper .event-header .event-header-right button {
   border: none;
   background-color: #fff;
   cursor: pointer;
@@ -40,7 +47,7 @@
   box-sizing: unset;
 }
 
-.event-wrapper .event-header button:hover {
+.event-wrapper .event-header .event-header-right button:hover {
   background-color: rgba(34, 48, 62, 0.08);
   border-radius: 50%;
 }

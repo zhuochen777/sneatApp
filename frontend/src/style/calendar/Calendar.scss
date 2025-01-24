@@ -30,53 +30,65 @@
             font-size: 18px;
         }
 
-        button {
-            border: none;
-            background-color: #fff;
-            cursor: pointer;
+        .event-header-right {
             display: flex;
-            align-items: center;
             justify-content: center;
-            width: 24px;
-            height: 24px;
-            padding: 5px;
-            box-sizing: unset;
+            align-items: center;
+            gap: 4px;
+            button {
+                border: none;
+                background-color: #fff;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 24px;
+                height: 24px;
+                padding: 5px;
+                box-sizing: unset;
 
-            &:hover {
-                background-color: rgba(34, 48, 62, 0.08);
-                border-radius: 50%;
+                &:hover {
+                    background-color: rgba(34, 48, 62, 0.08);
+                    border-radius: 50%;
+                }
             }
         }
+
     }
 
     .event-body {
         padding: 24px;
+
         form {
             display: flex;
             flex-direction: column;
-            .input-field{
+
+            .input-field {
                 margin-bottom: 24px
             }
-            
-            .buttons-wrapper{
-                .btn-add{
+
+            .buttons-wrapper {
+                .btn-add {
                     margin-right: 24px;
                     text-transform: none;
                     color: #fff;
                     background-color: #696cff;
                     box-shadow: none;
-                    &:hover{
-                        background-color: (94,97,229);
+
+                    &:hover {
+                        background-color: (94, 97, 229);
                     }
                 }
-                .btn-reset{
+
+                .btn-reset {
                     text-transform: none;
                     color: #8592A3;
-                    background-color: rgba(133,146,163,0.16);
+                    background-color: rgba(133, 146, 163, 0.16);
                     box-shadow: none;
-                    &:hover{
+
+                    &:hover {
                         background-color: #788393;
-                        color:#fff;
+                        color: #fff;
                     }
                 }
             }
