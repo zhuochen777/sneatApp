@@ -39,6 +39,7 @@ function App() {
   const [selectedFilters, setSelectedFilters] = useState([]);
   const [filtersAllChecked, setFiltersAllChecked] = useState(true);
   const [filteredEvents, setFilteredEvents] = useState([]);
+  const [showMoreSelectedDay, setShowMoreSelectedDay] = useState(null)
 
   const toggleTheme = (themeMode) => {
     setTheme(themeMode);
@@ -115,6 +116,7 @@ function App() {
         setFiltersAllChecked,
         selectAllFilters,
         filteredEvents,
+        showMoreSelectedDay, setShowMoreSelectedDay
       }}
     >
       <themeContext.Provider value={{ theme, toggleTheme }}>

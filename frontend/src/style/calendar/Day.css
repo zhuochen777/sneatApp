@@ -3,6 +3,7 @@
   height: 100%;
   box-sizing: border-box;
   width: 100%;
+  position: relative;
 }
 
 .day-box.today {
@@ -23,7 +24,7 @@
 
 .day-box .day-box-content .event-name {
   max-width: 100%;
-  padding: 4px 12px;
+  padding: 3px 12px;
   margin-bottom: 10px;
   font-size: 13px;
   border-radius: 4px;
@@ -58,4 +59,16 @@
 .day-box .day-box-content .event-name.ETC-event {
   color: #03c3ec;
   background-color: rgba(3, 195, 236, 0.16);
+}
+
+.day-box .day-box-content .more-text {
+  font-size: 12.75px;
+  cursor: pointer;
+  display: inline-block;
+  padding: 2px;
+  border-radius: 4px;
+}
+
+.day-box .day-box-content .more-text:hover {
+  background-color: rgba(0, 0, 0, 0.1);
 }

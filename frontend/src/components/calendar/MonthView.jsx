@@ -1,14 +1,24 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState,useRef } from "react";
 import Day from "./Day";
 import "../../style/calendar/MonthView.scss";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import { monthContext } from "../../App";
 import dayjs from "dayjs";
+import ClearIcon from "@mui/icons-material/Clear";
 
 export default function MonthView({ currentMonthData }) {
   // console.log(currentMonthData);
-  const { monthIndex, setMonthIndex } = useContext(monthContext);
+  let showMoreInfo = useRef();
+  const {
+    monthIndex,
+    setMonthIndex,
+    showMoreSelectedDay,
+    toggleDrawer,
+    setSelectedEvent,
+  } = useContext(monthContext);
+  const [showMore, setShowMore] = useState(false);
+  const [dayEvents, setDayEvents] = useState([]);
 
   const handlePrevMonth = () => {
     setMonthIndex(monthIndex - 1);
@@ -16,6 +26,29 @@ export default function MonthView({ currentMonthData }) {
   const handleNextMonth = () => {
     setMonthIndex(monthIndex + 1);
   };
+
+  const getDayEvents = (dayEvents) => {
+    setDayEvents(dayEvents);
+  };
+
+  const selectEventHandle = (e, event) => {
+    e.stopPropagation();
+    setSelectedEvent(event);
+    toggleDrawer(true);
+  };
+
+  useEffect(() => {
+    let showMoreInfoHandle = (e) => {
+      if (!showMoreInfo.current?.contains(e.target))
+        setShowMore(false);
+    };
+
+    document.addEventListener("mousedown", showMoreInfoHandle);
+
+    return () => {
+      document.removeEventListener("mousedown", showMoreInfoHandle);
+    };
+  });
 
   return (
     <div className="calendar-right">
@@ -72,7 +105,41 @@ export default function MonthView({ currentMonthData }) {
                 {row.map((day, index) => {
                   return (
                     <td className="each-day">
-                      <Day day={day} key={index} />
+                      <Day
+                        day={day}
+                        key={index}
+                        setShowMore={setShowMore}
+                        getDayEvents={getDayEvents}
+                      />
+                      {showMore && day === showMoreSelectedDay && (
+                        <div className="show-more" ref={showMoreInfo}>
+                          <div className="show-more-header">
+                            <span className="text">
+                              {day.format("MMMM D, YYYY")}
+                            </span>
+                            <span className="icon-wrapper">
+                              <ClearIcon
+                                className="clear-icon"
+                                onClick={() => setShowMore(false)}
+                              />
+                            </span>
+                          </div>
+                          <div className="show-more-body">
+                            {dayEvents.map((event, index) => (
+                              <div
+                                key={index}
+                                className={`${event.calendar}-event event-name`}
+                                onClick={(e) => selectEventHandle(e, event)}
+                              >
+                                <span>
+                                  {dayjs(event.startDate).format("h:mm A")}{" "}
+                                  {event.title}
+                                </span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
                     </td>
                   );
                 })}

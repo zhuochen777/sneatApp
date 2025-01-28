@@ -4,6 +4,7 @@
     box-sizing: border-box;
     // cursor: pointer;
     width: 100%;
+    position: relative;
 
     &.today {
         background-color: rgba(34, 48, 62, 0.06);
@@ -23,7 +24,7 @@
         margin-top: 10px;
         .event-name {
             max-width: 100%;
-            padding: 4px 12px;
+            padding: 3px 12px;
             margin-bottom: 10px;
             font-size: 13px;
             border-radius: 4px;
@@ -55,6 +56,16 @@
             &.ETC-event {
                 color: #03c3ec;
                 background-color: rgba(3, 195, 236, .16);
+            }
+        }
+        .more-text{
+            font-size: 12.75px;
+            cursor: pointer;
+            display: inline-block;
+            padding: 2px;
+            border-radius: 4px;
+            &:hover{
+                background-color: rgba(0, 0, 0, 0.1);
             }
         }
     }

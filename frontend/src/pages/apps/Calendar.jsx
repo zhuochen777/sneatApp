@@ -134,7 +134,9 @@ export default function Calendar() {
   };
 
   const deleteHandle = async () => {
-    const result = await axios.post(url + `/calendar/delete/${selectedEvent._id}`);
+    const result = await axios.post(
+      url + `/calendar/delete/${selectedEvent._id}`
+    );
     if (result.data === "success") {
       toggleDrawer(false);
     }
@@ -376,7 +378,7 @@ export default function Calendar() {
                   className="btn-add"
                   onClick={(e) => handleSubmit(e)}
                 >
-                  Add
+                  {selectedEvent ? <span>Update</span> : <span>Add</span>}
                 </Button>
                 <Button
                   variant="contained"

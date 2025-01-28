@@ -47,6 +47,7 @@ export default function Navbar() {
       document.removeEventListener("mousedown", userInfoHandle);
     };
   });
+  
   useEffect(() => {
     let themeModeHandle = (e) => {
       if (!themeModeDropdownRef.current.contains(e.target))

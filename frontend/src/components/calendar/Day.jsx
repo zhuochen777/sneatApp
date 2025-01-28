@@ -3,8 +3,9 @@ import "../../style/calendar/Day.scss";
 import dayjs from "dayjs";
 import { monthContext } from "../../App";
 // import axios from "axios";
+// import ClearIcon from "@mui/icons-material/Clear";
 
-export default function Day({ day }) {
+export default function Day({ day, setShowMore,getDayEvents }) {
   // let url = process.env.REACT_APP_baseURL;
   const {
     monthIndex,
@@ -14,16 +15,25 @@ export default function Day({ day }) {
     allSavedEvents,
     filteredEvents,
     setFilteredEvents,
+    setShowMoreSelectedDay
   } = useContext(monthContext);
 
   const month = monthIndex + 1;
 
   const [dayEvents, setDayEvents] = useState([]);
+  // const [showMore, setShowMore] = useState(false);
 
   const selectEventHandle = (e, event) => {
     e.stopPropagation();
     setSelectedEvent(event);
     toggleDrawer(true);
+  };
+
+  const showMoreHandle = (e) => {
+    e.stopPropagation();
+    setShowMore(true);
+    setShowMoreSelectedDay(day)
+    getDayEvents(dayEvents)
   };
 
   useEffect(() => {
@@ -35,8 +45,23 @@ export default function Day({ day }) {
           Date.parse(dayjs(event.endDate).format("MM-DD-YY"))
     );
 
+    const compare = (a, b) => {
+      if (a.startDate < b.startDate) {
+        return -1;
+      }
+
+      if (a.startDate > b.startDate) {
+        return 1;
+      }
+
+      return 0;
+    };
+
+    eventsOfTheDay.sort(compare);
     setDayEvents(eventsOfTheDay);
   }, [day, filteredEvents]);
+
+
 
   return (
     <div
@@ -59,17 +84,38 @@ export default function Day({ day }) {
         </p>
       </header>
       <div className="day-box-content">
-        {dayEvents.map((event, index) => (
+        {dayEvents.length <= 2
+          ? dayEvents.map((event, index) => (
+              <div
+                key={index}
+                className={`${event.calendar}-event event-name`}
+                onClick={(e) => selectEventHandle(e, event)}
+              >
+                <span>
+                  {dayjs(event.startDate).format("h:mm A")} {event.title}
+                </span>
+              </div>
+            ))
+          : dayEvents.slice(0, 2).map((event, index) => (
+              <div
+                key={index}
+                className={`${event.calendar}-event event-name`}
+                onClick={(e) => selectEventHandle(e, event)}
+              >
+                <span>
+                  {dayjs(event.startDate).format("h:mm A")} {event.title}
+                </span>
+              </div>
+            ))}
+        {dayEvents.length > 2 && (
           <div
-            key={index}
-            className={`${event.calendar}-event event-name`}
-            onClick={(e) => selectEventHandle(e, event)}
+            className="
+        more-text"
+            onClick={(e) => showMoreHandle(e)}
           >
-            <span>
-              {dayjs(event.startDate).format("h:mm A")} {event.title}
-            </span>
+            +{dayEvents.length - 2} more
           </div>
-        ))}
+        )}
       </div>
     </div>
   );
