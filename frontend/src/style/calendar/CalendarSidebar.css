@@ -75,26 +75,26 @@
   fill: grey;
 }
 
-.calendar-left .sidebar-bottom .selected.viewAll .css-i4bv87-MuiSvgIcon-root {
+.calendar-left .sidebar-bottom .selected.viewAll .css-i4bv87-MuiSvgIcon-root, .calendar-left .sidebar-bottom .selected.viewAll .css-vubbuv {
   fill: grey !important;
 }
 
-.calendar-left .sidebar-bottom .selected.personal .css-i4bv87-MuiSvgIcon-root {
+.calendar-left .sidebar-bottom .selected.personal .css-i4bv87-MuiSvgIcon-root, .calendar-left .sidebar-bottom .selected.personal .css-vubbuv {
   fill: #ff3e1d !important;
 }
 
-.calendar-left .sidebar-bottom .selected.business .css-i4bv87-MuiSvgIcon-root {
+.calendar-left .sidebar-bottom .selected.business .css-i4bv87-MuiSvgIcon-root, .calendar-left .sidebar-bottom .selected.business .css-vubbuv {
   fill: #696cff !important;
 }
 
-.calendar-left .sidebar-bottom .selected.family .css-i4bv87-MuiSvgIcon-root {
+.calendar-left .sidebar-bottom .selected.family .css-i4bv87-MuiSvgIcon-root, .calendar-left .sidebar-bottom .selected.family .css-vubbuv {
   fill: #ffab00 !important;
 }
 
-.calendar-left .sidebar-bottom .selected.holiday .css-i4bv87-MuiSvgIcon-root {
+.calendar-left .sidebar-bottom .selected.holiday .css-i4bv87-MuiSvgIcon-root, .calendar-left .sidebar-bottom .selected.holiday .css-vubbuv {
   fill: #71dd37 !important;
 }
 
-.calendar-left .sidebar-bottom .selected.etc .css-i4bv87-MuiSvgIcon-root {
+.calendar-left .sidebar-bottom .selected.etc .css-i4bv87-MuiSvgIcon-root, .calendar-left .sidebar-bottom .selected.etc .css-vubbuv {
   fill: #03c3ec !important;
 }
