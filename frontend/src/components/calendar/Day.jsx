@@ -11,13 +11,15 @@ export default function Day({ day }) {
     toggleDrawer,
     setSmallCalendarSelectedDay,
     setSelectedEvent,
-    allSavedEvents
+    allSavedEvents,
+    filteredEvents,
+    setFilteredEvents,
   } = useContext(monthContext);
 
   const month = monthIndex + 1;
 
   const [dayEvents, setDayEvents] = useState([]);
-  
+
   const selectEventHandle = (e, event) => {
     e.stopPropagation();
     setSelectedEvent(event);
@@ -25,7 +27,7 @@ export default function Day({ day }) {
   };
 
   useEffect(() => {
-    const eventsOfTheDay = allSavedEvents.filter(
+    const eventsOfTheDay = filteredEvents.filter(
       (event) =>
         Date.parse(dayjs(event.startDate).format("MM-DD-YY")) <=
           Date.parse(day.format("MM-DD-YY")) &&
@@ -34,8 +36,7 @@ export default function Day({ day }) {
     );
 
     setDayEvents(eventsOfTheDay);
-  }, [day, allSavedEvents]);
-
+  }, [day, filteredEvents]);
 
   return (
     <div
@@ -43,8 +44,8 @@ export default function Day({ day }) {
         day.format("MM-DD-YY") === dayjs().format("MM-DD-YY") ? "today" : ""
       }`}
       onClick={() => {
-        setSmallCalendarSelectedDay(day)
-        toggleDrawer(true)
+        setSmallCalendarSelectedDay(day);
+        toggleDrawer(true);
       }}
     >
       <header className="day-box-top">
@@ -64,7 +65,9 @@ export default function Day({ day }) {
             className={`${event.calendar}-event event-name`}
             onClick={(e) => selectEventHandle(e, event)}
           >
-            {event.title}
+            <span>
+              {dayjs(event.startDate).format("h:mm A")} {event.title}
+            </span>
           </div>
         ))}
       </div>

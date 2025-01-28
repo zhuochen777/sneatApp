@@ -165,8 +165,8 @@ export default function Calendar() {
     } else {
       setTitle("");
       setCalendar("Business");
-      setStartDate(null);
-      setEndDate(null);
+      setStartDate(smallCalendarSelectedDay);
+      setEndDate(smallCalendarSelectedDay);
       setEventURL("");
       setGuests([]);
       setDescription("");

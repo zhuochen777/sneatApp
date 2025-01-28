@@ -1,6 +1,6 @@
 .calendar-left {
     flex: 20%;
-    
+
     .sidebar-top {
         border-bottom: 0.5px solid rgba(34, 48, 62, 0.12);
         border-right: 0.5px solid rgba(34, 48, 62, 0.12);
@@ -64,15 +64,47 @@
             color: rgba(34, 48, 62, .7);
         }
 
-        .PrivateSwitchBase-input.css-1m9pwf3{
+        .PrivateSwitchBase-input.css-1m9pwf3 {
             width: 36px;
             height: 36px;
         }
 
-        .css-i4bv87-MuiSvgIcon-root{
-            fill:grey;
+        .css-i4bv87-MuiSvgIcon-root {
+            fill: grey;
         }
 
-        
+        .selected {
+            &.viewAll {
+                .css-i4bv87-MuiSvgIcon-root {
+                    fill: grey;
+                }
+            }
+            &.personal{
+                .css-i4bv87-MuiSvgIcon-root {
+                    fill: #ff3e1d;
+                }
+            }
+            &.business{
+                .css-i4bv87-MuiSvgIcon-root {
+                    fill: #696cff;
+                }
+            }
+            &.family{
+                .css-i4bv87-MuiSvgIcon-root {
+                    fill: #ffab00;
+                }
+            }
+            &.holiday{
+                .css-i4bv87-MuiSvgIcon-root {
+                    fill: #71dd37;
+                }
+            }
+            &.etc{
+                .css-i4bv87-MuiSvgIcon-root {
+                    fill: #03c3ec;
+                }
+            }
+        }
+
     }
 }

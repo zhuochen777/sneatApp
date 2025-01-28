@@ -22,10 +22,12 @@ export const monthContext = createContext(null);
 
 function App() {
   let url = process.env.REACT_APP_baseURL;
+  const filterOptions = ["Personal", "Business", "Family", "Holiday", "ETC"];
   const [theme, setTheme] = useState("light");
 
   //for month change in Calendar module
   //useState in calendar module
+
   const [monthIndex, setMonthIndex] = useState(dayjs().month());
   const [smallCalendarMonthIndex, setSmallCalendarMonthIndex] = useState(null);
   const [smallCalendarSelectedDay, setSmallCalendarSelectedDay] = useState(
@@ -34,12 +36,15 @@ function App() {
   const [openDrawer, setOpenDrawer] = useState(false);
   const [allSavedEvents, setAllSavedEvents] = useState([]);
   const [selectedEvent, setSelectedEvent] = useState(null);
-  const [filters, setFilters] = useState([])
+  const [selectedFilters, setSelectedFilters] = useState([]);
+  const [filtersAllChecked, setFiltersAllChecked] = useState(true);
+  const [filteredEvents, setFilteredEvents] = useState([]);
 
   const toggleTheme = (themeMode) => {
     setTheme(themeMode);
   };
 
+  //functions in Calendar module
   const toggleDrawer = (flag) => {
     setOpenDrawer(flag);
     if (!flag) {
@@ -52,6 +57,18 @@ function App() {
     setAllSavedEvents(result.data);
   };
 
+  const selectAllFilters = (e) => {
+    setFiltersAllChecked(e.target.checked);
+
+    if (e.target.checked) {
+      setFilteredEvents(allSavedEvents);
+      setSelectedFilters(["Personal", "Business", "Family", "Holiday", "ETC"]);
+    } else {
+      setFilteredEvents([]);
+      setSelectedFilters([]);
+    }
+  };
+
   useEffect(() => {
     if (setSmallCalendarMonthIndex !== null) {
       setMonthIndex(smallCalendarMonthIndex);
@@ -60,7 +77,22 @@ function App() {
 
   useEffect(() => {
     getAllSavedEvents();
-  }, [allSavedEvents]);
+    setFilteredEvents(allSavedEvents);
+
+    if (filtersAllChecked) {
+      setFilteredEvents(allSavedEvents);
+    } else {
+      setFilteredEvents(
+        allSavedEvents.filter((event) =>
+          selectedFilters.includes(event.calendar)
+        )
+      );
+    }
+  }, [allSavedEvents, filtersAllChecked, selectedFilters]);
+
+  useEffect(() => {
+    setSelectedFilters(["Personal", "Business", "Family", "Holiday", "ETC"]);
+  }, []);
 
   return (
     <monthContext.Provider
@@ -77,6 +109,12 @@ function App() {
         selectedEvent,
         setSelectedEvent,
         allSavedEvents,
+        selectedFilters,
+        setSelectedFilters,
+        filtersAllChecked,
+        setFiltersAllChecked,
+        selectAllFilters,
+        filteredEvents,
       }}
     >
       <themeContext.Provider value={{ theme, toggleTheme }}>
