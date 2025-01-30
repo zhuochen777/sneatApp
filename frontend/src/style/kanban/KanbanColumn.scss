@@ -1,0 +1,32 @@
+.column-wrapper {
+    width: 265px;
+
+    .column-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 16px;
+        h5{
+            font-size: 18px;
+            color: rgba(34,48,62,0.9);
+        }
+        .more-icon-wrapper{
+            background-color: transparent;
+            border: none;
+            padding: 5px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            &:hover{
+                background-color: rgba(34,48,62,0.08);
+            }
+            .more-icon{
+                width: 20px;
+                height: 20px;
+                color: rgba(34,48,62,0.9);
+            }
+        }
+    }
+}

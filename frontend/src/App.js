@@ -16,13 +16,13 @@ import Crm from "./pages/dashboards/Crm";
 import Calendar from "./pages/apps/Calendar";
 import dayjs from "dayjs";
 import axios from "axios";
+import Kanban from "./pages/apps/Kanban";
 
 export const themeContext = createContext(null);
 export const monthContext = createContext(null);
 
 function App() {
   let url = process.env.REACT_APP_baseURL;
-  const filterOptions = ["Personal", "Business", "Family", "Holiday", "ETC"];
   const [theme, setTheme] = useState("light");
 
   //for month change in Calendar module
@@ -136,6 +136,7 @@ function App() {
             </Route>
             <Route path="apps/chat" element={<Chat />} />
             <Route path="apps/calendar" element={<Calendar />} />
+            <Route path="apps/kanban" element={<Kanban />} />
           </Routes>
         </div>
       </themeContext.Provider>
