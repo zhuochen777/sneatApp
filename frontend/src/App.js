@@ -25,9 +25,7 @@ function App() {
   let url = process.env.REACT_APP_baseURL;
   const [theme, setTheme] = useState("light");
 
-  //for month change in Calendar module
-  //useState in calendar module
-
+  // states in Calendar module
   const [monthIndex, setMonthIndex] = useState(dayjs().month());
   const [smallCalendarMonthIndex, setSmallCalendarMonthIndex] = useState(null);
   const [smallCalendarSelectedDay, setSmallCalendarSelectedDay] = useState(
@@ -40,6 +38,7 @@ function App() {
   const [filtersAllChecked, setFiltersAllChecked] = useState(true);
   const [filteredEvents, setFilteredEvents] = useState([]);
   const [showMoreSelectedDay, setShowMoreSelectedDay] = useState(null)
+
 
   const toggleTheme = (themeMode) => {
     setTheme(themeMode);

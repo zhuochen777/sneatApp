@@ -20,3 +20,20 @@
   display: flex;
   gap: 24px;
 }
+
+.kanban .container .kanban-content .add-new-wrapper .add-new-content {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.kanban .container .kanban-content .add-new-wrapper .add-new-content .add-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.kanban .container .kanban-content .add-new-wrapper .add-new-content .add-text {
+  font-size: 18px;
+}

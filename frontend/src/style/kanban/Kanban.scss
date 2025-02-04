@@ -15,9 +15,29 @@
             overflow-y: scroll;
             display: flex;
             gap: 24px;
-            .columns-wrapper{
+
+            .columns-wrapper {
                 display: flex;
                 gap: 24px;
+            }
+
+            .add-new-wrapper {
+                .add-new-content {
+                    display: flex;
+                    gap: 4px;
+                    align-items: center;
+                    cursor: pointer;
+                    font-weight: 500;
+
+                    .add-icon {
+                        width: 16px;
+                        height: 16px;
+                    }
+
+                    .add-text {
+                        font-size: 18px;
+                    }
+                }
             }
         }
     }

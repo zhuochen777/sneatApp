@@ -29,4 +29,19 @@
             }
         }
     }
+    .column-bottom{
+        .bottom-content{
+            display: flex;
+            gap: 4px;
+            align-items: center;
+            cursor: pointer;
+            .add-icon{
+                width: 16px;
+                height: 16px;
+            }
+            .add-text{
+                font-size: 15px;
+            }
+        }
+    }
 }

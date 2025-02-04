@@ -3,48 +3,78 @@ import "../../style/kanban/Task.scss";
 import AttachmentIcon from "@mui/icons-material/Attachment";
 import ForumIcon from "@mui/icons-material/Forum";
 import Avatar from "@mui/material/Avatar";
-import Stack from "@mui/material/Stack";
+import AvatarGroup from "@mui/material/AvatarGroup";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
+import Tooltip from "@mui/material/Tooltip";
+import { useSortable } from "@dnd-kit/sortable";
+import {CSS} from "@dnd-kit/utilities"
 
-export default function Task() {
+export default function Task(props) {
+  const { task } = props;
+
+  
   return (
-    <div className="task-wrapper">
+    <div
+      className="task-wrapper" 
+    >
       <div className="task-top">
         <div className="label-wrapper">
-          <span className="label">UX</span>
+          {task.labels.map((label, index) => {
+            return (
+              <span
+                className={`label-text ${
+                  label === "UX"
+                    ? "ux"
+                    : label === "Code Review"
+                    ? "codeReview"
+                    : label === "Dashboard"
+                    ? "dashboard"
+                    : label === "Images"
+                    ? "images"
+                    : label === "App"
+                    ? "app"
+                    : "charts"
+                }`}
+                key={index}
+              >
+                {label}
+              </span>
+            );
+          })}
         </div>
         <button className="more-icon-wrapper">
           <MoreVertIcon className="more-icon" />
         </button>
       </div>
-      <p className="title">Research FAQ page UX</p>
-      <div className="img"><img src="https://demos.themeselection.com/sneat-mui-nextjs-admin-template/demo-1/images/apps/kanban/plant.png" alt="task-img" /></div>
+      <p className="title">{task.content}</p>
+      <div className="img-wrapper">
+        {task.img && <img src={task.img} alt="task-img" className="img" />}
+      </div>
       <div className="other-details">
         <div className="details-left">
           <div className="attachment">
             <AttachmentIcon />
-            <p>4</p>
+            <p>{task.attachmentNum}</p>
           </div>
           <div className="chat">
             <ForumIcon />
-            <p>12</p>
+            <p>{task.chatNum}</p>
           </div>
         </div>
         <div className="details-right">
-          <Stack direction="row" spacing={-1}>
-            <Avatar
-              alt="John Doe"
-              src="https://demos.themeselection.com/sneat-mui-nextjs-admin-template/demo-1/images/avatars/3.png"
-            />
-            <Avatar
-              alt="Jane Smith"
-              src="https://demos.themeselection.com/sneat-mui-nextjs-admin-template/demo-1/images/avatars/2.png"
-            />
-            <Avatar
-              alt="Robert Johnson"
-              src="https://demos.themeselection.com/sneat-mui-nextjs-admin-template/demo-1/images/avatars/1.png"
-            />
-          </Stack>
+          <AvatarGroup max={4} className="avatar-wrapper">
+            {task.assignees.map((assignee, index) => {
+              return (
+                <Tooltip title={assignee.name} key={index}>
+                  <Avatar
+                    className="avatar"
+                    alt={assignee.name}
+                    src={assignee.avatar}
+                  />
+                </Tooltip>
+              );
+            })}
+          </AvatarGroup>
         </div>
       </div>
     </div>

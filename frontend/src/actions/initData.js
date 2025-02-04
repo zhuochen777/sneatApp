@@ -1,19 +1,4 @@
-import React, { useEffect, useState } from "react";
-import Sidebar from "../../components/Sidebar";
-import Navbar from "../../components/Navbar";
-import Footer from "../../components/Footer";
-import "../../style/kanban/Kanban.scss";
-import KanbanColumn from "../../components/kanban/KanbanColumn";
-import AddIcon from "@mui/icons-material/Add";
-// import { initData } from "../../actions/initData";
-import { closestCorners, DndContext } from "@dnd-kit/core";
-import {
-  SortableContext,
-  arrayMove,
-  horizontalListSortingStrategy,
-  verticalListSortingStrategy,
-} from "@dnd-kit/sortable";
-
+// initial data for kanban module
 export const initData = [
   {
     id: "column-1",
@@ -169,65 +154,3 @@ export const initData = [
     ],
   },
 ];
-
-export default function Kanban() {
-  const [columns, setColumns] = useState(initData);
-
-  const getColumnPosition = (id) =>
-    columns.findIndex((column) => column.id === id);
-
-  const handleDragEnd = (event) => {
-    const { active, over } = event;
-
-    if (active.id === over.id) return;
-    setColumns((columns) => {
-      const originalColumnPosition = getColumnPosition(active.id);
-      const newColumnPosition = getColumnPosition(over.id);
-
-      return arrayMove(columns, originalColumnPosition, newColumnPosition);
-    });
-  };
-
-  return (
-    <>
-      <div className="kanban">
-        <Sidebar />
-        <div className="container">
-          <Navbar />
-          <div
-            className="kanban-boxes"
-            style={{ marginTop: "100px", marginBottom: "24px" }}
-          >
-            <div className="kanban-content">
-              <DndContext
-                collisionDetection={closestCorners}
-                onDragEnd={(event) => handleDragEnd(event)}
-              >
-                <div className="columns-wrapper">
-                  {columns &&
-                    columns.length > 0 &&
-                    columns.map((column) => (
-                      <SortableContext
-                        key={column.id}
-                        items={columns}
-                        strategy={horizontalListSortingStrategy}
-                      >
-                        <KanbanColumn column={column} />
-                      </SortableContext>
-                    ))}
-                </div>
-              </DndContext>
-              <div className="add-new-wrapper">
-                <p className="add-new-content">
-                  <AddIcon className="add-icon" />{" "}
-                  <span className="add-text">Add New</span>
-                </p>
-              </div>
-            </div>
-          </div>
-          <Footer />
-        </div>
-      </div>
-    </>
-  );
-}

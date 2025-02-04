@@ -34,3 +34,19 @@
   height: 20px;
   color: rgba(34, 48, 62, 0.9);
 }
+
+.column-wrapper .column-bottom .bottom-content {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  cursor: pointer;
+}
+
+.column-wrapper .column-bottom .bottom-content .add-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.column-wrapper .column-bottom .bottom-content .add-text {
+  font-size: 15px;
+}
