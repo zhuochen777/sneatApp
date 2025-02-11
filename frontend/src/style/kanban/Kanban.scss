@@ -22,6 +22,8 @@
             }
 
             .add-new-wrapper {
+                width: 265px;
+
                 .add-new-content {
                     display: flex;
                     gap: 4px;
@@ -36,6 +38,48 @@
 
                     .add-text {
                         font-size: 18px;
+                    }
+                }
+
+                .new-wrapper {
+                    margin-top: 16px;
+
+                    .input {
+                        width: 100%;
+                        box-sizing: border-box;
+                        padding: 7.5px 14px;
+                        border-radius: 6px;
+                        border-color: rgba(34, 48, 62, 0.12);
+                        border-width: 2px;
+                        outline: none;
+                 
+
+                        &:hover {
+                            border-color: rgb(118, 118, 118);
+                        }
+
+                        &:focus {
+                            border-color: #696cff;
+                        }
+                    }
+
+                    .input.error{
+                        border-color: red;
+                    }
+                    .button-wrapper{
+                        display: flex;
+                        gap: 16px;
+                        .add-btn{
+                            background-color: #696cff;
+                            width: 40px;
+                            text-transform: none;
+                        }
+                        .cancel-btn{
+                            background-color: rgba(133,146,163,0.16);
+                            color: #8592A3;
+                            width: 40px;
+                            text-transform: none;
+                        }
                     }
                 }
             }

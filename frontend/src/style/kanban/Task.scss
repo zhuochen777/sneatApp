@@ -6,7 +6,15 @@
     gap: 8px;
     background-color: #fff;
     border-radius: 6px;
-    cursor:grab;
+    cursor: grab;
+
+    &:hover {
+        .more-icon-wrapper {
+            .more-icon {
+                opacity: 1 !important;       
+            }
+        }
+    }
 
     .task-top {
         display: flex;
@@ -26,23 +34,28 @@
                     background-color: rgba(113, 221, 55, 0.16);
                     color: #71dd37;
                 }
-                &.codeReview{
+
+                &.codeReview {
                     background-color: rgba(255, 62, 29, 0.16);
                     color: #ff3e1d;
                 }
-                &.dashboard{
+
+                &.dashboard {
                     background-color: rgba(3, 195, 236, 0.16);
                     color: #03c3ec;
                 }
-                &.images{
+
+                &.images {
                     background-color: rgba(255, 171, 0, 0.16);
                     color: #ffab00;
                 }
-                &.app{
+
+                &.app {
                     background-color: rgba(133, 146, 163, 0.16);
                     color: #8592a3;
                 }
-                &.charts{
+
+                &.charts {
                     background-color: rgba(105, 108, 255, 0.16);
                     color: #696cff;
                 }
@@ -60,6 +73,7 @@
             justify-content: center;
             align-items: center;
 
+
             &:hover {
                 background-color: rgba(34, 48, 62, 0.08);
             }
@@ -68,6 +82,7 @@
                 width: 20px;
                 height: 20px;
                 color: rgba(34, 48, 62, 0.9);
+                opacity: 0;
             }
         }
     }

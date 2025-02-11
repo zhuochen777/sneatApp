@@ -21,6 +21,10 @@
   gap: 24px;
 }
 
+.kanban .container .kanban-content .add-new-wrapper {
+  width: 265px;
+}
+
 .kanban .container .kanban-content .add-new-wrapper .add-new-content {
   display: flex;
   gap: 4px;
@@ -36,4 +40,48 @@
 
 .kanban .container .kanban-content .add-new-wrapper .add-new-content .add-text {
   font-size: 18px;
+}
+
+.kanban .container .kanban-content .add-new-wrapper .new-wrapper {
+  margin-top: 16px;
+}
+
+.kanban .container .kanban-content .add-new-wrapper .new-wrapper .input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 7.5px 14px;
+  border-radius: 6px;
+  border-color: rgba(34, 48, 62, 0.12);
+  border-width: 2px;
+  outline: none;
+}
+
+.kanban .container .kanban-content .add-new-wrapper .new-wrapper .input:hover {
+  border-color: #767676;
+}
+
+.kanban .container .kanban-content .add-new-wrapper .new-wrapper .input:focus {
+  border-color: #696cff;
+}
+
+.kanban .container .kanban-content .add-new-wrapper .new-wrapper .input.error {
+  border-color: red;
+}
+
+.kanban .container .kanban-content .add-new-wrapper .new-wrapper .button-wrapper {
+  display: flex;
+  gap: 16px;
+}
+
+.kanban .container .kanban-content .add-new-wrapper .new-wrapper .button-wrapper .add-btn {
+  background-color: #696cff;
+  width: 40px;
+  text-transform: none;
+}
+
+.kanban .container .kanban-content .add-new-wrapper .new-wrapper .button-wrapper .cancel-btn {
+  background-color: rgba(133, 146, 163, 0.16);
+  color: #8592A3;
+  width: 40px;
+  text-transform: none;
 }

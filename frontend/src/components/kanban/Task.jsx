@@ -7,15 +7,22 @@ import AvatarGroup from "@mui/material/AvatarGroup";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import Tooltip from "@mui/material/Tooltip";
 import { useSortable } from "@dnd-kit/sortable";
-import {CSS} from "@dnd-kit/utilities"
+import { CSS } from "@dnd-kit/utilities";
+import { useDraggable } from "@dnd-kit/core";
 
 export default function Task(props) {
   const { task } = props;
+  const { attributes, listeners, setNodeRef, transform, transition } =
+    useSortable({ id: task.id, data: { type: "task" } });
+  const style = { transition, transform: CSS.Translate.toString(transform) };
 
-  
   return (
     <div
-      className="task-wrapper" 
+      className="task-wrapper"
+      ref={setNodeRef}
+      {...attributes}
+      {...listeners}
+      style={style}
     >
       <div className="task-top">
         <div className="label-wrapper">
@@ -42,9 +49,9 @@ export default function Task(props) {
             );
           })}
         </div>
-        <button className="more-icon-wrapper">
+        <div className="more-icon-wrapper">
           <MoreVertIcon className="more-icon" />
-        </button>
+        </div>
       </div>
       <p className="title">{task.content}</p>
       <div className="img-wrapper">
@@ -53,12 +60,12 @@ export default function Task(props) {
       <div className="other-details">
         <div className="details-left">
           <div className="attachment">
-            <AttachmentIcon />
-            <p>{task.attachmentNum}</p>
+            {task.attachmentNum != 0 && <AttachmentIcon />}
+            <p>{task.attachmentNum != 0 && task.attachmentNum}</p>
           </div>
           <div className="chat">
-            <ForumIcon />
-            <p>{task.chatNum}</p>
+            {task.chatNum != 0 && <ForumIcon />}
+            <p>{task.chatNum != 0 && task.chatNum}</p>
           </div>
         </div>
         <div className="details-right">
