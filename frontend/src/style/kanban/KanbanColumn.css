@@ -61,7 +61,7 @@
   opacity: 0;
 }
 
-.column-wrapper .column-header .header-right .more-icon-wrapper {
+.column-wrapper .column-header .header-right .more-icon-wrapper, .column-wrapper .column-header .header-right .done-icon-wrapper, .column-wrapper .column-header .header-right .close-icon-wrapper {
   background-color: transparent;
   border: none;
   padding: 5px;
@@ -72,14 +72,22 @@
   align-items: center;
 }
 
-.column-wrapper .column-header .header-right .more-icon-wrapper:hover {
+.column-wrapper .column-header .header-right .more-icon-wrapper:hover, .column-wrapper .column-header .header-right .done-icon-wrapper:hover, .column-wrapper .column-header .header-right .close-icon-wrapper:hover {
   background-color: rgba(34, 48, 62, 0.08);
 }
 
-.column-wrapper .column-header .header-right .more-icon-wrapper .more-icon {
+.column-wrapper .column-header .header-right .more-icon-wrapper .more-icon, .column-wrapper .column-header .header-right .more-icon-wrapper .done-icon, .column-wrapper .column-header .header-right .more-icon-wrapper .close-icon, .column-wrapper .column-header .header-right .done-icon-wrapper .more-icon, .column-wrapper .column-header .header-right .done-icon-wrapper .done-icon, .column-wrapper .column-header .header-right .done-icon-wrapper .close-icon, .column-wrapper .column-header .header-right .close-icon-wrapper .more-icon, .column-wrapper .column-header .header-right .close-icon-wrapper .done-icon, .column-wrapper .column-header .header-right .close-icon-wrapper .close-icon {
   width: 20px;
   height: 20px;
   color: rgba(34, 48, 62, 0.9);
+}
+
+.column-wrapper .column-header .header-right .more-icon-wrapper .done-icon, .column-wrapper .column-header .header-right .done-icon-wrapper .done-icon, .column-wrapper .column-header .header-right .close-icon-wrapper .done-icon {
+  color: #71dd37;
+}
+
+.column-wrapper .column-header .header-right .more-icon-wrapper .close-icon, .column-wrapper .column-header .header-right .done-icon-wrapper .close-icon, .column-wrapper .column-header .header-right .close-icon-wrapper .close-icon {
+  color: #ff3e1d;
 }
 
 .column-wrapper .column-header .header-input {

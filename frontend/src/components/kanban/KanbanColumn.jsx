@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import "../../style/kanban/KanbanColumn.scss";
 import Task from "./Task";
@@ -10,10 +10,19 @@ import { v4 as uuidv4 } from "uuid";
 import OpenWithIcon from "@mui/icons-material/OpenWith";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
+import DoneIcon from "@mui/icons-material/Done";
+import CloseIcon from "@mui/icons-material/Close";
 
 export default function KanbanColumn(props) {
-  const { column, columns, setColumns, currentColumnId, setCurrentColumnId } =
-    props;
+  const {
+    column,
+    columns,
+    setColumns,
+    currentColumnId,
+    setCurrentColumnId,
+    setOpenTaskDrawer,
+    setSelectedTask
+  } = props;
   const tasks = column.tasks;
   const { attributes, setNodeRef, listeners, transform, transition } =
     useSortable({ id: column.id, data: { type: "column" } });
@@ -24,6 +33,9 @@ export default function KanbanColumn(props) {
   const [showTaskWarning, setShowTaskWarning] = useState(false);
   const [showOptions, setShowOptions] = useState(false);
   const [editMode, setEditMode] = useState(false);
+  const [currentColumnName, setCurrentColumnName] = useState(column.title);
+
+  const inputRef = useRef(null);
 
   const handleAddTask = () => {
     if (taskName === "") {
@@ -49,6 +61,29 @@ export default function KanbanColumn(props) {
     setShowTaskWarning(false);
   };
 
+  const editModeHandle = () => {
+    setShowOptions(false);
+    setEditMode(true);
+    inputRef.current?.focus();
+  };
+
+  const closeHandle = () => {
+    setEditMode(false);
+  };
+
+  const doneHandle = () => {
+    const column = columns.find((column) => column.id === currentColumnId);
+    column.title = currentColumnName;
+    setColumns([...columns]);
+    setEditMode(false);
+  };
+
+  const deleteColumnHandle = () => {
+    setShowOptions(false);
+    const newColumns = columns.filter((column) => column.id != currentColumnId);
+    setColumns(newColumns);
+  };
+
   return (
     <div
       className="column-wrapper"
@@ -63,14 +98,13 @@ export default function KanbanColumn(props) {
             <li
               className="edit"
               onClick={() => {
-                setShowOptions(false);
-                setEditMode(true);
+                editModeHandle();
               }}
             >
               <EditIcon />
               <span>Edit</span>
             </li>
-            <li className="delete">
+            <li className="delete" onClick={() => deleteColumnHandle()}>
               <DeleteOutlineIcon />
               <span>Delete</span>
             </li>
@@ -79,14 +113,22 @@ export default function KanbanColumn(props) {
       )}
       {editMode ? (
         <div className="column-header">
-          <input type="text" value={column.title} className="header-input" />
+          <input
+            type="text"
+            value={currentColumnName}
+            className="header-input"
+            ref={inputRef}
+            onChange={(e) => setCurrentColumnName(e.target.value)}
+          />
           <div className="header-right">
-            <OpenWithIcon className="move-icon" />
+            <button className="done-icon-wrapper">
+              <DoneIcon className="done-icon" onClick={() => doneHandle()} />
+            </button>
             <button
-              className="more-icon-wrapper"
-              onClick={() => setShowOptions((value) => !value)}
+              className="close-icon-wrapper"
+              onClick={() => closeHandle()}
             >
-              <MoreVertIcon className="more-icon" />
+              <CloseIcon className="close-icon" />
             </button>
           </div>
         </div>
@@ -97,7 +139,10 @@ export default function KanbanColumn(props) {
             <OpenWithIcon className="move-icon" />
             <button
               className="more-icon-wrapper"
-              onClick={() => setShowOptions((value) => !value)}
+              onClick={() => {
+                setShowOptions((value) => !value);
+                setCurrentColumnId(column.id);
+              }}
             >
               <MoreVertIcon className="more-icon" />
             </button>
@@ -107,7 +152,18 @@ export default function KanbanColumn(props) {
       <div className="tasks">
         <SortableContext items={tasks.map((task) => task.id)}>
           {tasks.map((task) => {
-            return <Task key={task.id} task={task} />;
+            return (
+              <Task
+                key={task.id}
+                task={task}
+                column={column}
+                columns={columns}
+                setColumns={setColumns}
+                setOpenTaskDrawer={setOpenTaskDrawer}
+                setSelectedTask={setSelectedTask}
+                setCurrentColumnId={setCurrentColumnId}
+              />
+            );
           })}
         </SortableContext>
       </div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../style/kanban/Task.scss";
 import AttachmentIcon from "@mui/icons-material/Attachment";
 import ForumIcon from "@mui/icons-material/Forum";
@@ -11,10 +11,26 @@ import { CSS } from "@dnd-kit/utilities";
 import { useDraggable } from "@dnd-kit/core";
 
 export default function Task(props) {
-  const { task } = props;
+  const {
+    task,
+    column,
+    columns,
+    setColumns,
+    setOpenTaskDrawer,
+    setSelectedTask,
+    setCurrentColumnId
+  } = props;
+  const [showTaskOptions, setShowTaskOptions] = useState(false);
+  const [currentTaskId, setCurrentTaskId] = useState();
   const { attributes, listeners, setNodeRef, transform, transition } =
     useSortable({ id: task.id, data: { type: "task" } });
   const style = { transition, transform: CSS.Translate.toString(transform) };
+
+  const deleteTaskHandle = () => {
+    const newTasks = column.tasks.filter((task) => task.id != currentTaskId);
+    column.tasks = newTasks;
+    setColumns([...columns]);
+  };
 
   return (
     <div
@@ -23,7 +39,27 @@ export default function Task(props) {
       {...attributes}
       {...listeners}
       style={style}
+      onClick={() => {
+        setOpenTaskDrawer(true);
+        setSelectedTask(task);
+        setCurrentColumnId(column.id)
+      }}
     >
+      {showTaskOptions && (
+        <div className="options-wrapper">
+          <ul className="list">
+            <li className="duplicate" onClick={() => setShowTaskOptions(false)}>
+              <span>Duplicate Task</span>
+            </li>
+            <li className="copy" onClick={() => setShowTaskOptions(false)}>
+              <span>Copy Task Link</span>
+            </li>
+            <li className="delete" onClick={() => deleteTaskHandle()}>
+              <span>Delete</span>
+            </li>
+          </ul>
+        </div>
+      )}
       <div className="task-top">
         <div className="label-wrapper">
           {task.labels.map((label, index) => {
@@ -49,8 +85,17 @@ export default function Task(props) {
             );
           })}
         </div>
-        <div className="more-icon-wrapper">
-          <MoreVertIcon className="more-icon" />
+        <div
+          className="more-icon-wrapper"
+          onClick={() => {
+            setShowTaskOptions((val) => !val);
+            setCurrentTaskId(task.id);
+          }}
+        >
+          <MoreVertIcon
+            className="more-icon"
+            style={showTaskOptions ? { opacity: "1" } : {}}
+          />
         </div>
       </div>
       <p className="title">{task.content}</p>

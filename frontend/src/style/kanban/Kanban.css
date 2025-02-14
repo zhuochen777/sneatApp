@@ -85,3 +85,119 @@
   width: 40px;
   text-transform: none;
 }
+
+.edit-task-wrapper .edit-task-header {
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(34, 48, 62, 0.12);
+}
+
+.edit-task-wrapper .edit-task-header h5 {
+  font-size: 18px;
+}
+
+.edit-task-wrapper .edit-task-header .edit-task-header-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+
+.edit-task-wrapper .edit-task-header .edit-task-header-right button {
+  border: none;
+  background-color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  padding: 5px;
+  box-sizing: unset;
+}
+
+.edit-task-wrapper .edit-task-header .edit-task-header-right button:hover {
+  background-color: rgba(34, 48, 62, 0.08);
+  border-radius: 50%;
+}
+
+.edit-task-wrapper .edit-task-body {
+  padding: 24px;
+}
+
+.edit-task-wrapper .edit-task-body form {
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-task-wrapper .edit-task-body form .input-field {
+  margin-bottom: 24px;
+}
+
+.edit-task-wrapper .edit-task-body form .css-z3c6am-MuiFormControl-root-MuiTextField-root {
+  width: 100%;
+}
+
+.edit-task-wrapper .edit-task-body form .css-2m9kme-MuiFormControl-root {
+  width: 100%;
+  margin: 0;
+  padding-top: 10px;
+  margin-top: 25px;
+}
+
+.edit-task-wrapper .edit-task-body form .assignees {
+  margin-top: 25px;
+}
+
+.edit-task-wrapper .edit-task-body form .assignees .assignees-text {
+  font-size: 13px;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.edit-task-wrapper .edit-task-body form .upload-file {
+  margin: 25px 0;
+}
+
+.edit-task-wrapper .edit-task-body form .upload-file .upload-file-text {
+  font-size: 13px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.edit-task-wrapper .edit-task-body form .upload-file .upload-btn {
+  color: #696cff;
+  background-color: rgba(105, 108, 255, 0.16);
+  text-transform: none;
+}
+
+.edit-task-wrapper .edit-task-body form .upload-file .upload-btn:hover {
+  color: #fff;
+  background-color: #5e61e5;
+}
+
+.edit-task-wrapper .edit-task-body form .buttons-wrapper .btn-update {
+  margin-right: 24px;
+  text-transform: none;
+  color: #fff;
+  background-color: #696cff;
+  box-shadow: none;
+}
+
+.edit-task-wrapper .edit-task-body form .buttons-wrapper .btn-update:hover {
+  background-color: #5e61e5;
+}
+
+.edit-task-wrapper .edit-task-body form .buttons-wrapper .btn-delete {
+  text-transform: none;
+  color: #ff3e1d;
+  background-color: rgba(255, 62, 29, 0.16);
+  box-shadow: none;
+}
+
+.edit-task-wrapper .edit-task-body form .buttons-wrapper .btn-delete:hover {
+  background-color: #ff3e1d;
+  color: #fff;
+}

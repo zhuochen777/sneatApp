@@ -52,7 +52,7 @@
                         border-color: rgba(34, 48, 62, 0.12);
                         border-width: 2px;
                         outline: none;
-                 
+
 
                         &:hover {
                             border-color: rgb(118, 118, 118);
@@ -63,23 +63,147 @@
                         }
                     }
 
-                    .input.error{
+                    .input.error {
                         border-color: red;
                     }
-                    .button-wrapper{
+
+                    .button-wrapper {
                         display: flex;
                         gap: 16px;
-                        .add-btn{
+
+                        .add-btn {
                             background-color: #696cff;
                             width: 40px;
                             text-transform: none;
                         }
-                        .cancel-btn{
-                            background-color: rgba(133,146,163,0.16);
+
+                        .cancel-btn {
+                            background-color: rgba(133, 146, 163, 0.16);
                             color: #8592A3;
                             width: 40px;
                             text-transform: none;
                         }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.edit-task-wrapper {
+    .edit-task-header {
+        padding: 20px 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid rgba(34, 48, 62, 0.12);
+
+        h5 {
+            font-size: 18px;
+        }
+
+        .edit-task-header-right {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 4px;
+
+            button {
+                border: none;
+                background-color: #fff;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 24px;
+                height: 24px;
+                padding: 5px;
+                box-sizing: unset;
+
+                &:hover {
+                    background-color: rgba(34, 48, 62, 0.08);
+                    border-radius: 50%;
+                }
+            }
+        }
+
+    }
+
+    .edit-task-body {
+        padding: 24px;
+
+        form {
+            display: flex;
+            flex-direction: column;
+
+            .input-field {
+                margin-bottom: 24px
+            }
+
+            .css-z3c6am-MuiFormControl-root-MuiTextField-root {
+                width: 100%;
+            }
+
+            .css-2m9kme-MuiFormControl-root {
+                width: 100%;
+                margin: 0;
+                padding-top: 10px;
+                margin-top: 25px;
+            }
+
+            .assignees {
+                margin-top: 25px;
+
+                .assignees-text {
+                    font-size: 13px;
+                    margin-bottom: 8px;
+                    display: block;
+                }
+            }
+
+            .upload-file {
+                margin: 25px 0;
+
+                .upload-file-text {
+                    font-size: 13px;
+                    display: block;
+                    margin-bottom: 8px;
+                }
+
+                .upload-btn {
+                    // margin-top: 8px;
+                    color: #696cff;
+                    background-color: rgba(105, 108, 255, 0.16);
+                    text-transform: none;
+                    &:hover{
+                        color: #fff;
+                        background-color: rgb(94, 97, 229);
+                    }
+                }
+            }
+
+            .buttons-wrapper {
+                .btn-update {
+                    margin-right: 24px;
+                    text-transform: none;
+                    color: #fff;
+                    background-color: #696cff;
+                    box-shadow: none;
+
+                    &:hover {
+                        background-color: rgb(94, 97, 229);
+                    }
+                }
+
+                .btn-delete {
+                    text-transform: none;
+                    color: #ff3e1d;
+                    background-color: rgba(255, 62, 29, 0.16);
+                    box-shadow: none;
+
+                    &:hover {
+                        background-color: #ff3e1d;
+                        color: #fff;
                     }
                 }
             }

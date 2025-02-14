@@ -60,7 +60,7 @@
                 opacity: 0;
             }
 
-            .more-icon-wrapper {
+            .more-icon-wrapper, .done-icon-wrapper,.close-icon-wrapper {
                 background-color: transparent;
                 border: none;
                 padding: 5px;
@@ -75,10 +75,16 @@
                 }
 
 
-                .more-icon {
+                .more-icon, .done-icon,.close-icon {
                     width: 20px;
                     height: 20px;
                     color: rgba(34, 48, 62, 0.9);
+                }
+                .done-icon{
+                    color: #71dd37;
+                }
+                .close-icon{
+                    color: #ff3e1d;
                 }
             }
         }

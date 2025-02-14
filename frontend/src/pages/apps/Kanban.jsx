@@ -6,6 +6,7 @@ import "../../style/kanban/Kanban.scss";
 import KanbanColumn from "../../components/kanban/KanbanColumn";
 import AddIcon from "@mui/icons-material/Add";
 // import { initData } from "../../actions/initData";
+
 import {
   closestCorners,
   DndContext,
@@ -22,7 +23,45 @@ import {
 } from "@dnd-kit/sortable";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import Task from "../../components/kanban/Task";
+import Drawer from "@mui/material/Drawer";
+import CloseIcon from "@mui/icons-material/Close";
+import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import Textarea from "@mui/joy/Textarea";
+import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import dayjs from "dayjs";
+import OutlinedInput from "@mui/material/OutlinedInput";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import ListItemText from "@mui/material/ListItemText";
+import Select from "@mui/material/Select";
+import Checkbox from "@mui/material/Checkbox";
+import Avatar from "@mui/material/Avatar";
+import Stack from "@mui/material/Stack";
+import Tooltip from "@mui/material/Tooltip";
+
+const ITEM_HEIGHT = 48;
+const ITEM_PADDING_TOP = 8;
+const MenuProps = {
+  PaperProps: {
+    style: {
+      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+      width: 250,
+    },
+  },
+};
+
+const labels = [
+  "UX",
+  "Code Review",
+  "Dashboard",
+  "Images",
+  "App",
+  "Charts & Map",
+];
 
 export const initData = [
   {
@@ -32,6 +71,7 @@ export const initData = [
       {
         id: "task-1",
         content: "Research FQA page UX",
+        dueDate: "12-30-2025",
         img: null,
         labels: ["UX"],
         assignees: [
@@ -53,10 +93,12 @@ export const initData = [
         ],
         attachmentNum: 4,
         chatNum: 12,
+        comment: "",
       },
       {
         id: "task-2",
         content: "Review Javascript code",
+        dueDate: "6-30-2025",
         img: null,
         labels: ["Code Review"],
         assignees: [
@@ -73,6 +115,7 @@ export const initData = [
         ],
         attachmentNum: 2,
         chatNum: 8,
+        comment: "",
       },
     ],
   },
@@ -83,6 +126,7 @@ export const initData = [
       {
         id: "task-3",
         content: "Review completed Apps",
+        dueDate: "9-15-2025",
         img: null,
         labels: ["Dashboard"],
         assignees: [
@@ -99,10 +143,12 @@ export const initData = [
         ],
         attachmentNum: 8,
         chatNum: 17,
+        comment: "",
       },
       {
         id: "task-4",
         content: "Find new images for pages",
+        dueDate: "10-20-2025",
         img: "https://demos.themeselection.com/sneat-mui-nextjs-admin-template/demo-1/images/apps/kanban/plant.png",
         labels: ["Images"],
         assignees: [
@@ -129,6 +175,7 @@ export const initData = [
         ],
         attachmentNum: 2,
         chatNum: 8,
+        comment: "",
       },
     ],
   },
@@ -139,6 +186,7 @@ export const initData = [
       {
         id: "task-5",
         content: "Forms & tables section",
+        dueDate: "10-11-2025",
         img: null,
         labels: ["App"],
         assignees: [
@@ -160,10 +208,12 @@ export const initData = [
         ],
         attachmentNum: 5,
         chatNum: 14,
+        comment: "",
       },
       {
         id: "task-6",
         content: "Complete charts & maps",
+        dueDate: "12-5-2025",
         img: null,
         labels: ["Charts & Maps"],
         assignees: [
@@ -175,6 +225,7 @@ export const initData = [
         ],
         attachmentNum: 6,
         chatNum: 21,
+        comment: "",
       },
     ],
   },
@@ -187,6 +238,9 @@ export default function Kanban() {
   const [showAddColumnSec, setShowAddColumnSec] = useState(false);
   const [showColumnWarning, setShowColumnWarning] = useState(false);
   const [currentColumnId, setCurrentColumnId] = useState(null);
+  const [openTaskDrawer, setOpenTaskDrawer] = useState(false);
+  const [selectedTask, setSelectedTask] = useState({});
+  const [showTaskWarning, setShowTaskWarning] = useState(false);
 
   const handleAddColumn = () => {
     if (columnName === "") {
@@ -449,6 +503,47 @@ export default function Kanban() {
 
     setActiveId(null);
   };
+
+  //handle Edit task drawer
+  const handleLabelChange = (event) => {
+    const {
+      target: { value },
+    } = event;
+    setSelectedTask({
+      ...selectedTask,
+      labels: typeof value === "string" ? value.split(",") : value,
+    });
+  };
+
+  //handle update submit task edit
+  const handleUpdate = () => {
+    let newColumns = [...columns];
+    const columnIndex = columns.findIndex((col) => col.id === currentColumnId);
+    const taskIndex = columns[columnIndex].tasks.findIndex(
+      (task) => task.id === selectedTask.id
+    );
+    newColumns[columnIndex].tasks[taskIndex] = selectedTask;
+    setColumns(newColumns);
+
+    setOpenTaskDrawer(false);
+    setSelectedTask([]);
+    setCurrentColumnId(null);
+  };
+
+  //handle delete task
+  const handleDelete=()=>{
+    let newColumns = [...columns]
+    const columnIndex = columns.findIndex((col) => col.id === currentColumnId);
+    const newTasks = columns[columnIndex].tasks.filter((task)=>task.id != selectedTask.id)
+    newColumns[columnIndex].tasks = newTasks
+    setColumns(newColumns)
+
+    setOpenTaskDrawer(false);
+    setSelectedTask([]);
+    setCurrentColumnId(null);
+  }
+
+
   return (
     <>
       <div className="kanban">
@@ -477,6 +572,8 @@ export default function Kanban() {
                         setColumns={setColumns}
                         currentColumnId={currentColumnId}
                         setCurrentColumnId={setCurrentColumnId}
+                        setOpenTaskDrawer={setOpenTaskDrawer}
+                        setSelectedTask={setSelectedTask}
                       />
                     ))}
                   </SortableContext>
@@ -533,6 +630,183 @@ export default function Kanban() {
           <Footer />
         </div>
       </div>
+      <Drawer
+        open={openTaskDrawer}
+        onClose={() => {
+          setSelectedTask(null);
+          setOpenTaskDrawer(false);
+        }}
+        anchor="right"
+      >
+        <form className="edit-task-wrapper" style={{ width: "400px" }}>
+          <div className="edit-task-header">
+            {selectedTask && (
+              <>
+                <h5>Edit Task</h5>{" "}
+                <div className="edit-task-header-right">
+                  <button onClick={() => setOpenTaskDrawer(false)}>
+                    <CloseIcon />
+                  </button>
+                </div>
+              </>
+            )}
+          </div>
+          <div className="edit-task-body">
+            <form action="">
+              {showTaskWarning ? (
+                <TextField
+                  error
+                  id="outlined-error-title"
+                  label="Title"
+                  className="input-field title-input"
+                  helperText="Title is required"
+                  name="Title"
+                  required
+                  value={selectedTask?.content}
+                  onChange={(e) =>
+                    setSelectedTask({
+                      ...selectedTask,
+                      content: e.target.value,
+                    })
+                  }
+                />
+              ) : (
+                <TextField
+                  id="outlined-title"
+                  label="Title"
+                  variant="outlined"
+                  className="input-field title-input"
+                  name="title"
+                  required
+                  value={selectedTask?.content}
+                  onChange={(e) =>
+                    setSelectedTask({
+                      ...selectedTask,
+                      content: e.target.value,
+                    })
+                  }
+                />
+              )}
+              <LocalizationProvider dateAdapter={AdapterDayjs}>
+                <DemoContainer
+                  components={["DatePicker", "DatePicker"]}
+                  style={{ width: "100%" }}
+                >
+                  <DatePicker
+                    label="Due Date"
+                    value={dayjs(selectedTask?.dueDate)}
+                    onChange={(newValue) =>
+                      setSelectedTask({
+                        ...selectedTask,
+                        dueDate: newValue.format("M-D-YYYY"),
+                      })
+                    }
+                  />
+                </DemoContainer>
+              </LocalizationProvider>
+              <FormControl sx={{ m: 1, width: 300 }}>
+                <InputLabel id="demo-multiple-checkbox-label">Label</InputLabel>
+                <Select
+                  labelId="demo-multiple-checkbox-label"
+                  id="demo-multiple-checkbox"
+                  multiple
+                  value={selectedTask?.labels ? selectedTask.labels : []}
+                  onChange={(e) => handleLabelChange(e)}
+                  input={<OutlinedInput label="Label" />}
+                  renderValue={(selected) => selected.join(", ")}
+                  MenuProps={MenuProps}
+                  className="label-select"
+                >
+                  {labels.map((label) => (
+                    <MenuItem key={label} value={label}>
+                      <Checkbox
+                        checked={selectedTask?.labels?.includes(label)}
+                      />
+                      <ListItemText primary={label} />
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
+              <div className="assignees">
+                <span className="assignees-text">Assigned</span>
+                <Stack direction="row" spacing={1}>
+                  {selectedTask?.assignees?.map((ele, index) => (
+                    <Tooltip title={ele.name} key={index}>
+                      <Avatar
+                        alt={ele.name}
+                        src={ele.avatar}
+                        style={{
+                          width: "26px",
+                          height: "26px",
+                          cursor: "pointer",
+                        }}
+                      />
+                    </Tooltip>
+                  ))}
+                  <Avatar
+                    style={{ width: "26px", height: "26px", cursor: "pointer" }}
+                  >
+                    +
+                  </Avatar>
+                </Stack>
+              </div>
+              <div className="upload-file">
+                <span className="upload-file-text">Choose File</span>
+                <div
+                  className="input"
+                  style={{ display: "flex", alignItems: "center" }}
+                >
+                  <input
+                    accept="image/*"
+                    id="raised-button-file"
+                    multiple
+                    type="file"
+                  />
+                  <label htmlFor="raised-button-file">
+                    <Button variant="contained" className="upload-btn">
+                      Upload
+                    </Button>
+                  </label>
+                </div>
+              </div>
+              <div className="comment">
+                <span>Comment</span>
+                <Textarea
+                  placeholder="Write a Comment..."
+                  minRows={4}
+                  className="input-field"
+                  name="Comment"
+                  value={selectedTask?.comment}
+                  onChange={(e) =>
+                    setSelectedTask({
+                      ...selectedTask,
+                      comment: e.target.value,
+                    })
+                  }
+                />
+              </div>
+              <div className="buttons-wrapper">
+                <Button
+                  variant="contained"
+                  className="btn-update"
+                  onClick={() => handleUpdate()}
+                >
+                  <span>Update</span>
+                </Button>
+                <Button
+                  variant="contained"
+                  className="btn-delete"
+                  onClick={() => {
+                    handleDelete();
+                  }}
+                >
+                  Delete
+                </Button>
+              </div>
+            </form>
+          </div>
+        </form>
+      </Drawer>
     </>
   );
 }
